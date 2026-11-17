@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="VetStudy">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAACKklEQVR42u3dMVICMRiGYcnQw2k8FnQ4NhY2DqXX8jQcwcqGYQskzP7J9zw9MyT7zpIlBje70+EFbmmmAHEgDsSBOBAH4kAciANxIA4QB+JAHIgDcSAOxIE4EAfiAHEgDsSBOBAH4kAciANxIA4QB+LgftvAMV/O3/974f7t6M6hjP6vFcfMZQT20ZShj/Q4+l7RkD48rSAOxIE4EAfiQByIA3EgDsQB4kAciANxIA7EgTgQB+JAHCAOxIE4EAfiQByIA3EgDnJsdqdDqTeU9us5V0r9slRThhkYIA5lVJuHZkb0UToOZdScE08riANxIA7EgTgQB+JAHIgDcYA4EAfiQByIA3EgDsTRQdp/eh5lTpq5UMYAHyv6qDYPzbyYgSXljkM+Sfe/9E/o2NMK4kAciANxIA7EgTgQB+JAHCAOxIE4EAfiQByIA3EgDsQB4kAcf/qeJAg5XxN05+h1RXNOXmV9rDx+XaPO5MWtOR65ummnNVOOQ+LOgTgQB+JAHIgDcSAOxAHi4A7bym/u5/0j4Rq8fn26cyhjsJE282W81hyIg+njKLtGixpvM19GusRfgmHNgTgQB+JgVfZWPG0NeOcY/Rv0CXYA7K0YhTUH4mD+OOb47nz0Udhb8f4X2VvBmgNxIA7EwarsrSQ+Yw9/56j53XPUmQl7K/qw5kAczB9H5XVfzprU3ooyFtlbwZoDcSAOxIE4EAfiQByIA3GAOBAH4kAcrOIXoftuD4JTTqYAAAAASUVORK5CYII=">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAACKklEQVR42u3dMVICMRiGYcnQw2k8FnQ4NhY2DqXX8jQcwcqGYQskzP7J9zw9MyT7zpIlBje70+EFbmmmAHEgDsSBOBAH4kAciANxIA4QB+JAHIgDcSAOxIE4EAfiAHEgDsSBOBAH4kAciANxIA4QB+LgftvAMV/O3/974f7t6M6hjP6vFcfMZQT20ZShj/Q4+l7RkD48rSAOxIE4EAfiQByIA3EgDsQB4kAciANxIA7EgTgQB+JAHCAOxIE4EAfiQByIA3EgDnJsdqdDqTeU9us5V0r9slRThhkYIA5lVJuHZkb0UToOZdScE08riANxIA7EgTgQB+JAHIgDcYA4EAfiQByIA3EgDsTRQdp/eh5lTpq5UMYAHyv6qDYPzbyYgSXljkM+Sfe/9E/o2NMK4kAciANxIA7EgTgQB+JAHCAOxIE4EAfiQByIA3EgDsQB4kAcf/qeJAg5XxN05+h1RXNOXmV9rDx+XaPO5MWtOR65ummnNVOOQ+LOgTgQB+JAHIgDcSAOxAHi4A7bym/u5/0j4Rq8fn26cyhjsJE282W81hyIg+njKLtGixpvM19GusRfgmHNgTgQB+JgVfZWPG0NeOcY/Rv0CXYA7K0YhTUH4mD+OOb47nz0Udhb8f4X2VvBmgNxIA7EwarsrSQ+Yw9/56j53XPUmQl7K/qw5kAczB9H5XVfzprU3ooyFtlbwZoDcSAOxIE4EAfiQByIA3GAOBAH4kAcrOIXoftuD4JTTqYAAAAASUVORK5CYII=">
+<title>VetStudyノート</title>
+<style>
+:root{
+  --fz:1;
+  --bg:#f3f7f6; --card:#ffffff; --text:#1c2b2a; --muted:#5d716f; --accent:#0f766e; --accent-soft:#d9efec;
+  --border:#d5e2e0; --warn:#b45309; --warn-soft:#fdecc8; --danger:#b91c1c; --shadow:0 1px 3px rgba(0,0,0,.08);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1a19; --card:#182827; --text:#e6f0ee; --muted:#9bb2af; --accent:#4fd1c5; --accent-soft:#1e3a37;
+    --border:#2a403d; --warn:#f6c453; --warn-soft:#3a3115; --danger:#f87171; --shadow:none;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1a19; --card:#182827; --text:#e6f0ee; --muted:#9bb2af; --accent:#4fd1c5; --accent-soft:#1e3a37;
+  --border:#2a403d; --warn:#f6c453; --warn-soft:#3a3115; --danger:#f87171; --shadow:none; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;line-height:1.65;-webkit-text-size-adjust:100%}
+header{position:sticky;top:0;z-index:20;background:var(--accent);color:#fff;padding:10px 14px 8px;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) header{background:#12403c}}
+:root[data-theme="dark"] header{background:#12403c}
+.hrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+h1{font-size:calc(18px * var(--fz,1));margin:0;flex:1;min-width:140px;font-weight:700;letter-spacing:.02em}
+.hbtn{background:rgba(255,255,255,.18);color:#fff;border:0;border-radius:10px;padding:8px 12px;font-size:calc(14px * var(--fz,1));font-weight:600;cursor:pointer}
+.hbtn:active{background:rgba(255,255,255,.3)}
+.search{margin-top:8px;width:100%;border:0;border-radius:10px;padding:10px 12px;font-size:calc(16px * var(--fz,1));background:rgba(255,255,255,.95);color:#1c2b2a}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:10px 14px;background:var(--bg);position:sticky;top:98px;z-index:15;border-bottom:1px solid var(--border);-webkit-overflow-scrolling:touch}
+.chip{flex:0 0 auto;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:999px;padding:6px 12px;font-size:calc(13px * var(--fz,1));cursor:pointer;white-space:nowrap}
+.chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.chip .n{opacity:.7;margin-left:4px;font-size:calc(11px * var(--fz,1))}
+main{max-width:900px;margin:0 auto;padding:12px 14px 100px}
+.cathead{margin:18px 2px 8px;font-size:calc(14px * var(--fz,1));font-weight:700;color:var(--accent);display:flex;align-items:center;gap:8px}
+.cathead .n{color:var(--muted);font-weight:400;font-size:calc(12px * var(--fz,1))}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px 14px;margin-bottom:8px;box-shadow:var(--shadow);cursor:pointer}
+.card:active{background:var(--accent-soft)}
+.card .t{font-weight:700;font-size:calc(15px * var(--fz,1))}
+.card .snip{color:var(--muted);font-size:calc(13px * var(--fz,1));margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.meta{margin-top:6px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:calc(11px * var(--fz,1));background:var(--accent-soft);color:var(--accent);border-radius:6px;padding:2px 7px}
+.tag{font-size:calc(11px * var(--fz,1));color:var(--muted);border:1px solid var(--border);border-radius:6px;padding:1px 6px}
+.flag{font-size:calc(11px * var(--fz,1));background:var(--warn-soft);color:var(--warn);border-radius:6px;padding:2px 7px}
+.empty{text-align:center;color:var(--muted);padding:40px 10px}
+.tools{display:flex;gap:8px;margin:10px 0 0}
+.sbtn{background:var(--card);border:1px solid var(--border);color:var(--text);border-radius:10px;padding:6px 10px;font-size:calc(13px * var(--fz,1));cursor:pointer}
+.overlay{position:fixed;inset:0;background:var(--bg);z-index:50;overflow-y:auto;-webkit-overflow-scrolling:touch;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.obar{position:sticky;top:0;background:var(--card);border-bottom:1px solid var(--border);padding:10px 14px;display:flex;gap:8px;align-items:center;z-index:2}
+.obar .sp{flex:1}
+.btn{border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:10px;padding:8px 14px;font-size:calc(14px * var(--fz,1));cursor:pointer;font-weight:600}
+.btn.pri{background:var(--accent);color:#fff;border-color:var(--accent)}
+.btn.danger{color:var(--danger);border-color:var(--danger)}
+.obody{max-width:820px;margin:0 auto;padding:14px 16px 60px}
+.dtitle{font-size:calc(20px * var(--fz,1));font-weight:800;margin:4px 0 8px;line-height:1.4}
+.dbody h4{font-size:calc(15px * var(--fz,1));margin:16px 0 4px;color:var(--accent)}
+.dbody p{margin:6px 0}
+.dbody ul{margin:6px 0;padding-left:20px}
+.dbody li{margin:3px 0}
+.tw{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;font-size:calc(13px * var(--fz,1));min-width:100%}
+th,td{border:1px solid var(--border);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--accent-soft);color:var(--text)}
+.mybox{margin-top:18px;padding:10px 12px;border:1px dashed var(--accent);border-radius:12px;background:var(--card)}
+.mybox b{color:var(--accent);font-size:calc(13px * var(--fz,1))}
+.mybox div{white-space:pre-wrap;margin-top:4px;font-size:calc(14px * var(--fz,1))}
+label{display:block;font-size:calc(13px * var(--fz,1));font-weight:700;margin:14px 0 4px;color:var(--muted)}
+input[type=text],select,textarea{width:100%;border:1px solid var(--border);border-radius:10px;padding:10px 12px;font-size:calc(16px * var(--fz,1));background:var(--card);color:var(--text);font-family:inherit}
+textarea{min-height:280px;line-height:1.55;font-family:ui-monospace,"SF Mono",Menlo,Consolas,"Hiragino Sans",monospace;font-size:calc(15px * var(--fz,1))}
+textarea.my{min-height:90px;font-family:inherit}
+.hint{font-size:calc(12px * var(--fz,1));color:var(--muted);margin-top:4px}
+.row{display:flex;gap:10px;align-items:center}
+.toast{position:fixed;left:50%;bottom:calc(78px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#12403c;color:#fff;padding:10px 16px;border-radius:12px;font-size:calc(14px * var(--fz,1));z-index:99;opacity:0;pointer-events:none;transition:opacity .2s;max-width:90%}
+.toast.on{opacity:1}
+.menu{position:fixed;right:10px;top:58px;background:var(--card);border:1px solid var(--border);border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.2);z-index:60;min-width:230px;overflow:hidden}
+.menu button{display:block;width:100%;text-align:left;background:none;border:0;padding:12px 14px;font-size:calc(15px * var(--fz,1));color:var(--text);cursor:pointer;border-bottom:1px solid var(--border)}
+.menu button:last-child{border-bottom:0}
+.menu button:active{background:var(--accent-soft)}
+.warnbar{background:var(--warn-soft);color:var(--warn);font-size:calc(13px * var(--fz,1));padding:8px 14px}
+.foot{color:var(--muted);font-size:calc(12px * var(--fz,1));text-align:center;margin-top:24px}
+
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;background:var(--card);border-top:1px solid var(--border);padding-bottom:env(safe-area-inset-bottom,0px)}
+.tab{flex:1;border:0;background:none;color:var(--muted);padding:12px 6px;font-size:calc(15px * var(--fz,1));font-weight:700;cursor:pointer;border-top:3px solid transparent}
+.tab.on{color:var(--accent);border-top-color:var(--accent)}
+.tab .cnt{display:inline-block;min-width:20px;margin-left:6px;padding:0 6px;border-radius:999px;background:var(--accent);color:#fff;font-size:calc(12px * var(--fz,1));line-height:20px;text-align:center}
+.tab .cnt:empty{display:none}
+.memoin{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px;margin-bottom:12px;box-shadow:var(--shadow)}
+.memoin textarea{min-height:92px;font-family:inherit;font-size:calc(16px * var(--fz,1))}
+.memoin .row{margin-top:8px;justify-content:space-between}
+.mitem{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px 14px;margin-bottom:8px;box-shadow:var(--shadow)}
+.mitem.done{opacity:.6}
+.mitem .mt{white-space:pre-wrap;font-size:calc(15px * var(--fz,1))}
+.mitem .md{color:var(--muted);font-size:calc(12px * var(--fz,1));margin-top:6px}
+.mitem .macts{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.mfilter{display:flex;gap:8px;margin:4px 0 10px}
+
+.relbox{margin-top:20px;padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--card)}
+.relbox b{color:var(--accent);font-size:13px;display:block;margin:8px 0 6px}
+.relbox b:first-child{margin-top:0}
+.rlist{display:flex;flex-wrap:wrap;gap:8px}
+.rlink{border:1px solid var(--accent);background:var(--accent-soft);color:var(--text);border-radius:10px;padding:8px 12px;font-size:14px;cursor:pointer;text-align:left;line-height:1.4}
+.rlink.auto{border-color:var(--border);background:var(--card)}
+.rchips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}
+.rchip{background:var(--accent-soft);border:1px solid var(--accent);border-radius:999px;padding:4px 10px;font-size:13px;cursor:pointer}
+.rres{padding:10px 12px;border:1px solid var(--border);border-radius:10px;margin-top:6px;background:var(--card);cursor:pointer;font-size:14px}
+.rres:active{background:var(--accent-soft)}
+.bkbar{background:var(--warn-soft);color:var(--warn);font-size:13px;padding:10px 14px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.bkbar .sp{flex:1;min-width:120px}
+.bkbar button{border:1px solid var(--warn);background:transparent;color:var(--warn);border-radius:8px;padding:6px 10px;font-size:13px;cursor:pointer;font-weight:700}
+.rvsum{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:var(--shadow)}
+.rvsum .big{font-size:22px;font-weight:800;color:var(--accent)}
+.rvgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;text-align:center}
+.rvgrid div{background:var(--accent-soft);border-radius:10px;padding:8px 4px;font-size:12px}
+.rvgrid b{display:block;font-size:18px}
+.rvcard{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow);min-height:180px}
+.rvtitle{font-size:20px;font-weight:800;line-height:1.45;margin:8px 0 4px}
+.rvbtns{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.rvbtns .btn{padding:14px 4px}
+.rv-again{border-color:var(--danger);color:var(--danger)}
+.rv-ok{background:var(--accent);color:#fff;border-color:var(--accent)}
+.rvbar{height:8px;background:var(--accent-soft);border-radius:999px;overflow:hidden;margin:8px 0 12px}
+.rvbar i{display:block;height:100%;background:var(--accent)}
+.fzbtn{display:block;width:100%;text-align:left;border:2px solid var(--border);background:var(--card);color:var(--text);border-radius:12px;padding:12px 14px;margin-top:10px;cursor:pointer}
+.fzbtn.on{border-color:var(--accent);background:var(--accent-soft)}
+.snap{display:flex;gap:10px;align-items:center;border:1px solid var(--border);border-radius:12px;padding:10px 12px;margin-top:8px;background:var(--card)}
+.snap .sp{flex:1}
+ol.steps{padding-left:22px}ol.steps li{margin:8px 0}
+
+.simbox{margin-top:10px;border:1px solid var(--accent);border-radius:12px;padding:10px 12px;background:var(--accent-soft)}
+.simbox .sh{font-size:calc(13px * var(--fz,1));font-weight:700;color:var(--accent);margin-bottom:6px}
+.simitem{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:8px 10px;margin-top:6px;cursor:pointer;font-size:calc(14px * var(--fz,1))}
+.simitem .sb{font-size:calc(11px * var(--fz,1));color:var(--muted);margin-top:2px}
+.simitem.memo{cursor:default}
+</style>
+</head>
+<body>
+<header id="hd">
+  <div class="hrow">
+    <h1>VetStudyノート</h1>
+    <button class="hbtn" id="btnNew">＋ノート</button>
+    <button class="hbtn" id="btnPaste">貼付</button>
+    <button class="hbtn" id="btnMenu">⋯</button>
+  </div>
+  <input class="search" id="q" type="search" placeholder="検索(タイトル・本文・タグ)" autocomplete="off">
+</header>
+<div id="warn"></div>
+<div id="bk"></div>
+<div class="chips" id="chips"></div>
+<main id="list"></main>
+<main id="memoView" style="display:none"></main>
+<main id="reviewView" style="display:none"></main>
+<nav class="tabbar"><button class="tab on" id="tabNotes">📚 ノート</button><button class="tab" id="tabMemo">✎ 疑問メモ<span class="cnt" id="memoCnt"></span></button><button class="tab" id="tabRv">🧠 復習<span class="cnt" id="rvCnt"></span></button></nav>
+<div id="overlay" class="overlay" style="display:none"></div>
+<div id="menu" class="menu" style="display:none"></div>
+<div id="toast" class="toast"></div>
+<script>
+const CATS=["血液検査・検査値","血液ガス・モニター","輸液・電解質","凝固・輸血","循環器","呼吸器","神経","腎・泌尿器","消化器・肝・膵","内分泌・代謝","感染症・抗菌薬","腫瘍","整形・外科・創傷","麻酔・手術・外回り","薬剤","栄養・フード","看護・その他"];
+const SEED=[];
+
+SEED.push(
+/* ===== 血液検査・検査値 ===== */
+{c:"血液検査・検査値",t:"PCVが低いと脱水?(PCVとTPの見方)",g:["PCV","TP","脱水","貧血"],b:`- **脱水するとPCVは上がる**(血漿が減って、赤血球が濃くなる)。貧血はPCVが下がる
+- TPも、脱水では濃縮されて上がる
+|PCV|TP|考えること|
+|---|---|---|
+|高|高|脱水(血液濃縮)|
+|低|正常〜高|貧血(体液は保たれている)|
+|低|低|急性出血(赤血球も蛋白も同時に失う)|
+- 脱水と貧血が同時にあると、脱水がPCVの低下を隠すことがある`},
+{c:"血液検査・検査値",t:"RETICが上がっていたら再生性貧血?",g:["RETIC","貧血","骨髄"],b:`- 貧血があり、**RETICの絶対数が上がっていれば再生性貧血**(骨髄が反応して、新しい赤血球を作っている)
+- 目安:犬は約6〜8万/μL以上。猫は凝集型で数える。**基準は院内で確認**
+- %だけで見ない。絶対数=RETIC(%)×RBC(×10^6/μL)×10
+## 注意点
+- 出血・溶血から**3〜5日**かかって上がる。発症直後の「上がっていない」は、非再生性と決められない
+- RETICが上がっても、失う速さに追いつかなければPCVは下がり続ける
+- 輸血後でも、RETICは自分の骨髄の反応を見られる(PCVは輸血の影響を受ける)
+- ネスプ+鉄剤の効果判定にも使う
+## 原因
+- 再生性:出血(TPも下がる)/ 溶血(TPは保たれ、黄疸、塗抹で球状赤血球など)
+- 非再生性:CKD、慢性炎症、FeLV、骨髄の病気など
+- 例外:IMHAの一部は非再生性になる`},
+{c:"血液検査・検査値",t:"腎数値(BUN・CRE・SDMA)と腎前性・腎性・腎後性",g:["腎臓","BUN","CRE","SDMA","AKI"],b:`- **腎前性**:腎臓は正常で、血流が足りない。輸液で改善しやすい。尿比重は**高い**(濃縮できている)
+- **腎性**:腎臓そのものの障害(中毒、感染、虚血など)。尿比重は**低い**(濃縮できない)。等張尿(1.008〜1.012)は腎機能低下のサイン
+- **腎後性**:尿路閉塞、尿腹症など。排尿できない、膀胱が張る
+- 腎前性を放置すると、腎性に進むことがある
+- SDMAは、CREより早期に腎機能の低下を検出できるとされる
+- 心不全+利尿薬の子は、**腎前性の悪化**に特に注意(尿量、BUN/CRE、体重を見る)`},
+{c:"血液検査・検査値",t:"腎前性でBUN・CREが上がるのはなぜ?",g:["腎前性","GFR"],b:`- 腎臓の機能が壊れていなくても、**腎臓に届く血液の量が減ると、ろ過できる絶対量が減る**
+- 体で老廃物が作られるペースは変わらないので、処理が追いつかず、**BUN・CREは上がる**(下がらない)
+- 「効率(%)」と「絶対量」は別。洗濯機の洗浄力が正常でも、水の量が減れば洗える量は減る
+- 体が水分を守ろうとして、**あえて**ろ過量を抑えることもある
+- 同時に、水分を再吸収して**尿比重は上がる**
+- 血流が戻れば改善する(可逆的)`},
+{c:"血液検査・検査値",t:"AKIとCKDの違い(3か月の根拠)",g:["AKI","CKD","IRIS"],b:`- 分ける軸は**時間**:AKIは数時間〜数日、CKDは**3か月以上**
+- 「3か月」は、IRISが臨床で使うために定めた閾値(実務的な合意)。生物学的に3か月で何かが変わるわけではない
+- AKIでも、最大12週間管理して安定すれば、CKDとして病期分類できることがある
+- 腎前性・腎性・腎後性の分類は、治療方針に直結するので**AKIで特に重要**。CKDはIRISのステージで見る
+- 「AKIは腎臓以外が原因」は不正確。腎臓そのものが直接傷つく場合(腎性)もある
+- AKIがCKDにつながることがある。CKDにAKIが重なる「AKI on CKD」もある`},
+{c:"血液検査・検査値",t:"血糖値の正常値と低血糖",g:["血糖","低血糖"],b:`- 目安:犬70〜120、猫70〜150 mg/dL
+- 猫はストレスで200〜300まで上がることがある。糖尿病の判断は、フルクトサミンや尿糖と合わせる
+- 低血糖(60未満)は、敗血症、肝不全、インスリノーマ、アジソン病、幼若動物の絶食などで起こる
+- 脳はブドウ糖を使うので、**意識低下や発作の原因**になる。発作の子では必ず除外する
+- 麻酔や鎮静中は、低血糖の症状が隠れる`},
+{c:"血液検査・検査値",t:"TSH・T4(甲状腺)の見方",g:["TSH","T4","甲状腺"],b:`- 視床下部(TRH)→下垂体(TSH)→甲状腺(T4・T3)。T4が足りないと、TSHが増える
+- **犬の甲状腺機能低下症は、TSH↑+T4↓**が典型
+- TSH単独では判断しにくい。**T4(TT4)とセット**で評価する
+- 猫は甲状腺機能亢進症が多く、高血圧との関連がある`},
+{c:"血液検査・検査値",t:"高K・低Na・腎数値↑のときに考えること",g:["高カリウム","アジソン","尿路閉塞"],b:`- **アジソン病**:アルドステロン不足でNa↓・K↑。腎前性に腎数値↑。ACTH刺激試験で診断
+- **尿路閉塞・尿腹症**:排尿できない(腎後性)。排尿の有無、膀胱の触知、腹水を確認
+- **急性腎障害(AKI)**:Kを排泄できない
+- Na/K比が低いと、アジソン病を考える
+- 見分け方の最初の一歩:**排尿できているか、膀胱が触れるか、お腹に水がないか**
+- 腫瘍がある子では、閉塞、脱水、全身状態の悪化など、複数の原因が重なることがある`},
+{c:"血液検査・検査値",t:"血液検査の項目の意味(早見)",g:["項目一覧"],b:`- **WBC**:白血球。感染・炎症で↑、骨髄抑制で↓
+- **Seg/Sta**:好中球。Sta(桿状核)が増えると重症感染
+- **Lym**:リンパ球。ストレス・ステロイドで↓
+- **RBC/Hb/PCV**:貧血の評価。脱水で↑
+- **RET**:できたての赤血球
+- **Plt**:血小板。低いと出血
+- **BUN/CRE**:腎臓。SDMAは早期
+- **ALT/AST**:肝細胞の障害(ASTは筋肉も)。**ALP/GGT**は胆汁うっ滞(ALPはクッシングでも↑)
+- **TCHO/TG**:脂質。TGが高いと膵炎のリスク
+- **TP/ALB/GLB**:蛋白。ALB↓は浮腫・胸水・血栓のリスク
+- **Ca/IP**:ミネラル。IPは腎不全で↑
+- **AMYL/LIP**:膵酵素(補助的)。膵炎はPL(cPL/fPL)が中心
+- **NH3/TBA**:肝臓の解毒・機能
+- **TBIL**:黄疸
+- **Na/K/Cl**:電解質
+- **CRP/SAA/α1AGP**:炎症マーカー(α1AGPは猫のFIP診断の補助)
+- **PT/APTT/Fib/TAT/Dダイマー**:凝固
+- **COR(Pre/Post)**:ACTH刺激試験。アジソン、クッシング
+- 詳しい表は「血液検査項目リファレンス」ファイルを参照`},
+{c:"血液検査・検査値",t:"尿量の計算",g:["尿量","In/Out"],b:`- **尿量(mL/kg/h)=尿量(mL)÷体重(kg)÷時間(h)**
+- 目安:正常1〜2、乏尿0.5未満、無尿はほぼ0、多尿2以上が持続
+- 測り方:尿道カテーテル+閉鎖式バッグ、ペットシーツの重量差(1g≒1mL)など
+- In/Out:In=輸液+経口、Out=尿+排液+嘔吐・下痢+不感蒸泄
+- 心不全+利尿薬、AKI、ドパミン使用中などでは、尿量が効果判定とモニタリングの要`},
+{c:"血液検査・検査値",t:"尿比重は高いほど濃い?",g:["尿比重"],b:`- **高い=濃い、低い=薄い**(溶けている物質が多いほど高い)
+- 目安:犬1.015〜1.045、猫1.035〜1.060
+- 腎前性(脱水)は高い。腎性は濃縮できず低い
+- 等張尿(1.008〜1.012)は、ろ過しているだけで濃縮も希釈もできない状態
+- 測定は屈折計が基本。試験紙は精度が低い`},
+{c:"血液検査・検査値",t:"尿検査の試験紙(UPC・潜血・蛋白尿)の見方",g:["尿検査","UPC","蛋白尿"],b:`- **UPC**:0.2未満正常、0.2〜0.4境界、0.4以上で蛋白尿、2.0以上は著しい蛋白尿
+- **BLD(潜血)**:血尿・ヘモグロビン尿・ミオグロビン尿のどれか。**尿沈渣で確認**
+- **NIT**:猫は細菌がいても陰性になりやすい
+- GLU・KET・BILが陰性なら、糖尿病、ケトアシドーシス、胆汁うっ滞は示唆されない
+## 蛋白尿とは
+- 糸球体のフィルターが壊れて、アルブミンが漏れる(糸球体性)。ほかに尿細管性、腎前性、腎後性
+- アルブミンと、血を固まりにくくする物質(アンチトロンビン)が漏れる → **浮腫・胸水、血栓症、CKDの進行**
+- 蛋白尿があるCKDは、進行が速いとされる
+- ビタミンB群の注射(B2)で尿が濃い黄色になることがあり、色の判定に影響しうる(一般論)`},
+{c:"血液検査・検査値",t:"尿pHとアシドーシス/アルカローシスの言葉の違い",g:["尿pH","アルカローシス"],b:`- **アシドーシス/アルカローシスは、血液の酸塩基平衡の用語**。尿には使わず、「酸性尿/アルカリ性尿」と言う
+- 血液pH:7.35〜7.45が目安
+- 尿pH:猫6.0〜6.5、犬6.0〜7.5(目安)
+- アルカリ性尿:尿路感染(尿素分解菌)、ストルバイトのリスク。酸性尿:高蛋白食、シュウ酸カルシウムのリスク
+- 採尿から時間がたつと、アルカリ性に傾くので、新鮮尿で測る`},
+/* ===== 血液ガス・モニター ===== */
+{c:"血液ガス・モニター",t:"血液ガスの見る順番と基準値",g:["血液ガス","pH","PCO2","HCO3","乳酸"],b:`## 見る順番
+- ① pH(酸性か、アルカリ性か)
+- ② PCO2(呼吸の要素)
+- ③ HCO3・BE(代謝の要素)
+- ④ pHの動きと一致するのはどちらか → 原発性の異常
+- ⑤ 反対方向に動いていれば**代償**
+- ⑥ **Lac(乳酸)**:低灌流・低酸素の指標
+|状態|pH|PCO2|HCO3・BE|
+|---|---|---|---|
+|呼吸性アシドーシス|↓|↑|正常|
+|代謝性アシドーシス|↓|正常|↓|
+|呼吸性アルカローシス|↑|↓|正常|
+|代謝性アルカローシス|↑|正常|↑|
+## 基準値の目安
+- 静脈血:pH 7.32〜7.41、PCO2 42〜52、HCO3 24〜28、Lac 2以下
+- 動脈血:pH 7.35〜7.45、PCO2 35〜45、PO2 80〜100
+- **静脈血のPO2は、酸素化の評価に使えない**(動脈血かSpO2を使う)
+- pHが正常でも、HCO3やPCO2が異常なら、**代償している最中**`},
+{c:"血液ガス・モニター",t:"乳酸アシドーシスと代償(ストライダー+浅速呼吸の症例)",g:["乳酸","代償","上気道"],b:`- 上気道の閉塞で換気が悪い → 組織が酸素不足 → 嫌気性代謝 → **乳酸↑** → HCO3↓・BE↓(代謝性アシドーシス)
+- 体は呼吸を速くして、CO2を吐き出す(PCO2↓)→ pHを正常に保つ(**代償されたアシドーシス**)
+- pHが正常でも、安心できない。呼吸が弱ると代償が効かず、pHが急に崩れる
+- 乳酸の推移は、治療(酸素、気道確保)の効果判定に使える
+- ガス交換と血流は別物。肺高血圧症の失神は「血流の量」の問題`},
+{c:"血液ガス・モニター",t:"重度膵炎でなぜ代謝性アシドーシスになる?",g:["膵炎","アシドーシス"],b:`- 向きに注意:**重度膵炎 → アシドーシス**(アシドーシス → 膵炎ではない)
+- 嘔吐・食欲不振・血管のもれ → 循環血液量↓ → 低灌流 → **乳酸アシドーシス**
+- 膵臓は血流の乏しい臓器で、循環が悪いと悪化しやすい
+- 腎臓への血流が減ると、酸を排泄できずさらに悪化
+- DICや敗血症が重なると、微小血栓や炎症で悪循環
+- 治療の中心は**輸液で循環を立て直す**こと(酸を中和する薬ではない)`},
+{c:"血液ガス・モニター",t:"CO2がたまるとどうなる?(呼吸性アシドーシス)",g:["CO2","アシドーシス"],b:`- CO2は水と反応して酸(H⁺)になる。CO2蓄積=血液が酸性に傾く(**呼吸性アシドーシス**)
+- 意識レベルの低下(CO2ナルコーシス)、脳血管の拡張、血圧低下、不整脈
+- 代謝性アシドーシスは「酸の増加やHCO3の喪失」、呼吸性は「換気不足」が原因
+- 麻酔管理でEtCO2を見る理由はここにある`},
+{c:"血液ガス・モニター",t:"EtCO2が高い・低いとは?",g:["EtCO2","換気"],b:`- 呼気の最後に含まれるCO2。ほぼ動脈血のPCO2に近い
+- **高い=換気不足=CO2が体にたまっている**。対応は、呼吸数・換気量を増やす。気道閉塞、回路のトラブル、再呼吸(FiCO2が0でなくなる)、CO2産生の増加(発熱など)を確認
+- **低い=過換気**、または**心拍出量の低下**(肺に血流が行かない)、回路の外れ、食道への誤挿管
+- 目安:35〜45 mmHg
+- 「低いとCO2がたまる」は逆。**高いときにたまる**`},
+{c:"血液ガス・モニター",t:"麻酔中のCO2蓄積と覚醒遅延",g:["覚醒遅延","麻酔"],b:`- 吸入麻酔薬もCO2も、**呼気から排出**される
+- 換気不足だと、CO2も麻酔薬も抜けにくくなる → 意識抑制が重なって**覚醒が遅れる**
+- 「CO2ナルコーシスが直接の原因」というより、換気不足が根本原因
+- 覚醒が悪いときは、麻酔薬の量、肝腎の代謝、換気不足を分けて考える
+- 対応:気道の確認、必要なら補助換気、EtCO2の確認。抜管は、自発呼吸の質やEtCO2を見て判断する`},
+{c:"血液ガス・モニター",t:"麻酔モニターの項目と目安",g:["HR","SpO2","EtCO2","MAP","VT"],b:`|項目|目安|
+|---|---|
+|HR|犬70〜120、猫120〜180(麻酔中)|
+|PR|HRと一致が正常|
+|SpO2|95%以上|
+|EtCO2|35〜45 mmHg|
+|FiCO2|0|
+|RR(麻酔中)|8〜20回/分|
+|VT|体重1kgあたり10〜15 mL|
+|MV|体重1kgあたり150〜250 mL/分|
+|MAP|60 mmHg以上|
+|体温|低下に注意(36〜37℃台は許容されることが多い)|
+|イソフルラン|1.0〜2.0%程度(症例で調整)|
+- 項目は単独でなく、組み合わせて循環と呼吸を切り分ける`},
+{c:"血液ガス・モニター",t:"PEAK・PLAT・肺コンプライアンス・リザーブバッグ",g:["PEAK","PLAT","コンプライアンス"],b:`- **PEAK**:吸気で気道にかかる最大圧。気道抵抗と肺の硬さの両方を反映
+- **PLAT**:気流が止まったときの圧。肺そのものの硬さを反映
+- PEAKが急に上がる:気管チューブの屈曲・閉塞、分泌物、気管支けいれん
+- PEAKとPLATの差が小さいまま高い:肺・胸郭のコンプライアンス低下(肺水腫、胸水、気胸、腹部膨満)
+- **コンプライアンス**=肺の膨らみやすさ。同じ換気量に高い圧が必要なら、低い
+- **リザーブバッグ**:VTの約5〜6倍。小さすぎると換気量を送れず、大きすぎると圧の調整がしにくい
+- **PEEP**:呼気の終わりに陽圧をかけて、肺胞の虚脱を防ぐ(無気肺の予防)`},
+{c:"血液ガス・モニター",t:"脈拍欠損とPR・HR・RRの違い",g:["脈拍欠損","PR"],b:`- **PR**=脈拍数、**HR**=心拍数、**RR**=呼吸数
+- 正常はHR=PR。**HR>PR**を脈拍欠損と呼ぶ
+- 心臓は拍動しているが、十分な血液を送り出せず、脈として伝わらない拍動(期外収縮、心房細動など)
+- 有効な心拍出量が下がっていることを意味する。心電図の波形とあわせて先生に報告
+- モニターのHR(ECG)とPR(SpO2)を並べて確認する`},
+{c:"血液ガス・モニター",t:"呼吸様式と呼吸音(ストライダー、浅速呼吸など)",g:["呼吸","ストライダー"],b:`|所見|音・特徴|疑う場所|
+|---|---|---|
+|ストライダー|高い「ヒューヒュー」、吸気|上気道(喉頭、気管上部)|
+|スターター|低い「グーグー」いびき様|鼻腔、咽頭|
+|喘鳴(wheeze)|高い連続音、呼気|下気道(気管支)|
+|湿性ラ音(crackles)|「パチパチ」断続音、吸気|肺胞内の液体|
+|浅速呼吸|速くて浅い|肺実質、胸水、疼痛|
+|起坐呼吸|横になれない|肺水腫、重度の胸水|
+|シーソー呼吸|胸とお腹が逆に動く|重度の気道閉塞、呼吸筋疲労(緊急)|
+- 短頭種は、普段から音がある。「普段の音」と「悪化」を区別する
+- 呼吸が異常に静かになるのも危険信号(空気が通っていない)`},
+/* ===== 輸液・電解質 ===== */
+{c:"輸液・電解質",t:"皮下点滴(SC)と静脈点滴(IV)の違い、食事が取れたらSC?",g:["SC","IV","輸液"],b:`|項目|IV|SC|
+|---|---|---|
+|吸収|すぐ|ゆっくり、量に上限|
+|精密な補正|可能|不向き|
+|適応|中等度〜重度の脱水、ショック、嘔吐・下痢が続く、電解質異常、静注薬が多い|循環が安定、維持程度|
+- 食事が取れ始めたら、**IVの量を減らしながらSCへ**(漸減)。ただし脱水・電解質異常が補正しきれていないとき、嘔吐・下痢が続くときはIVを続ける
+- 判断は、脱水所見、PCV/TP、電解質、腎数値、自力の飲水量を総合する`},
+{c:"輸液・電解質",t:"維持量・脱水補正量・ブドウ糖濃度の計算",g:["維持量","脱水補正","計算"],b:`- **維持量**:体重(kg)×40〜60 mL/日(または、体重^0.75×70 mL/日)
+- **脱水補正量(mL)**:脱水率(%)×体重(kg)×10。12〜24時間かけるのが一般的
+- **ブドウ糖濃度**:50%ブドウ糖の添加量(mL)×0.5÷全体の液量(mL)×100
+- 例:ラクテック500mLに50%ブドウ糖40mL → 糖20g÷540mL → 約3.7%
+- 添加は2.5〜5%が目安。50%を原液のまま末梢から入れない
+- CRIやフラッシュで入る液量も、総量に含めるか確認(小さな動物で特に)`},
+{c:"輸液・電解質",t:"ラクテック・リンゲル・生理食塩水の違い(1:1の意味)",g:["ラクテック","リンゲル","生食"],b:`|輸液|Na|K|緩衝剤|
+|---|---|---|---|
+|ラクテック(乳酸リンゲル)|約130|4|乳酸|
+|リンゲル液(単純)|約147|4|なし|
+|生理食塩水|154|0|なし|
+|ヴィーンF(酢酸リンゲル)|約130|4|酢酸|
+- 「リンゲル液」と「乳酸リンゲル液(ラクテック)」は別物
+- ラクテック:リンゲル=1:1の意図(可能性):Naをやや多く補う、乳酸の量を減らす。**カルテの意図は先生に確認**
+- 乳酸は肝臓で代謝される。肝機能が落ちた子では、酢酸リンゲルを選ぶ考え方がある(一般論)
+- 高カリウム血症には、Kを含まない生食が伝統的。ラクテックのKは血清Kより低く、問題にならないとする見方もある(一般論)`},
+{c:"輸液・電解質",t:"輸液剤の分類と場面別の使い分け",g:["輸液剤","使い分け"],b:`- **等張の電解質液**(ラクテック、ヴィーンF、生食):脱水補正、ショック、術中の基本
+- **低張の維持液**(ソルデム3A、3AGなど):絶食中の維持。ショックの急速補正には使わない
+- **5%ブドウ糖**:投与後は実質、水。低血糖、自由水、薬の溶解
+- **注射用水**:薬を溶かす用。そのまま点滴しない(溶血)
+## 場面別
+- 脱水・ショック:等張液
+- 高K:生食が伝統的(GI療法を併用)
+- 低Na:生食(ゆっくり補正)
+- 脳の病気:低張液、5%ブドウ糖は避ける(一般論)
+- 輸血と同じライン:生食のみ(Ca含有液は混ぜない)
+- 心不全:量を最小限に
+- 詳しくは「輸液剤の比較」ファイルを参照`},
+{c:"輸液・電解質",t:"心不全の子の輸液量(13kgで2.6mL/h)と尿量測定",g:["心不全","輸液","尿量"],b:`- 維持量の目安(13kg):約22〜33 mL/h。2.6 mL/hは、その**約1/10**
+- 心原性肺水腫では、ラシックスで水を抜く治療をしているので、輸液で足しすぎない
+- この流量は水分補給ではなく、**ライン確保(KVO)と薬剤投与のため**
+- **尿量測定**:ラシックスの効果判定、In/Outバランス、利尿のかけすぎ(腎前性)の早期発見
+- 体重の推移、呼吸、電解質(Kの低下)、血圧もあわせて見る`},
+{c:"輸液・電解質",t:"低アルブミンの子の輸液と体重増加(100g)",g:["低アルブミン","胸水","体重"],b:`- アルブミンは、血管内に水を保つ力(膠質浸透圧)。低いと、輸液が血管の外(胸水、浮腫、腹水)にもれやすい
+- 輸液量・速度は、腎臓(輸液を減らすと腎血流が落ちる)と胸水(増やすと悪化)の**綱引き**。獣医師が調整する
+- 胸腔ドレーンは、**すでに溜まった胸水を抜いて呼吸を楽にする**ためのもの
+- 体重が増えたら:測定条件、In/Out、呼吸数と様式、浮腫、腹囲、ドレーン排液量、聴診、排尿・排便を確認して報告
+- 膠質液(血漿など)の併用が検討されることもある`},
+{c:"輸液・電解質",t:"高カリウム血症とGI療法",g:["GI療法","高カリウム","インスリン"],b:`- **GI療法(グルコース+インスリン)**:Kを細胞の中に移す。体の外には出さない。数十分で効き、数時間続く
+- 仕組み:インスリンが細胞膜のポンプを活性化し、糖とKを引き込む。低血糖防止にグルコースを一緒に入れる
+## 他の対応
+- グルコン酸カルシウム:Kは下げないが、心筋を守る
+- 重炭酸ナトリウム:アルカリ性に傾けてKを細胞内へ
+- 輸液・利尿:Kを尿として出す
+- 閉塞の解除:根本治療
+## 注意
+- 最大のリスクは**低血糖**。血糖を頻回に測る
+- 低血糖と高Kが同時にある子は、インスリンを足さず、ブドウ糖の点滴だけで対応することがある(一般論。先生の判断)
+- 心電図:T波の増高、P波の消失、QRS幅の拡大、徐脈`},
+{c:"輸液・電解質",t:"リフィーディング症候群",g:["リフィーディング","栄養","リン"],b:`- 食べていない期間のあとに、栄養(特に糖)を急に入れると起きる
+- インスリンが大量に出て、**リン・K・Mgが細胞の中に引き込まれ、血液中で急に下がる**(GI療法と同じ仕組み)
+- 血液検査は、飢餓中は正常に見えることが多い(細胞内の貯えが減っている)
+- リン↓:筋力低下、呼吸筋疲労、溶血。K↓:不整脈。Mg↓:不整脈、けいれん。B1↓:神経症状
+- 予防:必要量の25〜33%程度から始めて、数日かけて増やす(目安。先生の栄養計画に従う)
+- 電解質(リン・K・Mg)と、チアミンの補充を確認する
+- 猫(特に肝リピドーシス)で報告。犬のエビデンスは限られる`},
+);
+
+SEED.push(
+/* ===== 凝固・輸血 ===== */
+{c:"凝固・輸血",t:"凝固系検査(PT・APTT・Fib・TAT・Dダイマー)の見方",g:["凝固","PT","APTT","Dダイマー"],b:`## 止血の3段階
+- ① 一次止血:血小板 / ② 二次止血:凝固因子(PT・APTT・Fib)/ ③ 線溶:血栓を溶かす(Dダイマー)
+- 点状出血・粘膜出血は一次止血、深い出血・血腫・体腔内出血は二次止血の異常を疑う
+|検査|見ているもの|異常の例|
+|---|---|---|
+|PT|外因系・共通系|殺鼠剤中毒(最初に延びる)、ビタミンK欠乏、肝不全|
+|APTT|内因系・共通系|血友病、ヘパリン、肝不全|
+|Fib|血栓の材料|炎症で↑、DIC・肝不全で↓(炎症で正常に見えることがある)|
+|TAT|トロンビンがどれだけ作られたか|DICの早期|
+|Dダイマー|血栓が溶かされた証拠|血栓症、DIC。感度は高いが特異度は低い|
+- PT・APTTの延長は、凝固因子がかなり減ってから出る
+- フォンウィルブランド病は、PT・APTT・血小板が正常のことが多く見落としやすい
+- 猫のⅫ因子欠損は、APTTが延びても出血しない
+- 採血:クエン酸の採血管は規定量まで、1回でスムーズに、ヘパリンのラインからは採らない
+- 詳しくは「凝固系検査まとめ」ファイルを参照`},
+{c:"凝固・輸血",t:"DICを疑う所見と、重度感染でDICになる理由",g:["DIC","敗血症"],b:`- DICは基礎疾患(敗血症、膵炎、熱中症、腫瘍、IMHA、子宮蓄膿症など)で、全身で凝固が暴走する状態
+- **初期**:微小血栓(過凝固)→ **進行**:凝固因子・血小板が枯渇して出血
+## 検査
+- 血小板↓、PT・APTT延長、Fib↓(炎症で正常のことも)、**Dダイマー↑↑**、TAT↑、アンチトロンビン↓
+- Dダイマー・TATは、PT・APTTより早く動く
+## 身体所見
+- 点状出血、注射部位から血が止まらない、歯肉出血、血尿・血便、末梢の冷え・チアノーゼ、呼吸の悪化、意識の変化
+## 感染からDICになる理由
+- 細菌の成分が血管内皮を刺激 → 組織因子が大量に出る → 全身の細い血管で凝固の暴走 → 因子・血小板が消費され出血
+- 感染源が大きい・持続するほどリスクが高い。感染のコントロールが土台`},
+{c:"凝固・輸血",t:"ダルテパリンとは・何のために入れる?",g:["ダルテパリン","低分子ヘパリン"],b:`- 低分子ヘパリン。アンチトロンビンの働きを強め、Xa因子を抑えて血栓を防ぐ。皮下注射
+- 使う場面:DICの初期、蛋白漏出性腎症、IMHA、膵炎、ラインの血栓予防など
+- 発作・全身性炎症で入院した猫の例:全身性炎症に伴う血栓予防、不動、ステロイドによる血栓リスクなど、複数の可能性がある(**カルテの意図は先生に確認**)
+## 注意
+- 腎臓から排泄される → 腎機能低下で蓄積し、出血リスクが上がる
+- 凝固が延びている子への使用は、獣医療での十分なエビデンスは限られ、先生の判断
+- 出血のサイン(歯肉、注射部位、血尿・血便)とPCVを見る
+- 未分画ヘパリンはAPTTが延びるが、ダルテパリンはPT・APTTがあまり延びないことが多い
+- NSAIDsや抗血小板薬との併用は出血リスク`},
+{c:"凝固・輸血",t:"血漿の保存・解凍後の使用期限・バッグ番号の「③」",g:["血漿","FFP","保存"],b:`- 血漿(FFP)は**冷凍**で保存(凝固因子のⅤ・Ⅷが冷蔵では失われる)
+- 解凍は湯煎でゆっくり(電子レンジ・熱湯は不可)
+- 解凍後は冷蔵で、できるだけ早く。目安:**24時間以内**はFFP。それ以降は凝固因子が減り、アルブミン補充目的なら5日程度まで使える場合もある(施設差、要確認)
+- 再凍結しない。解凍した日時をバッグに書く
+- バッグの「③」は、多連バッグの**番号**。血漿とは限らない。色が淡い黄色なら血漿の可能性が高いが、確認する`},
+{c:"凝固・輸血",t:"輸血前のポララミンは、なぜ30分前?",g:["ポララミン","輸血","前投薬"],b:`- 抗ヒスタミン薬。輸血のアレルギー反応(蕁麻疹など)を予防・軽くする
+- 薬が効き始めるまで**15〜30分**かかる。輸血開始時に効いている状態にするため、逆算して30分前
+- 他の前投薬:ステロイド(重い反応への保険)、解熱鎮痛薬(発熱反応)
+- 輸血中は、**最初の15〜30分は頻回にバイタル**(体温、心拍、呼吸、粘膜)
+- 反応のサイン:発熱、震え、嘔吐、蕁麻疹、頻脈、呼吸促迫 → 速度を落とす・中止して報告`},
+{c:"凝固・輸血",t:"溶血した検体はクロスマッチに使える?",g:["クロスマッチ","溶血"],b:`- 基本は**使わず、採血し直す**。溶血していると、不適合による溶血が判定できない
+- 自己対照も赤いなら、検体そのものが溶血している
+## 原因で分ける
+- 採血・取り扱いによる溶血 → 再採血
+- 体内の溶血(IMHAなど) → 先生が判断(洗浄した赤血球を使う、自己対照と比べる、顕微鏡で凝集を見る等)
+## 溶血を避ける採血
+- 細すぎない針、強く引かない、針を通して強く押し出さない、やさしく混和、すぐ処理
+- 血漿が赤い・黄色い・白い場合は、報告する`},
+{c:"凝固・輸血",t:"ネスプと鉄剤は、なぜ輸血と一緒に使う?鉄剤はなぜIM?",g:["ネスプ","鉄剤","貧血"],b:`- **ネスプ**:EPOの代わり。骨髄に赤血球を作らせる(**効果が出るまで数日〜数週間**)。腎性貧血(CKD)で使う
+- **鉄剤**:ヘモグロビンの材料。材料がないと、骨髄は作れない
+- **輸血**:即効性。ネスプと鉄剤が効くまでの**橋渡し**
+- 効果判定:PCV、RETIC
+- **鉄剤をIMにする理由**:皮下だと皮膚が着色したり、局所の組織反応が出やすい。吸収が速いからではない。深部筋肉に入れる
+- 静注の鉄剤はアナフィラキシー様反応に注意(速度)
+- ネスプは血圧上昇に注意`},
+/* ===== 循環器 ===== */
+{c:"循環器",t:"僧帽弁閉鎖不全(MR)と心原性肺水腫・ラシックスCRI",g:["MR","肺水腫","ラシックス"],b:`- 僧帽弁が閉じない → 血液が左心房へ逆流 → 左房圧↑ → 肺の血管の圧↑ → 水が肺にしみ出す
+- 治療:**ラシックス**(利尿)、ピモベンダン、ACE阻害薬、スピロノラクトン
+- ラシックスを**CRI**にする理由:単回投与は効果に波がある。持続で安定した利尿、急激な電解質変動を避ける
+- 輸液は最小限。尿量、体重、呼吸、K(↓)、脱水、血圧を見る
+- **腎前性の腎障害**に注意(心拍出量低下+利尿)
+- 左心系の問題は肺にうっ滞、右心系の問題は全身(腹水、肝腫大)にうっ滞`},
+{c:"循環器",t:"心不全のビーグルの処方の意味(ピモベンダン、ガバペン、アモキクリア)",g:["ピモベンダン","ガバペンチン","トラゾドン","アモキクリア"],b:`- **ピモベハート**と**ベトメディン**は、同じピモベンダン。両方出ていたら重複していないか確認
+- ピモベンダン:強心作用+血管拡張。MRの心不全治療の中心
+- **ガバペンチン、トラゾドン**:興奮は心臓の負担。作用の仕組みが違うので、併用でより確実に鎮静。過鎮静、呼吸抑制に注意
+- **ビクシリン→アモキクリア**:クラブラン酸(βラクタマーゼ阻害)入りで、耐性菌にも効かせる変更。心内膜炎の可能性など、目的は先生に確認
+- 「生食をラシックスと一緒にCRI」:希釈の溶媒としての意味が大きい可能性。心不全でNa負荷を気にする考え方もあり、決定的な理由はカルテで確認
+- 「アプカード」は、薬剤名を確認(アプレゾリンなら強力な血管拡張薬)`},
+{c:"循環器",t:"肺高血圧症(心エコー所見・シルデナフィル・失神)",g:["肺高血圧","シルデナフィル","失神","TR"],b:`## 心エコー所見
+- 右心拡張、TRあり、MRなし、**心室中隔の扁平化**、肺動脈拡張 → 右心系に負担が集中(左心の問題ではなく、肺や肺血管側)
+- MR=僧帽弁の逆流、TR=三尖弁の逆流
+## シルデナフィル
+- PDE5阻害薬。肺動脈を広げて、右心室の負担を軽くする。急に中止しない。他の血管拡張薬(硝酸剤)との併用に注意
+## なぜ失神するか
+- ガス交換の問題ではなく、**動作時に増える血流の需要に、右心室が追いつかない**(脳への血液の「量」が一時的に不足する)
+- 筋肉は動くと酸素と栄養を多く使うので、心拍出量を増やす必要がある
+## 原因検索
+- **フィラリア抗原検査**を優先。慢性呼吸器疾患、血栓塞栓症、特発性など`},
+{c:"循環器",t:"肺高血圧症:呼吸が苦しい理由・TRの症状・喀血と咳",g:["肺高血圧","喀血","右心不全"],b:`- 呼吸が苦しい理由:① 血流不足を感知して呼吸で補おうとする ② 換気血流比の不均衡 ③ 右心不全による胸水
+- **TR(三尖弁逆流)**:単独で軽度なら無症状。肺高血圧の結果だと、右心系の負担を反映して、腹水、胸水、肝腫大、運動不耐性、頸静脈の怒張、失神
+- **喀血・咳に注意**:肺動脈が高圧にさらされて血管壁が脆くなり、破れる。咳が引き金になることもある。**喀血は急変のサイン**
+- 興奮を避ける(心拍数と需要が上がる)
+- 観察:呼吸、失神の頻度、腹囲・体重、咳の性状`},
+{c:"循環器",t:"HOCM(猫の肥大型閉塞性心筋症)",g:["HOCM","HCM","猫"],b:`- HCM(肥大型心筋症)のうち、血液の出口(左室流出路)が狭くなるタイプ
+- **SAM**:収縮期に僧帽弁の前尖が流出路に引き寄せられ、出口をふさぐ
+- 症状:無症状も多い。呼吸促迫、心雑音、**後肢の突然の麻痺(血栓)**、突然死
+- 診断:心エコー(壁の厚さ、SAM、血流速度)、NT-proBNP。雑音がなくても存在しうる
+- 治療:β遮断薬、利尿薬(肺水腫)、血栓予防(クロピドグレル、ダルテパリン)
+- 猫は興奮でSAMが悪化する。静かな環境で扱う`},
+{c:"循環器",t:"大動脈血栓塞栓症(犬)と、断脚・眼摘出・吐血の症例",g:["血栓","過凝固","ATE"],b:`- 猫ではHCMが主因。犬では**過凝固状態**が背景のことが多い:蛋白漏出性腎症・腸症、クッシング、腫瘍、IMHA
+- 症状:突然の両側後肢麻痺、強い痛み、患肢の冷感、拍動の消失
+- 治療:抗凝固(ダルテパリン)、鎮痛、基礎疾患の治療
+- 断脚、眼の血管障害(高血圧・血栓の可能性)、吐血(DICや薬の影響、胃潰瘍)が重なった症例は、**「血が固まりやすい体質」という同じ根っこ**の可能性を考える(断定はできない)
+- 吐血時は、血小板、PT/APTT、Dダイマー、Fib、PCV/TP、使用薬(抗凝固薬、NSAIDs)を確認`},
+{c:"循環器",t:"PDA(動脈管開存症)",g:["PDA","先天性心疾患"],b:`- 胎児期は、肺を通さず血液を大動脈へ流す動脈管がある。通常は生後数日で閉じる
+- 開いたままだと、大動脈→肺動脈へ血液が逆走(左右シャント)→ 左心系の負担 → 心不全
+- **連続性雑音**が特徴。小型犬(プードル、ポメラニアンなど)に多い
+- 治療:**結紮術またはカテーテルでの閉鎖**。薬では閉じない(薬は対症療法)
+- 自然閉鎖が期待できるのは、生後ごく早期だけ。診断されたら早期治療が基本
+- 進行すると肺高血圧で逆PDA(右→左)になり、閉鎖は禁忌`},
+{c:"循環器",t:"肺動脈弁狭窄(PS)",g:["PS","先天性心疾患"],b:`- 右心室の出口(肺動脈弁)が先天的に狭い。ブルドッグ、ビーグル、ミニチュア・シュナウザーなど
+- 右心室が高い圧で押し出すため、**右室肥大** → 重度では右心不全、失神、突然死
+- 左側心基底部の収縮期雑音。心エコーのドプラで圧格差を測る(50未満軽度、50〜80中等度、80以上重度が目安)
+- 軽度は経過観察。重度は**バルーン弁形成術**。β遮断薬は対症療法
+- PDAは左心系・逆走、PSは右心系・出口の狭窄`},
+{c:"循環器",t:"フィラリア症との関連",g:["フィラリア"],b:`- 肺動脈・右心系に成虫が寄生
+- 免疫複合体が糸球体に沈着 → **蛋白漏出性腎症** → 低アルブミン、血栓
+- 成虫の死滅で**肺血栓塞栓症**。駆虫後は厳格な運動制限
+- 大静脈症候群(カバールシンドローム):溶血、DIC
+- 肺高血圧症の原因検索では、抗原検査を優先`},
+{c:"循環器",t:"猫の高血圧:どんな状態?なぜ薬を飲む?どんな薬?",g:["高血圧","猫","アムロジピン"],b:`## どんな状態か
+- 血圧=心拍出量×血管の抵抗。高い状態が続くと、**目・腎臓・脳・心臓**の細い血管が傷つく(症状が出にくい)
+- 収縮期血圧:150未満リスク最小、150〜159軽度、160〜179中等度、180以上重度
+## なぜ薬が必要か
+- 突然の失明(網膜剥離・出血)、蛋白尿とCKDの進行、発作、心肥大。一度壊れると戻りにくい
+- 二次性が多い(CKD、甲状腺機能亢進症、糖尿病、アルドステロン症、褐色細胞腫)。原因の治療だけでは血圧が戻らないことが多い
+- 薬は「抑える」もの。症状がなくても毎日。自己判断でやめない
+## 薬
+- **アムロジピン**(第一選択)、テルミサルタン、ACE阻害薬(単独は弱く、併用)
+- 目標:収縮期160未満(低くしすぎない)。1〜2週後に再測定、安定したら3か月ごと
+- 測定:同じ人が静かな環境で、最初の1回は捨てて数回。カフのサイズ
+- 副作用:ふらつき、食欲不振、脱水。ARB・ACE阻害薬は脱水で腎臓に負担(一般論)`},
+{c:"循環器",t:"ドパミンCRIと血圧の維持",g:["ドパミン","血圧","MAP"],b:`- 血圧=臓器に血液を届けるための圧力。下がると低灌流 → 腎臓・脳・消化管が障害 → ショック
+- **MAP 60以上**が目安
+- ドパミンは用量で作用が変わる:低用量は腎血流(効果のエビデンスは乏しい)、中用量は心収縮力、高用量は血管収縮
+- CRIは、効果を見ながら細かく調整するため
+- 観察:血圧、心拍数・心電図(不整脈)、尿量、刺入部(血管外漏出)、ポンプの速度・残量
+- ノルアドレナリンは血管収縮が主。血管外に漏れると壊死`},
+{c:"循環器",t:"ショックとプレショックバイタル",g:["ショック","バイタル"],b:`- 「プレショックバイタル」は標準用語ではない。**ショックの手前〜初期(代償性ショック)のバイタル**を指すと考える
+|項目|代償期|非代償期|
+|---|---|---|
+|心拍数|頻脈|さらに頻脈(猫は徐脈も)|
+|粘膜|充血 or 少し蒼白|蒼白|
+|CRT|短縮 or 延長|延長|
+|脈|強い|弱い|
+|血圧|保たれる|低下|
+- 血圧が保たれていても、組織の血流は落ち始めている。心拍数、粘膜、CRT、脈、四肢の温かさ、尿量、乳酸を一緒に見る
+- 猫は犬と違い、頻脈にならず徐脈・低体温になりやすい`},
+{c:"循環器",t:"心停止後(CPR後)の症例の読み方(低血糖・腎肝↑・高K・凝固延長)",g:["CPR","敗血症","多臓器障害"],b:`- 「心停止 → CPR → 心拍再開(ROSC)→ 発作」の順。発作は、心停止後の脳障害、低血糖、尿毒症、肝性脳症などが重なる
+- 低血糖:肝臓の糖新生↓、敗血症。腎数値↑:腎前性+腎性。肝数値↑:虚血性肝障害。高K:腎排泄↓、細胞の損傷。凝固延長:DICと肝臓での産生低下
+- 低血糖+凝固延長は、肝機能低下を疑わせる組み合わせ
+- 血液ガスで**HCO3・BEが高い**のは不自然(アシドーシスが予想される)。重炭酸の投与、乳酸の代謝、PCO2などを確認
+- 状況:敗血症+心停止後症候群+多臓器障害。犬のCPRは、心拍再開が約44%でも、退院は約7%という報告
+- 鑑別:アジソン病、キシリトール中毒、熱中症、感染源(子宮蓄膿症、肺炎など)
+- 看護:血糖、血圧、心電図、尿量、神経、出血、ライン(ノルアドレナリンの漏出)、呼吸、体温
+- ダルテパリン、メロペネムは腎排泄。ブレンダの意図は先生に確認`},
+/* ===== 呼吸器 ===== */
+{c:"呼吸器",t:"間質性肺炎(犬・ペキニーズ)",g:["間質性肺炎","短頭種"],b:`- 肺胞壁・間質の炎症性疾患。特発性、感染、誤嚥、薬剤性、心疾患の慢性化など
+- 短頭種はBOAS、誤嚥のリスク、慢性の上気道閉塞で肺に負担
+- 症状:労作時の呼吸促迫、乾性咳嗽、運動不耐性、聴診でcrackles
+- 診断:胸部X線(びまん性間質パターン)、**CT**、BAL、血液ガス、心エコーで心疾患を除外
+- 治療:原因の治療、酸素、特発性ではステロイド(犬でのエビデンスは限定的)`},
+{c:"呼吸器",t:"細菌性肺炎",g:["肺炎","誤嚥"],b:`- 経路:**誤嚥**(最多、嘔吐・麻酔・食道疾患・短頭種)、血行性(敗血症)、上気道感染から
+- 症状:発熱、湿性の咳、浅速呼吸、努力性呼吸、チアノーゼ
+- 診断:聴診(湿性ラ音)、レントゲン(誤嚥は右中葉・前葉に出やすい)、白血球・CRP/SAA、BAL・培養
+- 治療:抗菌薬(培養で絞り込む)、酸素、輸液、**体位変換**、ネブライザー
+- 看護:呼吸数・様式・粘膜の色、体位変換(同じ側を下にし続けない)、咳・鼻汁の性状`},
+{c:"呼吸器",t:"肺水腫と肺炎の違い",g:["肺水腫","肺炎"],b:`|項目|肺水腫|肺炎|
+|---|---|---|
+|中身|水(漏出液)|膿・炎症細胞|
+|原因|心臓病が最多|感染、誤嚥|
+|発熱|基本なし|あることが多い|
+|白血球・CRP|大きく上がらない|上がることが多い|
+|治療|利尿薬、酸素|抗菌薬、酸素、体位変換|
+|輸液|控えめ|脱水を補正|
+- 心原性と非心原性(ARDS、感電、上気道閉塞のあと)がある
+- 両方が同時にあることもある。レントゲンの分布は目安にすぎない
+- 見分ける情報:既往(心臓病・誤嚥)、発熱、白血球・CRP、心エコー、NT-proBNP、利尿薬への反応`},
+{c:"呼吸器",t:"無気肺",g:["無気肺","PEEP"],b:`- 肺の一部が虚脱して、空気が入っていない状態
+- 原因:気道閉塞(分泌物、チューブの位置)、外からの圧迫(胸水、気胸、腹部膨満)、**麻酔・長時間の同じ体位**
+- 所見:呼吸音の減弱、SpO2↓、PEAK圧↑、レントゲンで白く写る
+- 予防・治療:**体位変換**、PEEP、分泌物の吸引、原因の治療(胸水の排液など)
+- 肺水腫は「水が溜まる」、無気肺は「しぼむ」。レントゲンでは似ることがある`},
+{c:"呼吸器",t:"皮下気腫",g:["皮下気腫"],b:`- 皮下に空気が入る。触ると**プチプチ(捻髪音)**
+- 原因:気道・肺・消化管の穴(外傷、気管損傷)、腹腔鏡のガス漏れ、胸腔ドレーン部位
+- 気腫そのものより、**「なぜ漏れているか」**(気胸、気管損傷、消化管穿孔)が重要
+- 急速に広がる場合は要注意。胸部レントゲンで気胸・縦隔気腫を確認
+- 看護:範囲を記録して推移、呼吸状態を同時に確認`},
+{c:"呼吸器",t:"胸水と胸腔ドレーン(中皮腫)",g:["胸水","ドレーン","中皮腫"],b:`- ドレーンを入れる=胸水が**繰り返し・継続的に**溜まっている判断。頻回の穿刺が負担になる子
+- ドレーンの目的は、**すでに溜まった胸水を抜いて呼吸を楽にする**こと(輸液による増加の対策ではない)
+- 観察:排液量・性状(色、混濁)、呼吸数・様式。**排液量が急に減ったら、詰まりも疑う**
+- 胸水は、中皮腫、リンパ腫、心不全、乳び胸、膿胸などで起こる。性状(漏出性・滲出性)で分類
+- ピッグテールなど、先端が丸まったカテーテルが使われることがある(抜けにくい)`},
+/* ===== 神経 ===== */
+{c:"神経",t:"椎間板ヘルニア(グレード・手術・UMN/LMN・リハビリ)",g:["IVDH","ヘミラミネクトミー","グレード"],b:`- 軟骨異栄養性犬種(フレンチ、ダックス、パグ、ペキニーズなど)に多い。Hansen I型(急性の髄核破裂)
+- **グレード**:1痛みのみ、2歩ける不全麻痺、3歩けない不全麻痺、4完全麻痺+深部痛覚あり、5深部痛覚なし
+- **ヘミラミネクトミー**:椎弓を片側切除して脊柱管に入る**進入路**。そこから椎間板物質を取り除く
+- **UMN**徴候:反射↑・緊張↑(病変が頭側)。**LMN**徴候:反射↓・弛緩(L4〜S3など)
+- IVDH=椎間板ヘルニア。IVDDは、より広い疾患概念
+- 術後リハビリは、疼痛と全身状態が許せば**早めに**(筋萎縮・拘縮の予防)。消化器症状が強ければ、そちらを優先
+- 術後当日・翌日の優先:排尿管理、疼痛、体位変換・褥瘡、創部、消化器症状、皮筋反射`},
+{c:"神経",t:"脊髄軟化症(PMM)と皮筋反射",g:["PMM","皮筋反射"],b:`- 脊髄が壊死・融解し、**頭側・尾側へ広がる**。重度のヘルニア(特にグレード5)で起こりやすい。頸髄に及ぶと呼吸停止
+- 発生は低いが、起きると致死率が高い。確立した治療はない
+- **皮筋反射**:背中の皮膚をつまんで、皮筋が動くか見る。消失するラインが**頭側へ移動していないか**を毎日マーキングして記録
+- 「後肢が立てない」自体は、グレード4〜5では病態そのもの。PMMの進行のサインではない
+- 進行のサイン:前肢の脱力、呼吸様式の変化、疼痛の消失
+- 引っ込め反射は、その肢のLMN機能・深部痛覚の評価。別の目的`},
+{c:"神経",t:"発作の薬の使い分け(フェノバール・レベチラセタム・コンセーブ・MDZ・ノーベルバール・プロポ)",g:["てんかん","発作","重積"],b:`## 維持薬
+- **フェノバール**:実績が多い。多飲多尿、鎮静、肝障害。効果が出るまで数週間、血中濃度を測る
+- **レベチラセタム**:副作用が少ない。効果発現が速い。腎排泄
+- **コンセーブ(ゾニサミド)**:犬用の抗てんかん薬。まれに食欲廃絶、急性肝障害の報告
+## 緊急・重積(段階)
+- 第1:**ミダゾラム**(ジアゼパム)→ 第2:**ノーベルバール**(注射フェノバルビタール)、レベチラセタム注射 → 第3:**プロポフォールCRI**(麻酔レベル)
+- 重積発作=5分以上続く、または発作の間に回復しないまま繰り返す
+- プロポフォールCRI中:血圧、呼吸(気管チューブ)、体温、ライン交換のルール、眼・口のケア、褥瘡`},
+{c:"神経",t:"重積発作・脳梗塞(DWI高/ADC低)・グリセオール・NCSE",g:["脳梗塞","MRI","NCSE","グリセオール"],b:`## 脳梗塞の読み方
+- **DWI高/ADC低**=水の動きが制限されている。血管が詰まり、細胞が腫れる(細胞傷害性浮腫)ときに出る
+- 腫瘍の周りのむくみ(血管原性浮腫)は、ADCが高いのが一般的。ただし細胞が密な腫瘍でもADCが低くなることがある
+- 重積発作そのものでもDWIが変わることがある。梗塞は血管の支配領域に沿って出る。経過や再MRIで確認
+- 背景疾患を探す:高血圧、腎臓病・蛋白尿、クッシング、甲状腺、心臓、凝固
+## グリセオール
+- 高浸透圧で脳のむくみを減らす。溶血・尿の色、電解質、水分量に注意。効果の証拠は限られる
+## NCSE(非痙攣性てんかん重積)
+- 体のけいれんが見えないが、脳内では発作が続く。診断は**脳波**
+- 疑う:発作のあと意識が戻らない、眼や顔の小さな動き、鎮静中。人では死亡率が高い。犬猫でも報告(小規模)
+- 看護:意識の回復時間の記録、細かい動きの観察`},
+{c:"神経",t:"Head press・傾眠・意識レベル",g:["意識","Head press"],b:`- **Head press**:壁や扉に頭を押し付けて動かない。**前脳の障害**(肝性脳症、腫瘍、脳炎、外傷、中毒、代謝性疾患など)
+- 意識レベル:清明 → 鈍麻 → **傾眠**(刺激で覚醒、やめるとまた寝る)→ 昏迷(強い刺激で反応)→ 昏睡
+- 沈うつ(元気がない)、せん妄、失神、発作後の反応低下(postictal)とは別
+- 肝性脳症が疑われるときは、NH3、TBA、低アルブミン、TCHOを見る
+- 看護:意識レベルを毎回同じ基準で評価・記録。経時変化が重要`},
+{c:"神経",t:"テントヘルニア",g:["脳ヘルニア","頭蓋内圧"],b:`- 頭蓋内圧が上がり、脳が小脳テントの開口部から押し出されて**脳幹**(呼吸・循環・意識の中枢)が圧迫される。緊急
+- 原因:脳腫瘍、脳炎、頭部外傷、脳出血、脳浮腫
+- サイン:急な意識低下、**瞳孔の左右差・散瞳**、異常姿勢(除脳硬直)、不規則な呼吸、**クッシング反射**(高血圧+徐脈)
+- 対応:頭を約30度上げる、頸部を圧迫しない、高浸透圧療法(マンニトール、高張食塩水)、原因の治療
+- 看護:瞳孔・対光反射、意識、呼吸、血圧・心拍を継続して確認`},
+{c:"神経",t:"ホルネル症候群",g:["ホルネル","交感神経"],b:`- 目への**交感神経**が障害され、片側に特徴的な変化が出る
+- 4つ:縮瞳、眼瞼下垂、眼球陥凹、第三眼瞼(瞬膜)の突出
+- 経路(脳→脊髄→胸→首→目)のどこでも障害されうる:脳・頸髄の病変、**胸部の腫瘍**、中耳炎・内耳炎、外傷、特発性(猫に多い)
+- 治療は原因の治療。特発性は数週間〜数か月で自然に回復することが多い
+- 看護:左右の目を比べる、ふらつき・麻痺など他の神経症状、耳の症状`},
+{c:"神経",t:"眼窩に腫瘍が浸潤しているとき:見えている?眼は摘出?",g:["眼窩","眼球摘出"],b:`- 眼窩に浸潤していても、**見えていることはある**(視神経・眼球への直接浸潤の有無による)
+- 失明の機序:視神経の圧迫・浸潤、眼球の圧排(角膜露出)、眼球内への浸潤、続発性緑内障
+- 評価:対光反射、威嚇瞬き反応、眼圧、眼底
+- 摘出を検討する場面:疼痛のコントロールが難しい、治療計画に眼窩の切除が含まれる、失明していて感染・出血・炎症の温床
+- 放射線治療などで眼球を温存する選択もある。腫瘍のコントロールと痛みなく過ごせることのバランス`},
+);
+
+SEED.push(
+/* ===== 腎・泌尿器 ===== */
+{c:"腎・泌尿器",t:"CKDの治療と、輸液の目的",g:["CKD","輸液","腎臓"],b:`- 治療は栄養療法だけではない:腎臓病用食(リン制限)、輸液、リン吸着剤、降圧・蛋白尿対策(ACE阻害薬、ARB)、腎性貧血(ネスプ+鉄剤)、制吐剤、K補正
+- **輸液の目的**:電解質の補正だけでなく、**脱水の補正・維持**(尿が薄く脱水しやすい)、腎血流の維持、在宅のSC輸液
+- 急性増悪期:脱水補正と腎血流の改善が主。安定期:脱水予防(SC)が中心
+- 猫のCKDは、高血圧、蛋白尿、尿路感染に注意
+- 尿検査の蛋白尿(UPC)が高いと、進行が速い`},
+{c:"腎・泌尿器",t:"尿管閉塞の猫:腎瘻チューブ・ミニプレス・Kの確認・外科",g:["尿管閉塞","腎瘻","ミニプレス"],b:`- CTで**腎盂の拡張** → 尿の通り道のどこかが閉塞 → 腎瘻チューブで腎盂の圧を逃がす(腎臓を守る緊急避難)
+- 造影で尿管にほとんど流れない → 閉塞が確認された
+- **ミニプレス(プラゾシン)**:α1遮断薬。尿管の平滑筋の緊張をゆるめて、通りを良くする試み
+- **尿バッグを外す**=尿管経由の排尿ができるかのテスト。うまくいかないと腎盂圧↑ → 腎機能悪化 → **Kが急上昇**。翌朝のKで答え合わせ
+- Kが上がる → 内科的な試みの限界。**SUBシステム**(皮下の尿路バイパス)、尿管新吻合などを検討
+- 腎瘻の長期留置は、感染、閉塞、逸脱、QOLの問題
+- セフメタ+プレドニン:炎症性の狭窄を想定した並行治療と読み取れる(推測。先生の意図は確認)
+- 腎盂拡張=腎盂腎炎とは限らない。閉塞による水腎症など`},
+{c:"腎・泌尿器",t:"腎盂腎炎と、嘔吐が出る理由",g:["腎盂腎炎","嘔吐","尿培養"],b:`- 腎盂と腎臓の細菌感染。**上行性感染**が最多(大腸菌)。尿流の障害、カテーテル、免疫低下、糖尿病、CKDがリスク
+- 症状:発熱、食欲不振、嘔吐、腰の痛み。膀胱炎より全身に影響
+- 診断:**膀胱穿刺での尿培養(抗菌薬の前)**、血液、画像
+- 抗菌薬は10〜14日が目安。CKDでは用量調整。閉塞が残ると抗菌薬だけでは治りにくい
+## 嘔吐の理由
+- ① 尿毒症(老廃物がCRTZを刺激) ② 胃酸過多(ガストリン蓄積)で胃炎・潰瘍 ③ 炎症・サイトカイン ④ 痛み ⑤ 脱水・電解質・酸塩基 ⑥ 薬(抗菌薬など)
+- 片側の腎臓だけなら、尿毒症(①②)は起きにくく、③④⑤⑥が主
+- 吐くと脱水 → 腎前性の悪化 → さらに吐き気、の悪循環
+- 制吐剤:マロピタント(腎臓病でも使いやすい)、メトクロプラミド・ガスターは腎排泄で調整`},
+{c:"腎・泌尿器",t:"肝嚢胞・腎嚢胞・多発性嚢胞腎(PKD)・嚢胞の破裂",g:["嚢胞","PKD"],b:`- 嚢胞=膜に包まれた液体の袋。腫瘍ではなく、基本は良性
+- 単発で小さければ、**経過観察**でよいことが多い
+- **多発性嚢胞腎(PKD)**:ペルシャ猫などで遺伝性。腎臓全体に嚢胞が多数でき、CKDにつながる
+- **破裂**はまれ。外傷や内圧上昇で起こる。急な腹痛、元気消失、貧血(出血)、腹水
+- 鑑別:膿瘍、血腫、肝結節性過形成
+- スコティッシュフォールドの遺伝性疾患は、骨・軟骨の病気(骨軟骨異形成症)で、腎臓ではない`},
+{c:"腎・泌尿器",t:"キサンチン結石とプリン体",g:["結石","キサンチン","アロプリノール"],b:`- プリン体の代謝:プリン体 → ヒポキサンチン → キサンチン → 尿酸 → アラントイン(犬猫はここまで)
+- キサンチンオキシダーゼが弱い・阻害されると、**キサンチンがたまって結石になる**
+- 原因:先天性(カヴァリア・キング・チャールズ・スパニエルなど)、**アロプリノール**の使用(尿酸結石の予防でダルメシアン、ブルドッグに使うと、キサンチン結石になりうる)
+- X線で写りにくい。超音波、結石分析で診断
+- 管理:手術、アロプリノールの見直し、低プリン食、飲水
+- プリン体=核酸の材料。細胞の分解や食事(内臓類、干物)から供給される`},
+{c:"腎・泌尿器",t:"ラパロ(腹腔鏡)での膀胱結石摘出:灌流の注意",g:["ラパロ","灌流"],b:`- 膀胱を生理食塩水で満たして視野を確保する(加圧バッグ)
+- **加圧しすぎ**:膀胱壁の過伸展・損傷、腹腔内圧↑(横隔膜の圧迫で換気↓、静脈還流↓で血圧↓、腎血流↓)
+- 生食は**出口が2つ**:意図した排出(吸引ライン、カテーテル)と、想定外の漏出(膀胱切開部から腹腔内、ポート部)
+- 外回り:In/Outの記録、バイタル(灌流開始・加圧時)、腹部の張り、**灌流液を加温**(低体温予防)、圧設定は術者と共有`},
+/* ===== 消化器・肝・膵 ===== */
+{c:"消化器・肝・膵",t:"パルボウイルス感染症",g:["パルボ","輸液"],b:`- 腸絨毛・骨髄・(心筋)を攻撃。若齢・ワクチン未接種に多い
+- 症状:元気消失、頻回の嘔吐、悪臭のある血様下痢、脱水
+- 診断:糞便抗原、CBC(好中球減少)、低アルブミン、PCR
+- 治療は**対症・支持療法**:**IV輸液**(体液喪失が大きい)、電解質・糖(K、低血糖)、広域抗菌薬、制吐剤、早期の腸管栄養
+- 隔離管理。環境で安定なので、次亜塩素酸系で消毒`},
+{c:"消化器・肝・膵",t:"膵炎を疑うとき・ブレンダ・消化管穿孔との関連",g:["膵炎","ブレンダ","穿孔"],b:`## 疑うとき
+- 嘔吐、腹痛(祈りの姿勢)、食欲不振、高脂肪食、既往。猫は症状が分かりにくい
+- 検査:**cPL/fPL**(中心)、超音波。AMYL/LIPは補助。TG、Ca、CRP
+- 鑑別:消化管閉塞、胆道系疾患、腎不全、アジソン病、腹膜炎
+## 治療
+- 輸液、鎮痛、制吐、栄養(低脂肪。急性期は脂肪量より早く食べさせることが重要で、脂肪制限の根拠は限られる)
+- **ブレンダ**:白血球が血管から組織に集まるのを抑える抗炎症薬。本来は犬の急性膵炎。使う意図は先生に確認
+- 重症化:循環不全 → 乳酸アシドーシス、DIC、腎障害
+## 消化管穿孔との関連
+- 十二指腸と膵臓は隣接。穿孔 → 膵炎、重度膵炎 → 周囲の壊死・穿孔。どちらが先か分からないことも
+- 遊離ガスは穿孔に特異的な所見`},
+{c:"消化器・肝・膵",t:"腸管切開後の入院管理(食事・マロピタント・ガスター・輸液・レペタン)",g:["腸管切開","異物","術後"],b:`- 食事:**早期に少量から**(水 → 消化の良いもの → 通常食)。絶食が長いと腸粘膜の回復が遅れる
+- **マロピタント**:嘔吐を防ぐ(縫合部への負担を減らす)、内臓痛にも
+- **ガスター**:胃酸を抑える。ストレス性の胃潰瘍・びらんの予防(腎排泄で調整)
+- 脱水がなくても輸液を続ける理由:維持、縫合部の血流、急変への備え、静注薬のルート
+- **レペタン**:作用時間は約6〜8時間。術後早期にSIDだと、鎮痛が切れる時間ができやすい。疼痛スコアを頻回に評価し、投与間隔は先生に確認
+- 食事ができても、術後**3〜5日目**が最もリスクが高い時期`},
+{c:"消化器・肝・膵",t:"腸管縫合の治癒とリスクの時期・退院の判断",g:["縫合不全","ラグフェーズ"],b:`- 4段階(止血 → 炎症 → 増殖 → 成熟)は皮膚と同じ。腸管の強度を支えるのは**粘膜下層**(コラーゲン)
+- 漿膜は数時間〜24時間でフィブリンの「仮止め」を作る
+- **ラグフェーズ**:術後3〜5日目は、コラーゲンの分解が産生を上回り、強度が谷になる → **縫合不全のリスクが最も高い**。7日目前後で回復
+- 観察:体温、腹部の触診反応、嘔吐の再燃、元気・食欲、CRP/SAA、腹部膨満・腹水
+- 低アルブミン・低栄養、腹膜炎の既往、腫瘍は、リスクを上げる
+- 退院:自力摂食、嘔吐なし、排便、疼痛が内服でコントロール、創部、炎症マーカー、全身状態の総合(食べるだけでは判断しない)
+- 「粘膜と皮膚はくっつかない」は、粘膜と皮膚をつなぐ場面(ストーマなど)の話。腸管の粘膜同士の縫合には当てはまらない`},
+{c:"消化器・肝・膵",t:"下痢止め(ディアバスター)で便が出ない",g:["ディアバスター","便秘"],b:`- ディアバスターは止瀉薬。ロートエキス(抗コリン作用)などで**腸の動きを抑える**
+- 添付文書に、便秘や排便回数の減少が出ることがあると記載
+- マイトマックス(ペディオコッカスなど)は、整腸サプリで、直接便を止める薬ではない
+- 便が出ていないときは、副作用だけと決めつけず、脱水、食欲低下、腹部の張り・痛み、別の消化管トラブルも確認して報告
+- 継続・中止・減量は先生の判断`},
+{c:"消化器・肝・膵",t:"胃ろう(PEG)の記録の見方:戻り・ガス・ぬるま湯",g:["PEG","胃ろう","給餌"],b:`- **戻り**:食前に吸引した胃の残留量。前のリキッドだけでなく、胃液・唾液も含む。胃が空になっているか(胃の動き)の指標
+- 多いとき:食事を遅らせる、量を減らす(先生に報告)。基準は資料で違う(15mL、前回の半量など)。院内の手順に従う
+- **ガス**:消化の産物ではなく、胃にたまった**空気**(チューブ操作、呑気、胃の動きが悪いときの発酵)。量の推移を記録
+- 戻りを**胃に戻すか、捨てるか**は資料で違う。「腸内環境が崩れる」という根拠は確認できなかった。大事なのは、胃が張った状態で入れないこと(嘔吐、誤嚥)
+- **ぬるま湯で流す**:詰まりを防ぐ(食後)。食前のフラッシュは位置と通りの確認。量は犬5〜10mL、猫5mL程度
+- 食事は体温程度に温める
+- 記録:戻りの量と性状、ガス、与えた量(予定・実際)、水、えずき、嘔吐、挿入部。用量の単位(g/mL)を統一`},
+/* ===== 内分泌・代謝 ===== */
+{c:"内分泌・代謝",t:"アジソン病(副腎皮質機能低下症)",g:["アジソン","副腎"],b:`- 副腎皮質ホルモン(アルドステロンなど)の不足
+- 検査:**Na↓・K↑**、腎前性の腎数値↑、低血糖のことも。Na/K比が低い
+- 診断:**ACTH刺激試験**(Post値が上がらない)
+- 高Kが危険(不整脈、徐脈)。GI療法、カルシウム、輸液(生食が伝統的)。ステロイド補充
+- 鑑別:尿路閉塞・尿腹症、AKI`},
+{c:"内分泌・代謝",t:"クッシング症候群(副腎皮質機能亢進症)",g:["クッシング","コルチゾール"],b:`- コルチゾールの過剰。下垂体性(約8割)、副腎性、医原性(ステロイド長期投与)
+- 症状:**多飲多尿、多食、腹部膨満(ポットベリー)、左右対称性の脱毛、筋力低下、パンティング**、高血圧
+- 検査:**ALP著明↑**、TCHO↑、血糖↑、ストレス白血球像(好中球↑・リンパ球↓・好酸球↓)、尿比重↓、**蛋白尿**
+- 確定:ACTH刺激試験、低用量デキサメサゾン抑制試験
+- 血栓傾向・高血圧と関連(大動脈血栓塞栓症、眼の血管障害)
+- 治療:トリロスタンなど。糖尿病の合併に注意`},
+/* ===== 感染症・抗菌薬 ===== */
+{c:"感染症・抗菌薬",t:"抗生剤の選び方・複数使う理由",g:["抗菌薬","耐性菌"],b:`- 選ぶ流れ:感染部位の推定 → **培養・感受性**(抗菌薬の前に採取) → 重症度 → 薬の移行性と腎・肝機能 → 治療反応で見直す
+- 初期は広く(経験的治療)、結果が出たら絞る(de-escalation)。不要な広域・長期は耐性菌を生む
+- 強さのイメージ:ホスミシン・ファロム(内服)→ ビクシリン・セフメタ → メロペネム(重症)
+- 併用の理由:最も多いのは**スペクトルを広げる**ため。相乗効果を狙う場合も。耐性化の抑制は、結核などで重要な考え方で、日常診療の主目的ではないことが多い
+- 腎排泄型の薬は、腎機能低下で調整が必要`},
+{c:"感染症・抗菌薬",t:"抗菌薬ごとのポイント(ビクシリン・アモキクリア・セフメタ・メロペン・ロメワン)",g:["ビクシリン","セフメタ","メロペン"],b:`- **ビクシリン(アンピシリン)**:ペニシリン系。陽性菌、腸球菌にも。ドレーン・ラインからの皮膚常在菌も想定
+- **アモキクリア**:アモキシシリン+クラブラン酸。βラクタマーゼ産生菌(耐性菌)にも
+- **セフメタゾール**:セファマイシン系。**嫌気性菌に強い**。腹腔内感染、消化管手術後など。リンパ腫の治療薬ではなく、免疫低下状態での感染対策
+- **メロペネム**:カルバペネム系。超広域。ステップアップの末の選択。腎排泄
+- **ロメワン**:フルオロキノロン系の**点眼薬**。FVRに伴う眼の二次感染。ウイルスには効かない
+- **ファロム**:苦味で、猫は高粘性の流涎が出ることがある。投薬後に水を少量`},
+{c:"感染症・抗菌薬",t:"猫のFIV・FeLV・FVRと、膿性鼻汁・眼脂",g:["FIV","FeLV","FVR"],b:`- **FIV**:Tリンパ球に感染し、免疫低下。**FeLV**:骨髄の造血幹細胞に感染し、免疫低下+血球減少。予後はFeLVのほうが厳しいとされる
+- **FVR**(猫ヘルペスウイルス1型):神経節に潜伏し、免疫低下で再活性化。くしゃみ、鼻汁、結膜炎、角膜潰瘍
+- 免疫低下 → FVRの再活性化・慢性化・二次感染の重症化
+- 治療:対症療法、二次感染に抗菌薬、重症では抗ウイルス薬。**ステロイドは再活性化のリスク**
+- FeLVは**リンパ腫(特に縦隔型)**のリスク。胸水と呼吸不全につながる
+- 隔離管理(接触・唾液・血液で感染)`},
+/* ===== 腫瘍 ===== */
+{c:"腫瘍",t:"中皮腫",g:["中皮腫","胸水","腹水"],b:`- 胸膜・腹膜を覆う「中皮」の腫瘍。まれ。胸水・腹水が繰り返し溜まる
+- 診断は難しい:細胞診では、反応性の中皮細胞との区別が難しく、**生検**が必要なことが多い
+- 治療:外科切除は難しいことが多い。化学療法のエビデンスは限られる。予後は不良〜中程度
+- 胸腔ドレーン:胸水が繰り返し産生される子に
+- アスベストとの因果関係は、人ほど確立していない
+- 高K・低Na・腎数値↑との直接的な関連は強くない。閉塞(尿路の圧迫)、脱水・全身状態の悪化など、**複数の可能性**を並行して評価する`},
+{c:"腫瘍",t:"血管肉腫(犬)",g:["血管肉腫","脾臓","出血"],b:`- 血管内皮の悪性腫瘍。好発:**脾臓**、右心房、肝臓、皮下。9〜10歳ごろ、ジャーマン・シェパード、ゴールデンなど
+- **もろく、突然破れて出血**。虚脱、歯肉蒼白、腹水(腹腔内出血)、心タンポナーデ(右心房)。出血が止まると一時的に元気になる
+- 検査:PCV/TP(急性期はTPが先に下がる)、RETIC、血液塗抹、血小板↓、凝固延長・DIC、心電図(VPC)
+- 脾臓腫瘤の**FNAは、出血と診断率の低さから一般に勧められない**。確定は病理
+- 治療:緊急対応(酸素、輸液、輸血、心嚢穿刺)、**脾臓摘出**、化学療法(ドキソルビシン)
+- 予後:脾臓摘出のみ生存期間の中央値3〜4か月、化学療法を足して6〜8か月(報告)
+- 看護:粘膜、CRT、脈、PCV/TP、腹囲、血圧・心電図、**お腹を強く押さない**、興奮させない`},
+{c:"腫瘍",t:"大網腫瘍の摘出(どこをどう切る?)",g:["大網","血管肉腫","外科"],b:`- **大網**:胃の大弯から垂れ下がるエプロン状の膜。背側と腹側の層がある。胃脾間膜で脾臓につながる
+- 目印:胃の大弯、胃脾間膜、**左胃大網動静脈、短胃動脈**、膵臓左葉
+- 流れ:開腹 → 腹腔内の探索(転移の確認)→ 大網を広げて腫瘍の位置を確認 → **健常部で血管を結紮して切離** → 出血確認 → 洗浄 → 閉腹
+- 血管は3-0〜4-0の吸収糸で二重結紮、またはシーリングデバイス・ステープラー
+- 脾臓も取るなら、脾動静脈の結紮では膵臓を巻き込まない。癒着があれば先に大網を結紮
+- 注意:腫瘍の破裂、胃・膵臓・脾臓を傷つけない、取り残し
+- 外回り:輸血の準備、血圧・脈・粘膜、心電図(VPC)、体温、**部位ごとの標本のラベル**`},
+{c:"腫瘍",t:"肥満細胞腫とダリエ兆候・プレショックバイタル",g:["肥満細胞腫","ダリエ兆候"],b:`- **ダリエ兆候**:腫瘤を触る・刺激すると、赤く腫れる(ヒスタミンの放出)。陰性でも否定できない
+- ヒスタミンの全身への影響:血圧低下、胃酸↑(胃潰瘍・吐血)、出血しやすさ、不整脈
+- 前投薬:ポララミン(H1)、ガスター(H2)、プレドニン(施設差)
+- 手術で腫瘤を触る操作のとき、脱顆粒で**頻脈・血圧低下**が起こることがある。心拍数、血圧、心電図、皮膚の赤みを観察
+- 術後:吐血・黒色便(胃潰瘍)`},
+{c:"腫瘍",t:"猫の口腔内扁平上皮癌・脱灰標本",g:["SCC","脱灰","口腔"],b:`- 猫の口腔内腫瘍で最多。舌下部、歯肉に多い。局所浸潤が強い
+- 症状:口臭、流涎(血が混じる)、摂食困難、体重減少、顔の変形
+- 診断:**生検**が必須。CTで骨浸潤、リンパ節の評価
+- 治療:外科は広範囲切除が必要で難しいことが多い。放射線、化学療法は限定的。緩和・栄養管理(食道瘻など)
+- 予後は厳しいことが多い
+- **脱灰標本**:骨や歯のカルシウムを薬品で溶かして薄切りできるようにした標本。結果が出るまで時間がかかる`},
+{c:"腫瘍",t:"犬の鼻腺癌",g:["鼻腔","腺癌"],b:`- 犬の鼻腔内腫瘍で最多。局所浸潤性が強く、骨を破壊する。遠隔転移は診断時には少ない
+- **片側性**の慢性鼻出血・鼻汁が手がかり(鼻炎は両側が多い)。進行で顔の変形、眼球突出、神経症状
+- 診断:**CT**、鼻腔内視鏡と生検、胸部X線
+- 治療:**放射線治療**が中心。外科は完全切除が難しい
+- 鑑別:真菌性鼻炎(アスペルギルス)、異物`},
+{c:"腫瘍",t:"リンパ腫(FeLV陽性の猫)とロイナーゼ",g:["リンパ腫","ロイナーゼ","L-アスパラギナーゼ"],b:`- FeLVは**縦隔型リンパ腫**のリスク。胸水 → 肺が広がれず呼吸困難 → 酸素室
+- **ロイナーゼ(L-アスパラギナーゼ)**:リンパ腫細胞はアスパラギンを自分で作れない。血中のアスパラギンを分解して飢えさせる。初期治療で使う
+- **アレルギー(アナフィラキシー)のリスクが高い**(異種蛋白)。**ポララミン+プレドニン**を前投薬。すでに呼吸が厳しい子は特に慎重に観察
+- まれに凝固異常、膵炎
+- 投与:IMまたはSC。投与中・後は、呼吸、皮膚・粘膜、血圧を頻回に`},
+/* ===== 整形・外科・創傷 ===== */
+{c:"整形・外科・創傷",t:"TPLO(前十字靭帯断裂)",g:["TPLO","前十字靭帯"],b:`- 脛骨高平部には後方への傾斜(**TPA**)がある。体重がかかると脛骨が前に滑る力が生まれる。前十字靭帯(CCL)が、それを止めている
+- CCL断裂 → 脛骨が前方へ亜脱臼
+- **TPLO**:高平部を骨切りして回転させ、**TPAを約5°前後**に矯正 → 前に滑る力そのものが発生しなくなる → 靭帯がなくても安定
+- 「靭帯の代わりを作る」のではなく、「靭帯が不要になるよう、関節の力学を変える」手術
+- 術後:骨癒合まで運動制限、荷重の観察、**半月板損傷**の確認
+- 術中に膝蓋靭帯を損傷すると、膝を伸ばす機構が障害される(術中に修復、リハビリが長くなる)`},
+{c:"整形・外科・創傷",t:"ラテラルスーチャー(関節外制動術)",g:["ラテラルスーチャー"],b:`- 靭帯の代わりを、**関節の外側に通した糸**で作る古典的な術式
+- 骨切りがなく低侵襲、低コスト。**小型犬・活動性が低い犬**に向く
+- 糸が緩む・切れることがあり、長期的にはTPLOより不安定になりやすい。大型犬・活動的な犬はTPLOが推奨されやすい
+- 術後も運動制限(糸が組織に置き換わるまで)
+- 半月板損傷の合併を確認`},
+{c:"整形・外科・創傷",t:"膝蓋骨内方脱臼(MPL)とTTT",g:["MPL","パテラ","TTT"],b:`- 小型犬に多い。膝蓋骨が内側に外れる
+- **グレード**:1用手で脱臼、すぐ戻る / 2時々自然に脱臼 / 3常に脱臼だが戻せる / 4戻せない
+- グレード1は経過観察、3〜4は手術が基本
+- 術式の組み合わせ:**滑車溝形成**(溝を深く)、**TTT=脛骨粗面転位術**(Tibial Tuberosity Transposition。膝蓋骨を引っ張る力の向きをまっすぐに)、関節包の縫縮(内側)・解放(外側)
+- 術後:骨癒合まで運動制限(目安6〜8週)、再脱臼の兆候、疼痛管理。両側性が多い
+- 前十字靭帯断裂を合併することがある`},
+{c:"整形・外科・創傷",t:"創傷治癒と、縫合の層・報告の仕方",g:["創傷治癒","縫合"],b:`- 止血期 → 炎症期 → 増殖期(肉芽、上皮化)→ 成熟期(コラーゲンの置き換え。強度は最大でも正常の約8割)
+- 遅れる要因:感染、低アルブミン、糖尿病、循環不全、ステロイド、異物・壊死組織、自己損傷
+## 縫合の層
+- 皮膚 / 皮下(死腔を減らす)/ **皮内**(表面に糸が出ない)/ 筋膜 / 腹膜 / 腸管(粘膜・粘膜下層・筋層・漿膜)
+- パターン:結節、連続、内翻(腸管)
+## 先生への報告
+- 層の名前だけでなく、**見通し**を添える:「今、皮下です。あと皮膚縫合だけで終わりそうです」「皮内に入りました。これで閉創終わりです」
+- 迷ったら、見えているものをそのまま言う`},
+{c:"整形・外科・創傷",t:"犬の避妊・去勢の要点",g:["避妊","去勢"],b:`- 詳しくは「犬の避妊去勢まとめ」ファイルを参照
+- 発情周期:発情前期→発情期(排卵)→発情休止期→無発情期。妊娠期間は排卵から約63日
+- 避妊の目的:**子宮蓄膿症**の予防、乳腺腫瘍の予防(古い数字は根拠が弱い)。手術は無発情期が望ましい
+- 去勢の目的:精巣腫瘍、前立腺肥大、会陰ヘルニアの予防、行動
+- 術後:太りやすい、尿失禁(避妊後)、恐怖・不安が原因の行動は手術では治らない
+- 外回り:卵巣茎を引くと迷走神経反射で徐脈。出血確認の声かけ。短頭種は覚醒時の気道、MDR1変異犬種は鎮静薬に注意
+- **乳歯遺残**:小型犬に多い。避妊・去勢の麻酔と同時に抜歯が一般的。根の残りをレントゲンで確認`},
+{c:"整形・外科・創傷",t:"猫の遺伝性疾患(スコティッシュフォールド)",g:["スコティッシュ","遺伝"],b:`- 折れ耳は**軟骨の形成異常(骨軟骨異形成症)**そのもの
+- しっぽ、四肢の関節の軟骨・骨に異常。関節の腫れ・変形、歩き方の異常、痛み
+- 根治はなく、鎮痛、体重管理、環境の工夫(滑り止め)
+- 腎臓の嚢胞(PKD)は、ペルシャ系で遺伝性。折れ耳の遺伝とは別
+- 他の猫種の例:メインクーンのHCM、アビシニアンの腎アミロイドーシス`},
+/* ===== 麻酔・手術・外回り ===== */
+{c:"麻酔・手術・外回り",t:"気管チューブのサイズ選び(早見表)",g:["気管チューブ","挿管"],b:`## 犬(体重別の目安・内径)
+|体重|内径(mm)|
+|---|---|
+|〜1kg|2.5〜3.0|
+|1〜2kg|3.0〜3.5|
+|2〜5kg|4.0〜5.5|
+|5〜10kg|6.0〜7.0|
+|10〜15kg|7.0〜8.0|
+|15〜25kg|8.0〜10.0|
+|25〜35kg|10.0〜12.0|
+|35〜50kg|12.0〜14.0|
+|50kg〜|14.0〜16.0|
+## 猫
+- ほとんどの成猫が3.5〜4.5mm。子猫2.5〜3.5mm、大柄(メインクーンなど)4.5〜5.0mm
+## 注意
+- **上下1サイズずつ、計3本を準備**
+- 短頭種は気管が細いことがあり、1サイズ小さめ
+- 気管虚脱の犬種(チワワ、ポメラニアン、ヨーキー)は、カフ圧を上げすぎない
+- 肥満は、気管の太さを触診で確認
+- 迷ったら細い方から
+- 挿管前:カフの破損、内腔の閉塞、コネクタの接続を確認`},
+{c:"麻酔・手術・外回り",t:"椎体骨折整復(L7)の外回りの注意点",g:["椎体骨折","外回り","伏臥位"],b:`- 体位:胸椎〜腰椎は背側アプローチで**伏臥位**。事前に先生に確認
+- **移動**は、板に乗せて背骨をそろえる(曲げない、ひねらない)。麻酔導入後は筋肉の支えがなく、不安定性が増す
+- 伏臥位:胸と骨盤の下にパッド、**腹部を圧迫しない**(静脈叢のうっ血で出血↑、換気↓)。眼の圧迫・保護、挿管チューブの屈曲、回路の長さ
+- 血圧(MAP)、EtCO2、体温。出血に備える(吸引、輸液、輸血・血漿)
+- **C-arm**:正面と側面。無菌野に触れないよう声かけ。被曝対策(管球から離れる)
+- **骨セメント(PMMA)**:混ぜ始めの時刻を声に出す。硬化時の発熱があるので、冷たい生食で冷却。モノマーの換気
+- 尾を強く引かない。ピン・ガーゼ・器具のカウント
+- 覚醒時に暴れないよう鎮痛・鎮静を事前に確認
+- 糖尿病・脱水・肝酵素高値の症例:血糖(測定間隔は先生の指示)、導入後の血圧低下、感染
+- 神経所見(深部痛覚、会陰反射、尾の動き)は術前の基準として記録`},
+{c:"麻酔・手術・外回り",t:"Aライン(観血的血圧)のストップコックとオレンジの部分",g:["Aライン","トランスデューサー"],b:`- **ゼロ点合わせのとき**:ストップコックを大気側に開ける
+- **ゼロが終わったら**:**大気側を閉じ、キャップをして、患者側とトランスデューサーが通じる位置に戻す**。**開けたままにしない**(動脈血が勢いよく漏れる)
+- オレンジの部分がフラッシュデバイス(つまむ・引くタイプ)なら、手を離せば戻り、持続的にゆっくり流れる状態
+- 手順:プライミング(空気を抜く)→ 加圧バッグ(多くは300mmHg)→ **心臓の高さに合わせる**(横臥は胸骨、伏臥は肩関節あたり)→ ゼロ → ストップコックを戻す → 接続(ロック)→ 波形確認
+- 体位や高さが変わったら、ゼロを取り直す
+- 確認:接続のロック、キャップ、波形、バッグ圧、アラーム、刺入部、足先の冷感、動脈ラインのラベル
+- **動脈ラインから薬を入れない**
+- 小さな動物では、持続フラッシュの量が輸液量に影響しうる(先生に確認)
+- 院内の手順書(接続の順番、ヘパリン)を優先`},
+{c:"麻酔・手術・外回り",t:"腎臓・肝臓のFNA(細胞診)の準備物",g:["FNA","細胞診","鎮静"],b:`## 検査前
+- 血小板、PT・APTT、PCV/TP、血圧
+## 準備物
+- エコー、プローブカバー、滅菌ジェル、バリカン、消毒
+- 針(22〜25G程度、1臓器につき複数本)、シリンジ(5〜10mL。非吸引法を使う術者もいる)
+- スライド(すりガラス付きを多めに)、**鉛筆**(油性ペンは消えることがある)、押し延ばし用スライド
+- ラベル:患者名、日付、臓器、左右、番号。臓器を混ぜない
+- 風乾(熱風は避ける)。**ホルマリンから離す**。外注用に未染色を残す
+- 鎮静下:ECG、SpO2、血圧、体温、保温、酸素、拮抗薬
+## 検査後
+- 粘膜、心拍、呼吸、腹部の張り・痛み、PCV再測定、尿の色
+- 肝リピドーシスの猫は、鎮静薬の代謝が遅れることがある`},
+{c:"麻酔・手術・外回り",t:"スライドグラスの違い・表面処理",g:["スライド","フロスト","松浪"],b:`- 箱の**品番と表記**で見る:水板/白板(ガラスの材質)、**縁磨/切放**(縁を磨いてあるか)、フロストの幅、No.(厚み)、コート(MAS-GPなど)、洗浄済み(Pre-Cleaned)
+- 縁磨は安全で欠けにくい。切放は縁が鋭く、手を切りやすい
+- **写真で確認した例**:S2215=水縁磨フロスト(洗浄済み、15×26mm)/ S1225=水切放(1.2〜1.5mm、フロストの記載なし。押し延ばし用の可能性)/ TRUSCO黄色=フロスト20mm、洗浄済みホワイトガラス
+- 全面フロスト水切放は、細胞診用として販売されているが、S1225とは別の製品
+- 表面処理:脱脂洗浄済み(油分・指紋が少なく細胞が付きやすい)、コート(剥がれにくい。免疫染色など)。写真の3つはコートの表記なし
+- FNAの風乾+ディフ・クイックでは、コートは必須ではないことが多い
+- 臓器ごとにフロストの色を変えると、取り違え防止になる(院内の運用を確認)
+- 染色液で書いた文字が消えないか、新しい種類は1枚で試す`},
+{c:"麻酔・手術・外回り",t:"紹介の電話で聞くこと(肺水腫の例)",g:["紹介","電話"],b:`- **最優先**:呼吸の様子(数、努力性、粘膜の色)、酸素の有無、移動の方法、到着予定時刻
+- 患者情報:犬猫種、年齢、体重、性別。主訴と経過
+- 既往歴(**心臓病・心雑音**)、内服薬(名前・量・最終投与)、実施済みの治療(**ラシックスの量と時刻**)
+- レントゲン所見、エコー・心電図、血液検査(メールで送ってもらう)
+- 誤食・外傷・感電など、心臓以外の原因になりそうな出来事
+- 紹介元の病院名・先生・電話番号、飼い主さんの連絡先、画像・記録の送り方
+- 聞いた内容を読み上げて確認し、すぐ先生に報告。受け入れの準備(酸素室、ライン、救急カート)`},
+{c:"麻酔・手術・外回り",t:"手術終了を飼い主さんに連絡するときの言い方",g:["電話","飼い主"],b:`- 名乗る → **「手術が無事に終わりました」を最初に** → 今の状態(麻酔から覚めているところ)→ 詳しい説明は先生から → 今後の流れ(お迎え・入院)→ 締め
+- 声のトーンは落ち着いて、少し明るめに
+- 摘出物があれば、病理検査に提出する旨
+- 予定より時間がかかったときは、丁寧に処置した旨。合併症があるときは、先生から説明する旨を伝える
+- 専門的な内容や術式の詳細は、看護師からは深入りしない`},
+/* ===== 薬剤 ===== */
+{c:"薬剤",t:"ミダゾラム",g:["ミダゾラム","ベンゾジアゼピン"],b:`- ベンゾジアゼピン系。GABAを強め、鎮静・抗不安・筋弛緩・抗けいれんの作用
+- 使い方:**発作の緊急止め**(IV、IM、経鼻、直腸)、鎮静、麻酔前投薬、麻酔導入の補助
+- 特徴:作用時間が短い、心血管系への影響が比較的少ない、拮抗薬(**フルマゼニル**)がある
+- 注意:鎮痛作用はない。高齢・肝機能低下では効果が延びる。呼吸抑制
+- 日常の発作予防薬ではなく、**発作が起きたときに止める薬**`},
+{c:"薬剤",t:"ケタミンCRI",g:["ケタミン","鎮痛"],b:`- NMDA受容体拮抗薬。低用量CRIは、**痛みの感じ方そのもの(痛覚過敏)を抑える**鎮痛補助
+- 単独ではなく、オピオイド、リドカインとの**多角的鎮痛**(MLK/FLK)
+- 使う場面:断脚術後、重度外傷、難治性の疼痛
+- 注意:腎臓・肝臓で代謝・排泄。高用量で心拍・血圧↑、幻覚様の作用(低用量CRIでは目立ちにくい)
+- 観察:疼痛スコア、鎮静度・興奮、ポンプの速度と残量`},
+{c:"薬剤",t:"レペタン(ブプレノルフィン)の作用時間",g:["レペタン","オピオイド"],b:`- 部分作動薬。作用時間は**約6〜8時間**(IV、IM、SC)。猫は口腔粘膜投与も可
+- 受容体への結合が強く、天井効果がある(非常に強い痛みは単独では不十分なことがある)
+- 拮抗薬(ナロキソン)が効きにくいことがある
+- SID(1日1回)だと、鎮痛が切れる時間が生じやすい。投与間隔は先生に確認
+- 観察:疼痛スコア(次回投与前に再燃していないか)、呼吸数、鎮静度`},
+{c:"薬剤",t:"ファロム内服中の高粘性の流涎(猫)",g:["ファロム","流涎"],b:`- 苦味が強く、猫は苦味に敏感。唾液を大量に出して洗い流そうとする**局所の反射**(全身の毒性ではない)
+- 投薬後数分で始まり、数分〜数十分で治まることが多い
+- 軽減:フードに包む、投薬後に少量の水やおやつ
+- 鑑別:錠剤が食道に停滞(流涎が長引く、空嚥下)、吐き気(舌なめずり、嘔吐)、アレルギー(顔の腫れ、呼吸の変化)
+- 錠剤・カプセルの後は、水を少量飲ませて食道を通過させる`},
+{c:"薬剤",t:"レバギニン(現レバックス注)とコバラミン(B12)",g:["レバギニン","コバラミン","ビタミンB"],b:`## レバギニン(現:レバックス注、共立製薬)
+- **タウリン+ビタミンB1・B2・B6・ニコチン酸アミド**。効能は「栄養補給、中毒時の補助療法」。分類は肝臓疾患用・解毒剤だが、肝臓を治す強いエビデンスは確認できなかった
+- 入れることを考える子(一般論):食べていない期間が続く、多尿・下痢・嘔吐が続く、輸液のみで管理、肝疾患(補助)、中毒
+- B2で尿が濃い黄色になることがある。副作用報告が登録されている(猫1件、因果関係は不明)
+## コバラミン(B12)
+- **低コバラミン血症(またはその疑い)**が対象。慢性腸症、腸のリンパ腫、EPI、猫の胆管炎・膵炎など。ジャイアント・シュナウザー、ボーダー・コリーなどは遺伝的に不足
+- 不足すると、食欲不振、嘔吐、下痢、体重減少、神経症状
+- 投与:週1回程度の皮下注射を数週間、のように**間隔を空ける**。毎晩の指示なら目的と回数を確認
+- 血中濃度を測るのが望ましい
+- 先生に確認:目的、量、経路、回数、いつまで、他の薬との混注`},
+{c:"薬剤",t:"ロイナーゼ・肥満細胞腫の前投薬(ポララミン+プレドニン)",g:["前投薬","ポララミン","プレドニン"],b:`- **ポララミン(抗ヒスタミン)**:ヒスタミンの受容体をあらかじめブロック。蕁麻疹・血管浮腫などを予防
+- **プレドニン(ステロイド)**:免疫反応全体を抑える。重いアレルギー(アナフィラキシー)の炎症や血管透過性亢進への保険
+- ロイナーゼは、異種蛋白由来でアナフィラキシーのリスクが高いので、2剤を使う
+- 肥満細胞腫の手術前:ヒスタミン放出に備えて、ポララミン、ガスター(H2)、プレドニンを使うことがある(施設差)
+- SCは、吸収が穏やかで、繰り返しの投与に動物の負担が少ない
+- **効果が出るまでの時間を逆算して、十分な時間を空けて投与する**`},
+/* ===== 栄養・フード ===== */
+{c:"栄養・フード",t:"入院でのフードの選び方(院内フード早見)",g:["療法食","フード"],b:`|場面|候補|
+|---|---|
+|嘔吐・下痢のあとの再開|消化器サポート(高消化性、少量でカロリー)|
+|膵炎・高脂血症|消化器サポート低脂肪(エネルギー密度が低い点に注意)|
+|大腸性下痢|消化器サポート高繊維|
+|食物アレルギーの疑い|アミノペプチド、低分子プロテイン、ダック&タピオカ、ファルミナ加水分解など|
+|CKD|腎臓サポート、腎臓サポートセレクション(食欲低下に配慮)|
+|尿石症|ユリナリーS/O|
+|糖尿病|糖コントロール(切り替えは血糖測定とセット)|
+|少食|消化器サポート、ベッツリコ(450kcal/100g)|
+- 除去食試験では、おやつや他のフードを混ぜない
+- 病態に合わないフードは悪化させることがある(低脂肪はエネルギー密度が低い、腎臓食は蛋白控えめ)
+- 切り替えは段階的に。ただし食べない子は「まず食べる」を優先して先生と相談
+- 賞味期限が近いものを確認。詳しくは「院内フード早見表」ファイルを参照`},
+/* ===== 看護・その他 ===== */
+{c:"看護・その他",t:"体重が前日より100g増えているとき",g:["体重","In/Out"],b:`- まず**測定条件**(同じ体重計、同じ時間帯、排尿・排便後か)
+- 実際に増えていたら、**どこに溜まっているか**を探す:輸液(In/Out)、胸水(ドレーン排液量)、浮腫、腹水、心臓への負担(聴診)
+- 確認:In/Outバランス、呼吸数・様式、浮腫の触診、腹囲、ドレーン排液量、聴診、排尿・排便
+- 報告:体重の変化、上記の所見、輸液速度。先生が輸液速度・ドレーン・利尿薬を判断する`},
+{c:"看護・その他",t:"「ピッグ」カテーテルとは?(ピッグテール/PEG)",g:["ピッグテール","PEG"],b:`- **ピッグテールカテーテル**:先端が豚のしっぽのように丸まっている。体内で自然に巻いて**抜けにくい**。側孔が複数
+- 用途:**腎瘻チューブ**、胸腔ドレーン、膿瘍のドレナージ、尿管ステント(ダブルピッグテール)、SUBシステム
+- 看護:固定の確認、排液の量・性状、閉塞、感染、自己抜去の予防(エリザベスカラー、コルゲートチューブ)。抜くのは先生
+- 「低脂肪リキッド」「戻りなし」と書かれていた場合は、**栄養チューブ(PEG=胃ろう)**を指していた。文脈で確認する`},
+{c:"看護・その他",t:"先生への報告のコツ",g:["報告","コミュニケーション"],b:`- **結論から**:「〜が変わりました」
+- 数字、時刻、前回値、症状、使っている薬(特に抗凝固薬、ラシックス)を一緒に
+- 縫合の段階など、層の名前に自信がないときは、**見えているものをそのまま**伝える
+- 迷ったら、早めに報告する(出血、呼吸、意識、発作、急な体重増加、排液量の急減など)
+- 聞いたことは読み上げて確認する(電話)`},
+{c:"看護・その他",t:"Claudeの読み上げ機能(ボイスモード)",g:["アプリ"],b:`- 読み上げ専用の機能ではなく、モバイルアプリの**ボイスモード**(会話形式)がある
+- 当時の確認では、英語のみ対応で、日本語は未対応とされていた(最新は公式で確認)
+- 単純な読み上げは、スマホ側の読み上げ機能(iOSの「読み上げコンテンツ」など)を使う`},
+);
+
+/* ===== 初期ノート同士の関連(タイトルの一部で指定。双方向) ===== */
+const LINKS=[
+["PCVが低いと","RETICが"],["PCVが低いと","腎数値(BUN"],["腎数値(BUN","腎前性でBUN"],["腎数値(BUN","AKIとCKD"],
+["腎前性でBUN","尿比重"],["AKIとCKD","CKDの治療と"],["血糖値の正常値","心停止後(CPR後)"],["TSH・T4","クッシング症候群"],
+["高K・低Na","アジソン病"],["高K・低Na","高カリウム血症とGI療法"],["高K・低Na","尿管閉塞の猫"],
+["尿量の計算","尿比重"],["尿量の計算","心不全の子の輸液量"],["尿検査の試験紙","CKDの治療と"],["尿検査の試験紙","尿pHと"],
+["血液ガスの見る順番","乳酸アシドーシスと代償"],["血液ガスの見る順番","重度膵炎でなぜ"],["血液ガスの見る順番","CO2がたまる"],
+["血液ガスの見る順番","EtCO2が"],["CO2がたまる","EtCO2が"],["EtCO2が","麻酔中のCO2蓄積"],["麻酔中のCO2蓄積","麻酔モニターの項目"],
+["麻酔モニターの項目","PEAK・PLAT"],["麻酔モニターの項目","脈拍欠損"],["PEAK・PLAT","呼吸様式と呼吸音"],["呼吸様式と呼吸音","無気肺"],
+["皮下点滴(SC)","維持量・脱水補正"],["維持量・脱水補正","ラクテック・リンゲル"],["ラクテック・リンゲル","輸液剤の分類"],
+["輸液剤の分類","心不全の子の輸液量"],["心不全の子の輸液量","僧帽弁閉鎖不全(MR)"],["心不全の子の輸液量","低アルブミンの子"],
+["低アルブミンの子","胸水と胸腔ドレーン"],["高カリウム血症とGI療法","リフィーディング症候群"],["リフィーディング症候群","胃ろう(PEG)の記録"],
+["凝固系検査(PT","DICを疑う所見"],["DICを疑う所見","ダルテパリンとは"],["DICを疑う所見","重度膵炎でなぜ"],["ダルテパリンとは","大動脈血栓塞栓症"],
+["血漿の保存","輸血前のポララミン"],["輸血前のポララミン","溶血した検体"],["輸血前のポララミン","ロイナーゼ・肥満細胞腫の前投薬"],
+["ネスプと鉄剤","RETICが"],["ネスプと鉄剤","CKDの治療と"],
+["僧帽弁閉鎖不全(MR)","心不全のビーグル"],["僧帽弁閉鎖不全(MR)","肺水腫と肺炎の違い"],
+["肺高血圧症(心エコー","肺高血圧症:呼吸が"],["肺高血圧症(心エコー","フィラリア症との関連"],
+["HOCM","大動脈血栓塞栓症"],["大動脈血栓塞栓症","クッシング症候群"],["PDA(動脈管","肺動脈弁狭窄"],
+["猫の高血圧","CKDの治療と"],["猫の高血圧","重積発作・脳梗塞"],["ドパミンCRIと","ショックとプレショック"],
+["ショックとプレショック","血管肉腫(犬)"],["心停止後(CPR後)","DICを疑う所見"],
+["間質性肺炎","細菌性肺炎"],["細菌性肺炎","肺水腫と肺炎の違い"],["肺水腫と肺炎の違い","胸水と胸腔ドレーン"],["胸水と胸腔ドレーン","中皮腫"],
+["椎間板ヘルニア(グレード","脊髄軟化症"],["椎間板ヘルニア(グレード","椎体骨折整復(L7)"],
+["発作の薬の使い分け","重積発作・脳梗塞"],["発作の薬の使い分け","ミダゾラム"],["重積発作・脳梗塞","Head press"],["Head press","テントヘルニア"],
+["ホルネル症候群","眼窩に腫瘍"],["ホルネル症候群","リンパ腫(FeLV陽性"],
+["CKDの治療と","尿管閉塞の猫"],["尿管閉塞の猫","腎盂腎炎と"],["尿管閉塞の猫","「ピッグ」カテーテル"],["腎盂腎炎と","抗生剤の選び方"],
+["肝嚢胞・腎嚢胞","猫の遺伝性疾患"],["キサンチン結石","ラパロ(腹腔鏡)"],
+["パルボウイルス","膵炎を疑うとき"],["膵炎を疑うとき","腸管切開後の入院管理"],["腸管切開後の入院管理","腸管縫合の治癒"],["腸管縫合の治癒","創傷治癒と"],
+["下痢止め(ディアバスター)","胃ろう(PEG)の記録"],["アジソン病","クッシング症候群"],
+["抗生剤の選び方","抗菌薬ごとのポイント"],["猫のFIV・FeLV・FVR","リンパ腫(FeLV陽性"],["猫のFIV・FeLV・FVR","抗菌薬ごとのポイント"],
+["血管肉腫(犬)","大網腫瘍の摘出"],["血管肉腫(犬)","DICを疑う所見"],["肥満細胞腫とダリエ","ロイナーゼ・肥満細胞腫の前投薬"],
+["猫の口腔内扁平上皮癌","犬の鼻腺癌"],["リンパ腫(FeLV陽性","ロイナーゼ・肥満細胞腫の前投薬"],
+["TPLO(前十字","ラテラルスーチャー"],["TPLO(前十字","膝蓋骨内方脱臼"],
+["気管チューブのサイズ","麻酔モニターの項目"],["椎体骨折整復(L7)","Aライン(観血的"],["腎臓・肝臓のFNA","スライドグラスの違い"],
+["紹介の電話","肺水腫と肺炎の違い"],["紹介の電話","手術終了を飼い主さん"],["ケタミンCRI","レペタン(ブプレノルフィン)"],
+["レバギニン(現レバックス注)","リフィーディング症候群"],["入院でのフードの選び方","胃ろう(PEG)の記録"],
+["体重が前日より100g","低アルブミンの子"],["体重が前日より100g","心不全の子の輸液量"],["「ピッグ」カテーテル","胃ろう(PEG)の記録"],
+["先生への報告のコツ","創傷治癒と"],["先生への報告のコツ","紹介の電話"],
+["血液検査の項目の意味","PCVが低いと"],["血液検査の項目の意味","凝固系検査(PT"],
+["皮下気腫","無気肺"],["皮下気腫","ラパロ(腹腔鏡)"],
+["犬の避妊・去勢の要点","気管チューブのサイズ"],["犬の避妊・去勢の要点","創傷治癒と"],
+["ファロム内服中","抗菌薬ごとのポイント"]
+];
+
+/* ===== アプリ本体 ===== */
+const KEY='vetnotes_v1', PKEY='vetnotes_prefs', SKEY='vetnotes_snaps';
+const DAY=86400000, INTV=[0,1,3,7,14];
+let state={notes:[],cats:[],memos:[],lv:0};
+let prefs={fz:1,lastBackup:0,since:0,changes:0,snapDay:'',snooze:''};
+let ui={tab:'notes',cat:'all',q:'',memoFilter:'open',nav:[],rv:{active:false,queue:[],i:0,shown:false,stats:{ok:0,vague:0,again:0},scope:'all',size:10,requeued:{}}};
+let storageOK=true;
+let toastTimer=null;
+
+function $(id){return document.getElementById(id);}
+function toast(msg){
+  const t=$('toast'); t.textContent=msg; t.classList.add('on');
+  clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.remove('on'),2200);
+}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function inline(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');}
+function newId(p){return p+Date.now().toString(36)+Math.random().toString(36).slice(2,5);}
+function todayStr(){ const d=new Date(); return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate(); }
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+
+function md(src){
+  const lines=String(src||'').split('\n');
+  const html=[]; let ul=false; let tbl=null;
+  function closeUl(){ if(ul){html.push('</ul>'); ul=false;} }
+  function closeTbl(){
+    if(tbl){
+      html.push('<div class="tw"><table>'+tbl.map((r,ri)=>'<tr>'+r.map(c=>(ri===0?'<th>':'<td>')+inline(c.trim())+(ri===0?'</th>':'</td>')).join('')+'</tr>').join('')+'</table></div>');
+      tbl=null;
+    }
+  }
+  for(const l of lines){
+    const t=l.trim();
+    if(t.startsWith('|')){
+      closeUl();
+      if(/^\|[\s:\-|]+$/.test(t)) continue;
+      if(!tbl) tbl=[];
+      tbl.push(t.replace(/^\||\|$/g,'').split('|'));
+      continue;
+    } else { closeTbl(); }
+    if(t.startsWith('## ')){ closeUl(); html.push('<h4>'+inline(t.slice(3))+'</h4>'); }
+    else if(t.startsWith('- ')){ if(!ul){html.push('<ul>'); ul=true;} html.push('<li>'+inline(t.slice(2))+'</li>'); }
+    else if(t===''){ closeUl(); }
+    else { closeUl(); html.push('<p>'+inline(t)+'</p>'); }
+  }
+  closeUl(); closeTbl();
+  return html.join('');
+}
+function plain(src){
+  return String(src||'').split('\n').filter(l=>!/^\s*\|[\s:\-|]+$/.test(l)).map(l=>l.replace(/^\s*(##\s|-\s)/,'').replace(/\*\*/g,'').replace(/\|/g,' ').trim()).filter(Boolean).join(' ');
+}
+
+/* ===== 貼り付けた文章 → ノートの下書き ===== */
+const KW={
+"血液検査・検査値":["PCV","TP","BUN","CRE","SDMA","RETIC","尿比重","尿検査","UPC","貧血","血糖","TSH","腎前性","基準値"],
+"血液ガス・モニター":["血液ガス","pH","PCO2","HCO3","乳酸","EtCO2","SpO2","アシドーシス","アルカローシス","モニター","PEAK","コンプライアンス","呼吸様式"],
+"輸液・電解質":["輸液","ラクテック","生食","生理食塩水","電解質","カリウム","GI療法","維持量","点滴","リフィーディング","ナトリウム"],
+"凝固・輸血":["凝固","DIC","輸血","クロスマッチ","血漿","PT","APTT","Dダイマー","ダルテパリン","血小板","溶血"],
+"循環器":["心臓","心不全","僧帽弁","肺高血圧","心エコー","血圧","ショック","心筋症","動脈管","ドパミン","高血圧","血栓","不整脈"],
+"呼吸器":["肺炎","肺水腫","胸水","無気肺","気胸","皮下気腫","呼吸"],
+"神経":["発作","てんかん","痙攣","脳","椎間板","脊髄","神経","意識","ホルネル","MRI"],
+"腎・泌尿器":["腎","CKD","AKI","尿管","膀胱","結石","尿路","腎盂"],
+"消化器・肝・膵":["膵炎","嘔吐","下痢","腸","肝","胃","パルボ","消化管"],
+"内分泌・代謝":["クッシング","アジソン","甲状腺","糖尿病","ホルモン","副腎"],
+"感染症・抗菌薬":["抗菌薬","抗生","感染","敗血症","FIV","FeLV","ウイルス"],
+"腫瘍":["腫瘍","癌","肉腫","リンパ腫","化学療法","細胞診","生検"],
+"整形・外科・創傷":["骨折","靭帯","TPLO","パテラ","膝蓋骨","縫合","創傷","避妊","去勢"],
+"麻酔・手術・外回り":["麻酔","外回り","挿管","気管チューブ","電話","スライド","FNA","手術"],
+"薬剤":["薬","投与","副作用","mg/kg","注射","内服"],
+"栄養・フード":["フード","療法食","栄養","給餌","チューブ"]
+};
+function guessCat(title,body){
+  let best=null,bs=0;
+  Object.keys(KW).forEach(c=>{
+    let s=0;
+    KW[c].forEach(k=>{
+      if(title.includes(k)) s+=3;
+      const m=body.split(k).length-1; s+=Math.min(m,5);
+    });
+    if(s>bs){bs=s;best=c;}
+  });
+  if(best && state.cats.includes(best)) return best;
+  return state.cats.includes('看護・その他')?'看護・その他':(state.cats[0]||'');
+}
+function parsePasted(text){
+  let lines=String(text||'').replace(/\r/g,'').split('\n');
+  while(lines.length && !lines[0].trim()) lines.shift();
+  let title='';
+  if(lines.length){
+    title=lines.shift().trim().replace(/^#{1,6}\s*/,'').replace(/^\*\*(.+)\*\*$/,'$1').replace(/^[-*]\s+/,'');
+  }
+  if(title.length>70) title=title.slice(0,70)+'…';
+  const body=lines.map(l=>{
+    if(/^\s*-{3,}\s*$/.test(l)) return '';
+    if(/^\s*```/.test(l)) return '';
+    l=l.replace(/^#{1,6}\s+/,'## ');
+    l=l.replace(/^(\s*)\*\s+/,'$1- ');
+    l=l.replace(/^(\s*)•\s*/,'$1- ');
+    return l;
+  }).join('\n').replace(/\n{3,}/g,'\n\n').trim();
+  return {t:title,b:body,c:guessCat(title,body)};
+}
+
+/* ===== 設定(文字サイズ・バックアップ) ===== */
+function loadPrefs(){
+  let first=false;
+  try{ const s=localStorage.getItem(PKEY); if(s){ Object.assign(prefs,JSON.parse(s)); } else first=true; }catch(e){ first=true; }
+  if(!prefs.since) prefs.since=Date.now();
+  if(first){ try{ prefs.fz=(window.innerWidth>=700)?1.2:1; }catch(e){} savePrefs(); }
+  applyFz();
+}
+function savePrefs(){ try{ localStorage.setItem(PKEY,JSON.stringify(prefs)); }catch(e){} }
+function applyFz(){ try{ document.documentElement.style.setProperty('--fz',String(prefs.fz||1)); }catch(e){} }
+function markBackup(){ prefs.lastBackup=Date.now(); prefs.changes=0; savePrefs(); renderBk(); }
+function daysAgo(ts){ return Math.floor((Date.now()-ts)/DAY); }
+function renderBk(){
+  const box=$('bk'); if(!box) return;
+  const base=prefs.lastBackup||prefs.since;
+  const d=daysAgo(base);
+  const need=(prefs.changes>=10)||(prefs.changes>0&&d>=7);
+  if(!need||prefs.snooze===todayStr()){ box.innerHTML=''; return; }
+  box.innerHTML='<div class="bkbar"><span>'+(prefs.lastBackup?('最後のバックアップは'+d+'日前'):'まだバックアップしていません')+'(変更'+prefs.changes+'回)。書き出して保存しておくと安心です。</span><span class="sp"></span><button id="bkGo">書き出す</button><button id="bkLater">今日はあとで</button></div>';
+  $('bkGo').onclick=openData;
+  $('bkLater').onclick=()=>{ prefs.snooze=todayStr(); savePrefs(); renderBk(); };
+}
+function readSnaps(){ try{ return JSON.parse(localStorage.getItem(SKEY)||'[]'); }catch(e){ return []; } }
+function takeSnapshot(label){
+  try{
+    const arr=readSnaps();
+    arr.push({t:Date.now(),l:label,n:state.notes.length,m:state.memos.length,d:JSON.stringify(state)});
+    while(arr.length>5) arr.shift();
+    localStorage.setItem(SKEY,JSON.stringify(arr));
+  }catch(e){}
+}
+
+/* ===== 保存・読み込み ===== */
+function seedIdx(sub){ const ex=SEED.findIndex(n=>n.t===sub); if(ex>=0) return ex; let idx=-1; SEED.forEach((n,i)=>{ if(n.t.includes(sub)){ idx=(idx===-1)?i:-2; } }); return idx; }
+function seedNotes(){
+  const arr=SEED.map((n,i)=>({id:'s'+i,c:n.c,t:n.t,b:n.b,g:n.g||[],f:n.f?1:0,star:0,my:'',u:Date.now(),r:[]}));
+  LINKS.forEach(p=>{
+    const a=seedIdx(p[0]), b=seedIdx(p[1]);
+    if(a<0||b<0||a===b) return;
+    if(!arr[a].r.includes('s'+b)) arr[a].r.push('s'+b);
+    if(!arr[b].r.includes('s'+a)) arr[b].r.push('s'+a);
+  });
+  return arr;
+}
+function applySeedLinks(){
+  const seeds=seedNotes(); const byid={}; seeds.forEach(s=>byid[s.id]=s);
+  state.notes.forEach(n=>{
+    const s=byid[n.id]; if(!s) return;
+    if(!Array.isArray(n.r)) n.r=[];
+    s.r.forEach(rid=>{ if(!n.r.includes(rid)) n.r.push(rid); });
+  });
+  state.lv=1;
+}
+function load(){
+  try{
+    const s=localStorage.getItem(KEY);
+    if(s){
+      const d=JSON.parse(s);
+      if(d && Array.isArray(d.notes)){
+        state=d;
+        if(!Array.isArray(state.cats)) state.cats=CATS.slice();
+        if(!Array.isArray(state.memos)) state.memos=[];
+        fixCats();
+        if(!state.lv){ applySeedLinks(); save(true); }
+        return;
+      }
+    }
+  }catch(e){ storageOK=false; }
+  state={notes:seedNotes(),cats:CATS.slice(),memos:[],lv:1};
+  fixCats();
+  save(true);
+}
+function save(noCount){
+  try{ localStorage.setItem(KEY,JSON.stringify(state)); storageOK=true; }
+  catch(e){ storageOK=false; }
+  if(!noCount){ prefs.changes=(prefs.changes||0)+1; savePrefs(); }
+  renderWarn(); renderBk();
+}
+function fixCats(){
+  state.notes.forEach(n=>{ if(n.c && !state.cats.includes(n.c)) state.cats.push(n.c); });
+}
+function renderWarn(){
+  $('warn').innerHTML = storageOK ? '' : '<div class="warnbar">このブラウザでは保存できません(プライベートモードなど)。編集内容は閉じると消えます。「⋯ → データ」で書き出してください。</div>';
+}
+
+
+/* ===== 似ているノート・メモを探す ===== */
+const SYN=[["クレアチニン","CRE"],["尿素窒素","BUN"],["ヘマトクリット","PCV"],["総蛋白","TP"],["網状赤血球","RETIC"],["フロセミド","ラシックス"],["ブプレノルフィン","レペタン"],["アンピシリン","ビクシリン"],["ミダゾラム","MDZ"],["胃ろう","PEG"],["胃瘻","胃ろう"],["膵炎","すい炎"],["エコー","超音波"],["血ガス","血液ガス"],["低血糖","血糖"],["腎盂腎炎","尿路感染"],["肺水腫","心不全"],["播種性血管内凝固","DIC"],["脳梗塞","MRI"],["高カリウム","高K"],["低ナトリウム","低Na"],["カリウム","K値"],["輸血","クロスマッチ"],["避妊","去勢"]];
+const simCache={};
+function normTxt(s){ return String(s||'').toLowerCase().replace(/[\s\u3000,.、。,.?？!!()()「」『』【】\[\]・::;;\/\-~〜ー*#|>"'“”]/g,''); }
+function bigrams(s){ const set=new Set(); if(s.length===1){ set.add(s); return set; } for(let i=0;i<s.length-1;i++) set.add(s.slice(i,i+2)); return set; }
+function expandQuery(q){
+  let extra='';
+  SYN.forEach(p=>{ if(q.includes(p[0].toLowerCase())) extra+=p[1].toLowerCase(); else if(q.includes(p[1].toLowerCase())) extra+=p[0].toLowerCase(); });
+  return extra;
+}
+function noteKey(n){
+  const k=(n.u||0)+':'+(n.b||'').length+':'+(n.t||'').length+':'+(n.g||[]).join(',');
+  let c=simCache[n.id];
+  if(!c||c.k!==k){ c=simCache[n.id]={k:k,t:normTxt(n.t),g:normTxt((n.g||[]).join('')),b:normTxt(plain(n.b)+' '+(n.my||''))}; }
+  return c;
+}
+function findSimilar(text,opt){
+  opt=opt||{};
+  const q=normTxt(text);
+  if(q.length<2) return {notes:[],memos:[]};
+  const qs=new Set([...bigrams(q),...bigrams(expandQuery(q))]);
+  const size=qs.size||1;
+  const notes=[];
+  state.notes.forEach(n=>{
+    const c=noteKey(n);
+    let th=0,gh=0,bh=0;
+    qs.forEach(g=>{ if(c.t.includes(g)) th++; if(c.g.includes(g)) gh++; if(c.b.includes(g)) bh++; });
+    const tr=th/size, gr=gh/size, br=bh/size;
+    const score=0.6*tr+0.2*gr+0.2*br;
+    if(score>=0.22||tr>=0.4) notes.push({n:n,s:score});
+  });
+  notes.sort((a,b)=>b.s-a.s);
+  const memos=[];
+  if(!opt.noMemos){
+    state.memos.forEach(m=>{
+      const mt=normTxt(m.t); let h=0; qs.forEach(g=>{ if(mt.includes(g)) h++; });
+      const r=h/size; if(r>=0.3 && mt!==q) memos.push({m:m,s:r});
+    });
+    memos.sort((a,b)=>b.s-a.s);
+  }
+  return {notes:notes.slice(0,opt.maxNotes||4).map(o=>o.n),memos:memos.slice(0,3).map(o=>o.m)};
+}
+function updateSim(){
+  const box=$('mSim'); if(!box) return;
+  const t=($('mIn')&&$('mIn').value)||'';
+  if(normTxt(t).length<3){ box.innerHTML=''; return; }
+  const r=findSimilar(t);
+  if(!r.notes.length&&!r.memos.length){ box.innerHTML=''; return; }
+  let h='<div class="simbox"><div class="sh">似ているノート・過去のメモがあります</div>';
+  r.notes.forEach(n=>{ h+='<div class="simitem" data-id="'+esc(n.id)+'">'+esc(n.t)+'<div class="sb">ノート ・ '+esc(n.c)+'</div></div>'; });
+  r.memos.forEach(m=>{ h+='<div class="simitem memo">'+esc(m.t.length>80?m.t.slice(0,80)+'…':m.t)+'<div class="sb">過去のメモ ・ '+(m.done?'解決済み':'未解決')+' ・ '+esc(mdate(m.u))+'</div></div>'; });
+  h+='<div class="hint" style="margin-top:8px">文字の一致で探しています。言い換えは、一部しか拾えません。</div></div>';
+  box.innerHTML=h;
+  box.querySelectorAll('.simitem[data-id]').forEach(el=>el.onclick=()=>{ ui.nav=[]; openDetail(el.dataset.id); });
+}
+let simTimer=null;
+/* ===== ノート一覧 ===== */
+function filtered(){
+  const q=ui.q.trim().toLowerCase();
+  return state.notes.filter(n=>{
+    let okCat=true;
+    if(ui.cat==='star') okCat=!!n.star;
+    else if(ui.cat==='flag') okCat=!!n.f;
+    else if(ui.cat!=='all') okCat=(n.c===ui.cat);
+    if(!okCat) return false;
+    if(!q) return true;
+    const hay=(n.t+' '+n.b+' '+(n.g||[]).join(' ')+' '+n.c+' '+(n.my||'')).toLowerCase();
+    return q.split(/\s+/).every(w=>hay.includes(w));
+  });
+}
+function renderChips(){
+  const counts={}; state.notes.forEach(n=>{counts[n.c]=(counts[n.c]||0)+1;});
+  const stars=state.notes.filter(n=>n.star).length, flags=state.notes.filter(n=>n.f).length;
+  let h='';
+  function chip(key,label,n){ return '<button class="chip'+(ui.cat===key?' on':'')+'" data-k="'+esc(key)+'">'+esc(label)+'<span class="n">'+n+'</span></button>'; }
+  h+=chip('all','すべて',state.notes.length);
+  h+=chip('star','★お気に入り',stars);
+  h+=chip('flag','要確認',flags);
+  state.cats.forEach(c=>{ if(counts[c]||ui.cat===c) h+=chip(c,c,counts[c]||0); });
+  $('chips').innerHTML=h;
+  $('chips').querySelectorAll('.chip').forEach(b=>b.onclick=()=>{ ui.cat=b.dataset.k; renderAll(); window.scrollTo(0,0); });
+}
+function renderList(){
+  let items=filtered();
+  const box=$('list');
+  if(!items.length && ui.q.trim().length>=2){
+    const sim=findSimilar(ui.q,{noMemos:true,maxNotes:10}).notes;
+    if(sim.length){
+      let hh='<div class="hint" style="margin:6px 2px">「'+esc(ui.q)+'」と完全に一致するノートはありません。言葉が近いノートを表示しています。</div>';
+      sim.forEach(n=>{
+        hh+='<div class="card" data-id="'+esc(n.id)+'"><div class="t">'+(n.star?'★ ':'')+esc(n.t)+'</div><div class="snip">'+esc(plain(n.b).slice(0,120))+'</div><div class="meta"><span class="badge">'+esc(n.c)+'</span></div></div>';
+      });
+      box.innerHTML=hh;
+      box.querySelectorAll('.card').forEach(c=>c.onclick=()=>{ ui.nav=[]; openDetail(c.dataset.id); });
+      return;
+    }
+  }
+  if(!items.length){ box.innerHTML='<div class="empty">ノートがありません。<br>「＋ノート」から追加できます。</div>'; return; }
+  let h='';
+  const special=(ui.cat==='all'||ui.cat==='star'||ui.cat==='flag');
+  if(!special){ h+='<div class="tools"><button class="sbtn" id="renCat">この分野の名前を変更</button></div>'; }
+  const groups={}; items.forEach(n=>{(groups[n.c]=groups[n.c]||[]).push(n);});
+  state.cats.forEach(c=>{
+    if(!groups[c]) return;
+    if(special) h+='<div class="cathead">'+esc(c)+'<span class="n">'+groups[c].length+'件</span></div>';
+    groups[c].forEach(n=>{
+      h+='<div class="card" data-id="'+esc(n.id)+'"><div class="t">'+(n.star?'★ ':'')+esc(n.t)+'</div>'
+        +'<div class="snip">'+esc(plain(n.b).slice(0,120))+'</div>'
+        +'<div class="meta"><span class="badge">'+esc(n.c)+'</span>'
+        +(n.f?'<span class="flag">要確認</span>':'')
+        +(n.g||[]).map(g=>'<span class="tag">'+esc(g)+'</span>').join('')+'</div></div>';
+    });
+  });
+  box.innerHTML=h;
+  box.querySelectorAll('.card').forEach(c=>c.onclick=()=>{ ui.nav=[]; openDetail(c.dataset.id); });
+  const rn=$('renCat'); if(rn) rn.onclick=renameCat;
+}
+
+/* ===== 疑問メモ ===== */
+function mdate(u){ try{ const d=new Date(u); const z=x=>(x<10?'0':'')+x; return (d.getMonth()+1)+'/'+d.getDate()+' '+z(d.getHours())+':'+z(d.getMinutes()); }catch(e){ return ''; } }
+function renderMemo(){
+  const box=$('memoView');
+  const prev=$('mIn')&&$('mIn').value?$('mIn').value:'';
+  const open=state.memos.filter(m=>!m.done).length, done=state.memos.length-open;
+  let list=state.memos.filter(m=>ui.memoFilter==='all'?true:(ui.memoFilter==='open'?!m.done:!!m.done));
+  list=list.slice().sort((a,b)=>b.u-a.u);
+  let h='<div class="memoin"><textarea id="mIn" placeholder="疑問に思ったことを、そのままメモ(例:なぜ低Naだと〜?)"></textarea>'
+    +'<div id="mSim"></div><div class="row" style="margin-top:8px"><span class="hint">答えが分かったら「ノートにする」で、ノートに昇格できます</span><button class="btn pri" id="mAdd">メモする</button></div></div>';
+  h+='<div class="mfilter">'
+    +'<button class="chip'+(ui.memoFilter==='open'?' on':'')+'" data-f="open">未解決<span class="n">'+open+'</span></button>'
+    +'<button class="chip'+(ui.memoFilter==='done'?' on':'')+'" data-f="done">解決済み<span class="n">'+done+'</span></button>'
+    +'<button class="chip'+(ui.memoFilter==='all'?' on':'')+'" data-f="all">すべて<span class="n">'+state.memos.length+'</span></button></div>';
+  if(!list.length){ h+='<div class="empty">'+(ui.memoFilter==='open'?'未解決の疑問はありません。':'メモがありません。')+'</div>'; }
+  list.forEach(m=>{
+    h+='<div class="mitem'+(m.done?' done':'')+'" data-id="'+esc(m.id)+'"><div class="mt">'+esc(m.t)+'</div>'
+      +'<div class="md">'+esc(mdate(m.u))+(m.done?' ・解決済み':'')+'</div>'
+      +'<div class="macts"><button class="sbtn" data-a="done">'+(m.done?'未解決に戻す':'✓ 解決')+'</button>'
+      +'<button class="sbtn" data-a="note">ノートにする</button><button class="sbtn" data-a="edit">直す</button><button class="sbtn" data-a="del">削除</button></div></div>';
+  });
+  box.innerHTML=h;
+  $('mIn').value=prev;
+  $('mAdd').onclick=addMemo;
+  $('mIn').onkeydown=(e)=>{ if((e.metaKey||e.ctrlKey)&&e.key==='Enter'){ e.preventDefault(); addMemo(); } };
+  $('mIn').oninput=()=>{ clearTimeout(simTimer); simTimer=setTimeout(updateSim,200); };
+  updateSim();
+  box.querySelectorAll('.mfilter .chip').forEach(b=>b.onclick=()=>{ ui.memoFilter=b.dataset.f; renderMemo(); });
+  box.querySelectorAll('.mitem .sbtn').forEach(b=>b.onclick=()=>memoAct(b.closest('.mitem').dataset.id,b.dataset.a));
+}
+function addMemo(){
+  const ta=$('mIn'); const t=ta.value.trim();
+  if(!t){ toast('メモを入力してください'); return; }
+  state.memos.unshift({id:newId('m'),t:t,done:0,u:Date.now()});
+  ta.value=''; save(); renderMemo(); renderCnt(); toast('メモしました');
+  $('mIn').focus();
+}
+function memoAct(id,a){
+  const m=state.memos.find(x=>x.id===id); if(!m) return;
+  if(a==='done'){ m.done=m.done?0:1; m.u=Date.now(); save(); renderMemo(); renderCnt(); }
+  else if(a==='del'){ if(confirm('このメモを削除します。よいですか?')){ state.memos=state.memos.filter(x=>x.id!==id); save(); renderMemo(); renderCnt(); } }
+  else if(a==='edit'){ const nv=prompt('メモを直す',m.t); if(nv!==null && nv.trim()){ m.t=nv.trim(); save(); renderMemo(); } }
+  else if(a==='note'){
+    const parts=m.t.split('\n'); const title=parts.shift().trim().slice(0,70);
+    const body=parts.join('\n').trim();
+    openEdit(null,{t:title,b:body,c:guessCat(title,body),fromMemo:m.id});
+  }
+}
+function renderCnt(){
+  const n=state.memos.filter(m=>!m.done).length;
+  $('memoCnt').textContent=n?String(n):'';
+  const d=state.notes.filter(x=>x.rv && x.rv.d<=Date.now()).length;
+  $('rvCnt').textContent=d?String(d):'';
+}
+
+/* ===== 復習モード ===== */
+function isDue(n){ return !n.rv || n.rv.d<=Date.now(); }
+function scopeNotes(scope){
+  if(scope==='all') return state.notes;
+  if(scope==='star') return state.notes.filter(n=>n.star);
+  if(scope==='flag') return state.notes.filter(n=>n.f);
+  return state.notes.filter(n=>n.c===scope);
+}
+function renderReview(){
+  const box=$('reviewView'); const r=ui.rv;
+  if(!r.active){
+    const pool=scopeNotes(r.scope).filter(isDue);
+    const dueR=pool.filter(n=>n.rv).length, newN=pool.length-dueR;
+    const learned=state.notes.filter(n=>n.rv && n.rv.b>=3).length;
+    const opts='<option value="all">すべての分野</option><option value="star">★お気に入り</option><option value="flag">要確認のノート</option>'+state.cats.map(c=>'<option value="'+esc(c)+'">'+esc(c)+'</option>').join('');
+    box.innerHTML='<div class="rvsum"><div class="big">今日の復習 '+pool.length+'件</div>'
+      +'<div class="hint">期限が来た復習 '+dueR+'件 ・ まだ復習していないノート '+newN+'件</div>'
+      +'<div class="rvgrid"><div><b>'+state.notes.length+'</b>全ノート</div><div><b>'+learned+'</b>よく覚えた</div><div><b>'+state.notes.filter(n=>n.rv).length+'</b>復習ずみ</div></div></div>'
+      +'<label>対象</label><select id="rvScope">'+opts+'</select>'
+      +'<label>枚数</label><select id="rvSize"><option value="10">10枚</option><option value="20">20枚</option><option value="0">期限のものすべて</option></select>'
+      +'<div style="margin-top:14px"><button class="btn pri" id="rvStart" style="width:100%;padding:14px">復習を始める</button></div>'
+      +'<div class="hint" style="margin-top:12px">やり方:ノートのタイトル(疑問)だけが出ます。頭の中で答えてから「答えを見る」を押し、「覚えた」「あいまい」「もう一度」で自己採点します。覚えたものは、1日後→3日後→7日後→14日後と、間をあけて出てきます。</div>';
+    $('rvScope').value=r.scope; $('rvSize').value=String(r.size);
+    $('rvScope').onchange=()=>{ r.scope=$('rvScope').value; renderReview(); };
+    $('rvSize').onchange=()=>{ r.size=parseInt($('rvSize').value,10); };
+    $('rvStart').onclick=startReview;
+    return;
+  }
+  if(r.i>=r.queue.length){
+    const s=r.stats;
+    box.innerHTML='<div class="rvsum"><div class="big">おつかれさまでした</div><div class="rvgrid"><div><b>'+s.ok+'</b>覚えた</div><div><b>'+s.vague+'</b>あいまい</div><div><b>'+s.again+'</b>もう一度</div></div></div>'
+      +'<div class="row"><button class="btn pri" id="rvDone" style="flex:1;padding:14px">終わる</button></div>';
+    $('rvDone').onclick=()=>{ r.active=false; renderReview(); renderCnt(); };
+    return;
+  }
+  const n=byId(r.queue[r.i]);
+  if(!n){ r.i++; renderReview(); return; }
+  const pct=Math.round(r.i/r.queue.length*100);
+  let h='<div class="row" style="justify-content:space-between"><span class="hint">'+(r.i+1)+' / '+r.queue.length+'</span><button class="sbtn" id="rvEnd">終了</button></div><div class="rvbar"><i style="width:'+pct+'%"></i></div>'
+    +'<div class="rvcard"><span class="badge">'+esc(n.c)+'</span><div class="rvtitle">'+esc(n.t)+'</div>';
+  if(!r.shown){
+    h+='<div class="hint" style="margin-top:14px">頭の中で答えを言ってから、答えを見ましょう。</div></div><div style="margin-top:14px"><button class="btn pri" id="rvShow" style="width:100%;padding:16px">答えを見る</button></div>';
+  } else {
+    h+='<div class="dbody" style="margin-top:10px">'+md(n.b)+'</div>'+(n.my?'<div class="mybox"><b>自分のメモ</b><div>'+esc(n.my)+'</div></div>':'')
+      +'<div style="margin-top:10px"><button class="sbtn" id="rvOpen">ノートを開く</button></div></div>'
+      +'<div class="rvbtns"><button class="btn rv-again" data-k="again">もう一度</button><button class="btn" data-k="vague">あいまい</button><button class="btn rv-ok" data-k="ok">覚えた</button></div>';
+  }
+  box.innerHTML=h;
+  $('rvEnd').onclick=()=>{ r.active=false; renderReview(); renderCnt(); };
+  if(!r.shown){ $('rvShow').onclick=()=>{ r.shown=true; renderReview(); window.scrollTo(0,0); }; }
+  else {
+    $('rvOpen').onclick=()=>{ ui.nav=[]; openDetail(n.id); };
+    box.querySelectorAll('.rvbtns .btn').forEach(b=>b.onclick=()=>rate(b.dataset.k));
+  }
+}
+function startReview(){
+  const r=ui.rv;
+  const pool=scopeNotes(r.scope).filter(isDue);
+  if(!pool.length){ toast('復習するノートがありません'); return; }
+  const dueR=pool.filter(n=>n.rv).sort((a,b)=>a.rv.d-b.rv.d);
+  const newN=shuffle(pool.filter(n=>!n.rv));
+  let q=dueR.concat(newN);
+  if(r.size>0) q=q.slice(0,r.size);
+  r.queue=q.map(n=>n.id); r.i=0; r.shown=false; r.stats={ok:0,vague:0,again:0}; r.requeued={}; r.active=true;
+  renderReview(); window.scrollTo(0,0);
+}
+function rate(kind){
+  const r=ui.rv; const id=r.queue[r.i]; const n=byId(id);
+  if(n){
+    const rv=n.rv||{b:0,d:0,c:0}; const now=Date.now();
+    if(kind==='ok'){ rv.b=Math.min((rv.b||0)+1,4); rv.d=now+INTV[rv.b]*DAY; r.stats.ok++; }
+    else if(kind==='vague'){ rv.d=now+DAY; r.stats.vague++; }
+    else { rv.b=0; rv.d=now; r.stats.again++; if(!r.requeued[id]){ r.requeued[id]=1; r.queue.push(id); } }
+    rv.c=(rv.c||0)+1; rv.t=now; n.rv=rv;
+    save(true);
+  }
+  r.i++; r.shown=false; renderReview(); window.scrollTo(0,0); renderCnt();
+}
+
+/* ===== タブ ===== */
+function setTab(tab){
+  ui.tab=tab;
+  const isNotes=(tab==='notes');
+  $('list').style.display=isNotes?'':'none';
+  $('chips').style.display=isNotes?'':'none';
+  $('q').style.display=isNotes?'':'none';
+  $('memoView').style.display=(tab==='memo')?'':'none';
+  $('reviewView').style.display=(tab==='review')?'':'none';
+  $('tabNotes').classList.toggle('on',isNotes);
+  $('tabMemo').classList.toggle('on',tab==='memo');
+  $('tabRv').classList.toggle('on',tab==='review');
+  renderAll(); fixTop(); window.scrollTo(0,0);
+  if(tab==='memo' && $('mIn')){ try{ $('mIn').focus(); }catch(e){} }
+}
+function renderAll(){
+  renderCnt();
+  if(ui.tab==='notes'){ renderChips(); renderList(); }
+  else if(ui.tab==='memo'){ renderMemo(); }
+  else { renderReview(); }
+}
+
+function byId(id){ return state.notes.find(n=>n.id===id); }
+function dateStr(u){ try{ const d=new Date(u); return d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate(); }catch(e){ return ''; } }
+
+function showOverlay(html){ const o=$('overlay'); o.innerHTML=html; o.style.display='block'; o.scrollTop=0; document.body.style.overflow='hidden'; }
+function closeOverlay(){ const o=$('overlay'); o.style.display='none'; o.innerHTML=''; document.body.style.overflow=''; }
+
+/* ===== 詳細・関連ノート ===== */
+function relatedOf(n){
+  const ids=new Set(); (n.r||[]).forEach(i=>ids.add(i));
+  state.notes.forEach(x=>{ if((x.r||[]).includes(n.id)) ids.add(x.id); });
+  const explicit=[...ids].map(byId).filter(x=>x && x.id!==n.id);
+  const tagset=new Set(n.g||[]); let auto=[];
+  if(tagset.size){
+    auto=state.notes.filter(x=>x.id!==n.id && !ids.has(x.id)).map(x=>({x:x,s:(x.g||[]).filter(t=>tagset.has(t)).length})).filter(o=>o.s>0).sort((a,b)=>b.s-a.s).slice(0,6).map(o=>o.x);
+  }
+  return {explicit:explicit,auto:auto};
+}
+function openDetail(id,keepNav){
+  const n=byId(id); if(!n) return;
+  if(!keepNav) ui.nav=[];
+  const rel=relatedOf(n);
+  let relHtml='';
+  if(rel.explicit.length||rel.auto.length){
+    relHtml='<div class="relbox">';
+    if(rel.explicit.length) relHtml+='<b>関連ノート</b><div class="rlist">'+rel.explicit.map(x=>'<button class="rlink" data-id="'+esc(x.id)+'">'+esc(x.t)+'</button>').join('')+'</div>';
+    if(rel.auto.length) relHtml+='<b>同じタグのノート</b><div class="rlist">'+rel.auto.map(x=>'<button class="rlink auto" data-id="'+esc(x.id)+'">'+esc(x.t)+'</button>').join('')+'</div>';
+    relHtml+='</div>';
+  }
+  showOverlay(
+    '<div class="obar"><button class="btn" id="bBack">← 戻る</button><span class="sp"></span>'
+    +'<button class="btn" id="bStar">'+(n.star?'★':'☆')+'</button>'
+    +'<button class="btn pri" id="bEdit">編集</button></div>'
+    +'<div class="obody"><div class="meta"><span class="badge">'+esc(n.c)+'</span>'+(n.f?'<span class="flag">要確認</span>':'')
+    +(n.g||[]).map(g=>'<span class="tag">'+esc(g)+'</span>').join('')+'<span class="tag">更新 '+esc(dateStr(n.u))+'</span></div>'
+    +'<div class="dtitle">'+esc(n.t)+'</div><div class="dbody">'+md(n.b)+'</div>'
+    +(n.my?'<div class="mybox"><b>自分のメモ</b><div>'+esc(n.my)+'</div></div>':'')
+    +relHtml
+    +'</div>'
+  );
+  $('bBack').onclick=()=>{ if(ui.nav.length){ const p=ui.nav.pop(); openDetail(p,true); } else closeOverlay(); };
+  $('bStar').onclick=()=>{ n.star=n.star?0:1; save(); openDetail(id,true); renderAll(); };
+  $('bEdit').onclick=()=>openEdit(id);
+  $('overlay').querySelectorAll('.rlink').forEach(b=>b.onclick=()=>{ ui.nav.push(id); openDetail(b.dataset.id,true); });
+}
+
+/* ===== 編集 ===== */
+function catOptions(sel){
+  return state.cats.map(c=>'<option value="'+esc(c)+'"'+(c===sel?' selected':'')+'>'+esc(c)+'</option>').join('')+'<option value="__new__">＋ 新しい分野を作る…</option>';
+}
+function openEdit(id,pre){
+  const isNew=!id;
+  const base={id:'',c:(state.cats.includes(ui.cat)?ui.cat:state.cats[0]),t:'',b:'',g:[],f:0,star:0,my:'',u:Date.now(),r:[]};
+  const n=isNew?Object.assign(base,pre||{}):byId(id);
+  if(!n) return;
+  let rel=(n.r||[]).slice();
+  showOverlay(
+    '<div class="obar"><button class="btn" id="eCancel">キャンセル</button><span class="sp"></span>'
+    +(isNew?'':'<button class="btn danger" id="eDel">削除</button>')
+    +'<button class="btn pri" id="eSave">保存</button></div>'
+    +'<div class="obody">'
+    +'<label>タイトル(疑問・テーマ)</label><input type="text" id="eT" value="'+esc(n.t)+'" placeholder="例:PCVが低いと脱水?">'
+    +'<label>分野</label><select id="eC">'+catOptions(n.c)+'</select>'
+    +'<input type="text" id="eCnew" placeholder="新しい分野の名前" style="display:none;margin-top:8px">'
+    +'<label>タグ(カンマ区切り)</label><input type="text" id="eG" value="'+esc((n.g||[]).join(', '))+'" placeholder="例:猫, 腎臓, 看護">'
+    +'<label>本文</label><textarea id="eB" placeholder="見出しは「## 」、箇条書きは「- 」、太字は **太字**、表は |列1|列2| の形式">'+esc(n.b)+'</textarea>'
+    +'<div class="hint">書き方:「## 見出し」「- 箇条書き」「**太字**」「|列1|列2|」の表(2行目は |---|---| )</div>'
+    +'<label>関連ノート(タイトルで探して追加)</label><div class="rchips" id="eRel"></div>'
+    +'<input type="text" id="eRelQ" placeholder="関連させたいノートのタイトルの一部"><div id="eRelRes"></div>'
+    +'<label>自分のメモ(本文とは別に、気づきや疑問を書く)</label><textarea class="my" id="eM">'+esc(n.my||'')+'</textarea>'
+    +'<label><span class="row"><input type="checkbox" id="eF"'+(n.f?' checked':'')+'> 要確認(あとで先生や資料で確かめたい)</span></label>'
+    +'</div>'
+  );
+  function drawRel(){
+    const chips=rel.map(rid=>{ const x=byId(rid); return x?'<span class="rchip" data-r="'+esc(rid)+'">'+esc(x.t.slice(0,26))+' ✕</span>':''; }).join('');
+    $('eRel').innerHTML=chips||'<span class="hint">まだありません</span>';
+    $('eRel').querySelectorAll('.rchip').forEach(el=>el.onclick=()=>{ rel=rel.filter(z=>z!==el.dataset.r); drawRel(); });
+  }
+  function drawRes(){
+    const q=$('eRelQ').value.trim().toLowerCase();
+    if(!q){ $('eRelRes').innerHTML=''; return; }
+    const res=state.notes.filter(x=>x.id!==id && !rel.includes(x.id) && (x.t+' '+(x.g||[]).join(' ')).toLowerCase().includes(q)).slice(0,8);
+    $('eRelRes').innerHTML=res.length?res.map(x=>'<div class="rres" data-r="'+esc(x.id)+'">＋ '+esc(x.t)+'</div>').join(''):'<div class="hint">見つかりません</div>';
+    $('eRelRes').querySelectorAll('.rres').forEach(el=>el.onclick=()=>{ rel.push(el.dataset.r); $('eRelQ').value=''; drawRel(); drawRes(); });
+  }
+  drawRel();
+  $('eRelQ').oninput=drawRes;
+  $('eC').onchange=()=>{ $('eCnew').style.display=($('eC').value==='__new__')?'block':'none'; };
+  $('eCancel').onclick=()=>{ if(isNew) closeOverlay(); else openDetail(id,true); };
+  if(!isNew) $('eDel').onclick=()=>{
+    if(confirm('このノートを削除します。よいですか?')){ state.notes=state.notes.filter(x=>x.id!==id); save(); closeOverlay(); renderAll(); toast('削除しました'); }
+  };
+  $('eSave').onclick=()=>{
+    const t=$('eT').value.trim(); if(!t){ toast('タイトルを入れてください'); return; }
+    let c=$('eC').value;
+    if(c==='__new__'){ c=$('eCnew').value.trim(); if(!c){ toast('分野の名前を入れてください'); return; } if(!state.cats.includes(c)) state.cats.push(c); }
+    const g=$('eG').value.split(/[,、，]/).map(s=>s.trim()).filter(Boolean);
+    const data={c:c,t:t,b:$('eB').value,g:g,my:$('eM').value,f:$('eF').checked?1:0,u:Date.now(),r:rel};
+    if(isNew){
+      const nn=Object.assign({id:newId('u'),star:0},data); state.notes.unshift(nn);
+      if(pre && pre.fromMemo){ const m=state.memos.find(x=>x.id===pre.fromMemo); if(m){ m.done=1; m.u=Date.now(); } }
+      save(); closeOverlay(); renderAll(); toast('ノートに追加しました');
+    }
+    else { Object.assign(n,data); save(); renderAll(); openDetail(id,true); toast('保存しました'); }
+  };
+}
+
+function openPaste(){
+  showOverlay(
+    '<div class="obar"><button class="btn" id="pBack">← 戻る</button><span class="sp"></span><button class="btn pri" id="pGo">ノートの下書きにする</button></div>'
+    +'<div class="obody"><div class="dtitle">貼り付けてノートにする</div>'
+    +'<div class="hint">Claudeの回答などをコピーして貼り付けます。最初の行がタイトル、残りが本文になります。分野は、内容から自動で選びます(次の画面で直せます)。</div>'
+    +'<label>貼り付け</label><textarea id="pIn" style="min-height:300px;font-family:inherit" placeholder="ここに貼り付け"></textarea>'
+    +'<div class="hint">患者さんの名前やIDなど、個人が分かる情報は入れないでください。</div></div>'
+  );
+  $('pBack').onclick=closeOverlay;
+  $('pGo').onclick=()=>{
+    const t=$('pIn').value; if(!t.trim()){ toast('貼り付けてください'); return; }
+    const r=parsePasted(t);
+    openEdit(null,{t:r.t,b:r.b,c:r.c});
+  };
+  try{ $('pIn').focus(); }catch(e){}
+}
+function renameCat(){
+  const old=ui.cat; const nv=prompt('新しい分野名',old);
+  if(!nv||!nv.trim()||nv.trim()===old) return;
+  const name=nv.trim();
+  state.notes.forEach(n=>{ if(n.c===old) n.c=name; });
+  const i=state.cats.indexOf(old);
+  if(state.cats.includes(name)){ state.cats.splice(i,1); } else { state.cats[i]=name; }
+  ui.cat=name; save(); renderAll(); toast('変更しました');
+}
+
+/* ===== メニュー ===== */
+function toggleMenu(){
+  const m=$('menu');
+  if(m.style.display==='block'){ m.style.display='none'; return; }
+  m.innerHTML='<button data-a="fz">文字サイズ</button><button data-a="home">ホーム画面に追加するには</button><button data-a="data">データの書き出し・読み込み</button><button data-a="snap">自動バックアップから戻す</button><button data-a="seed">初期ノートの不足分を追加</button><button data-a="theme">表示の切り替え(自動→ライト→ダーク)</button><button data-a="reset">ノートを初期状態に戻す(疑問メモは残る)</button>';
+  m.style.display='block';
+  m.querySelectorAll('button').forEach(b=>b.onclick=()=>{ m.style.display='none'; menuAct(b.dataset.a); });
+}
+function menuAct(a){
+  if(a==='data') openData();
+  else if(a==='fz') openFz();
+  else if(a==='home') openHome();
+  else if(a==='snap') openSnaps();
+  else if(a==='seed'){
+    const have=new Set(state.notes.map(n=>n.id)); let add=0;
+    seedNotes().forEach(n=>{ if(!have.has(n.id)){ state.notes.push(n); add++; } });
+    fixCats(); save(); renderAll(); toast(add?add+'件を追加しました':'追加するノートはありません');
+  }
+  else if(a==='theme'){
+    const cur=document.documentElement.getAttribute('data-theme');
+    const next=!cur?'light':(cur==='light'?'dark':'');
+    if(next) document.documentElement.setAttribute('data-theme',next); else document.documentElement.removeAttribute('data-theme');
+    toast('表示:'+(next==='light'?'ライト':next==='dark'?'ダーク':'自動'));
+  }
+  else if(a==='reset'){
+    if(confirm('ノートを初期状態に戻します(編集した内容は消えます。疑問メモは残ります)。先に「データの書き出し」でバックアップしてください。続けますか?')){
+      takeSnapshot('初期化の前');
+      state.notes=seedNotes(); state.cats=CATS.slice(); state.lv=1; fixCats(); ui.cat='all'; ui.q=''; $('q').value=''; save(); renderAll(); toast('初期状態に戻しました');
+    }
+  }
+}
+function openFz(){
+  const opts=[[1,'標準'],[1.2,'大(iPadのおすすめ)'],[1.4,'特大'],[1.6,'最大']];
+  function draw(){
+    showOverlay(
+      '<div class="obar"><button class="btn" id="fBack">← 戻る</button><span class="sp"></span></div>'
+      +'<div class="obody"><div class="dtitle">文字サイズ</div>'
+      +opts.map(o=>'<button class="fzbtn'+(Math.abs((prefs.fz||1)-o[0])<0.01?' on':'')+'" data-v="'+o[0]+'"><b>'+o[1]+'</b><div style="font-size:calc('+(16*o[0])+'px)">PCVは脱水で上がる。腎前性でも、BUN・CREは上がる。</div></button>').join('')
+      +'<div class="hint" style="margin-top:12px">この設定は、この端末のこのブラウザに保存されます。</div></div>'
+    );
+    $('fBack').onclick=closeOverlay;
+    $('overlay').querySelectorAll('.fzbtn').forEach(b=>b.onclick=()=>{ prefs.fz=parseFloat(b.dataset.v); savePrefs(); applyFz(); fixTop(); draw(); });
+  }
+  draw();
+}
+function isStandalone(){ try{ return window.navigator.standalone===true || (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches); }catch(e){ return false; } }
+function openHome(){
+  showOverlay(
+    '<div class="obar"><button class="btn" id="hBack">← 戻る</button><span class="sp"></span></div>'
+    +'<div class="obody"><div class="dtitle">ホーム画面に追加するには</div>'
+    +(isStandalone()?'<div class="hint" style="color:var(--accent);font-weight:700">いま、ホーム画面から開いています。</div>':'')
+    +'<ol class="steps"><li>この画面を、<b>Safari</b>で開きます(Chromeなどでは追加できないことがあります)。</li>'
+    +'<li>画面の上か下にある<b>共有ボタン</b>(四角から矢印が出ている形)を押します。</li>'
+    +'<li>メニューの中の「<b>ホーム画面に追加</b>」を押します。見えないときは、メニューを下にスクロールします。</li>'
+    +'<li>名前(VetStudy)を確認して、「<b>追加</b>」を押します。</li></ol>'
+    +'<div class="relbox"><b>大事な注意:データは別々に保存されます</b>'
+    +'<div>ホーム画面から開いたアプリと、Safariで開いたページは、<b>保存されるデータが別々</b>です(iPhone・iPadの仕組み)。いまSafariで使っているノートを、ホーム画面のアプリに移すには:</div>'
+    +'<ol class="steps"><li>Safariで開き、「⋯ → データの書き出し・読み込み」で、書き出しのデータを<b>コピー</b>します。</li>'
+    +'<li>ホーム画面のアプリを開き、同じ画面の「読み込み」に<b>貼り付けて</b>読み込みます。</li></ol>'
+    +'<div>移したあとは、ホーム画面のアプリだけを使うようにすると、データが分かれません。</div></div>'
+    +'<div class="hint" style="margin-top:12px">このアプリはインターネットに接続しなくても、一度開いたあとなら動きます(ブラウザが画面を残している間)。ただし、ホーム画面のアイコンから開くには、ファイルを置いたURLにつながる必要があることがあります。</div></div>'
+  );
+  $('hBack').onclick=closeOverlay;
+}
+function openSnaps(){
+  const arr=readSnaps().slice().reverse();
+  function fmt(t){ const d=new Date(t); const z=x=>(x<10?'0':'')+x; return d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate()+' '+z(d.getHours())+':'+z(d.getMinutes()); }
+  showOverlay(
+    '<div class="obar"><button class="btn" id="sBack">← 戻る</button><span class="sp"></span></div>'
+    +'<div class="obody"><div class="dtitle">自動バックアップから戻す</div>'
+    +'<div class="hint">その日に最初にアプリを開いたときの状態を、自動で保存しています(最新5つまで)。うっかり消したり、書き換えたりしたときに、この状態に戻せます。ブラウザのデータそのものを消した場合は戻せないので、「データの書き出し」も使ってください。</div>'
+    +(arr.length?arr.map((s,i)=>'<div class="snap"><div><b>'+esc(fmt(s.t))+'</b><div class="hint">'+esc(s.l||'自動')+' ・ ノート'+s.n+'件 ・ メモ'+s.m+'件</div></div><span class="sp"></span><button class="btn" data-i="'+i+'">この状態に戻す</button></div>').join(''):'<div class="empty">まだ保存されていません。</div>')
+    +'</div>'
+  );
+  $('sBack').onclick=closeOverlay;
+  $('overlay').querySelectorAll('.snap .btn').forEach(b=>b.onclick=()=>{
+    const s=arr[parseInt(b.dataset.i,10)]; if(!s) return;
+    if(!confirm(fmt(s.t)+' の状態に戻します。いまの内容は、「戻す前」として自動保存されます。続けますか?')) return;
+    try{
+      const d=JSON.parse(s.d); takeSnapshot('戻す前');
+      state=d; if(!Array.isArray(state.cats)) state.cats=CATS.slice(); if(!Array.isArray(state.memos)) state.memos=[]; fixCats(); save();
+      closeOverlay(); renderAll(); toast('戻しました');
+    }catch(e){ toast('戻せませんでした'); }
+  });
+}
+
+function openData(){
+  const json=JSON.stringify(state,null,1);
+  const last=prefs.lastBackup?(dateStr(prefs.lastBackup)+'('+daysAgo(prefs.lastBackup)+'日前)'):'まだありません';
+  showOverlay(
+    '<div class="obar"><button class="btn" id="dBack">← 戻る</button><span class="sp"></span></div>'
+    +'<div class="obody"><div class="dtitle">データの書き出し・読み込み</div>'
+    +'<div class="hint">最後のバックアップ:<b>'+esc(last)+'</b> ・ その後の変更:'+(prefs.changes||0)+'回</div>'
+    +'<div class="hint">ノートと疑問メモ(と、復習の記録)が、この端末のこのブラウザにだけ保存されています。バックアップや、他の端末へ移すときに使います。'+(isStandalone()?'<br>※ホーム画面から開いたアプリのデータは、Safariとは別です。':'')+'</div>'
+    +'<label>書き出し(コピーして、メモなどに保存)</label><textarea id="dJ" style="min-height:160px" readonly>'+esc(json)+'</textarea>'
+    +'<div class="row" style="margin-top:8px"><button class="btn pri" id="dCopy">コピー</button><button class="btn" id="dFile">ファイルで保存</button></div>'
+    +'<label>読み込み(書き出したデータや、追加用のデータを貼り付ける。同じIDは上書き、新しいものは追加)</label>'
+    +'<textarea id="dIn" style="min-height:120px" placeholder="ここに貼り付け"></textarea>'
+    +'<div class="row" style="margin-top:8px"><button class="btn pri" id="dImp">貼り付けた内容を読み込む</button><label class="btn" style="margin:0;display:inline-block">ファイルを選ぶ<input type="file" id="dFin" accept=".json,application/json" style="display:none"></label></div>'
+    +'</div>'
+  );
+  $('dBack').onclick=closeOverlay;
+  $('dCopy').onclick=()=>{
+    const ta=$('dJ'); ta.select();
+    let ok=true;
+    try{ navigator.clipboard.writeText(ta.value).then(()=>{},()=>{ try{document.execCommand('copy');}catch(e){} }); }
+    catch(e){ try{ document.execCommand('copy'); }catch(e2){ ok=false; } }
+    if(ok){ markBackup(); toast('コピーしました(バックアップ済みとして記録)'); } else { toast('手動でコピーしてください'); }
+  };
+  $('dFile').onclick=()=>{
+    try{
+      const d=new Date(); const z=x=>(x<10?'0':'')+x; const stamp=d.getFullYear()+z(d.getMonth()+1)+z(d.getDate());
+      const blob=new Blob([$('dJ').value],{type:'application/json'}); const url=URL.createObjectURL(blob);
+      const a=document.createElement('a'); a.href=url; a.download='vetnotes-backup-'+stamp+'.json'; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),1000);
+      markBackup(); toast('保存しました(バックアップ済みとして記録)');
+    }catch(e){ toast('保存できませんでした。コピーを使ってください'); }
+  };
+  function importText(txt){
+    try{
+      const d=JSON.parse(txt); const arr=Array.isArray(d)?d:d.notes;
+      if(!Array.isArray(arr)) throw new Error('形式');
+      let add=0,upd=0,madd=0;
+      arr.forEach(n=>{
+        if(!n||!n.t) return;
+        if(!n.id) n.id=newId('u');
+        if(!n.c) n.c='看護・その他';
+        if(!Array.isArray(n.g)) n.g=[];
+        if(!n.u) n.u=Date.now();
+        const ex=byId(n.id);
+        if(ex){ Object.assign(ex,n); upd++; } else { state.notes.push(n); add++; }
+      });
+      if(d.memos&&Array.isArray(d.memos)) d.memos.forEach(m=>{
+        if(!m||!m.t) return; if(!m.id) m.id=newId('m');
+        const ex=state.memos.find(x=>x.id===m.id);
+        if(ex) Object.assign(ex,m); else { state.memos.push(m); madd++; }
+      });
+      if(d.cats&&Array.isArray(d.cats)) d.cats.forEach(c=>{ if(!state.cats.includes(c)) state.cats.push(c); });
+      fixCats(); save(); renderAll(); toast('ノート 追加'+add+'・更新'+upd+(madd?' / メモ 追加'+madd:''));
+    }catch(e){ toast('読み込めませんでした(形式を確認してください)'); }
+  }
+  $('dImp').onclick=()=>{ const t=$('dIn').value.trim(); if(!t){ toast('貼り付けてください'); return; } takeSnapshot('読み込みの前'); importText(t); };
+  $('dFin').onchange=(ev)=>{ const f=ev.target.files[0]; if(!f) return; const r=new FileReader(); r.onload=()=>{ takeSnapshot('読み込みの前'); importText(String(r.result)); }; r.readAsText(f); };
+}
+
+/* ===== 起動 ===== */
+function fixTop(){ const hd=$('hd'); if(hd && hd.offsetHeight) $('chips').style.top=hd.offsetHeight+'px'; }
+function init(){
+  loadPrefs();
+  load();
+  if(prefs.snapDay!==todayStr()){ takeSnapshot('自動'); prefs.snapDay=todayStr(); savePrefs(); }
+  renderWarn(); renderBk(); renderAll(); fixTop();
+  window.addEventListener('resize',fixTop);
+  $('q').oninput=(e)=>{ ui.q=e.target.value; renderList(); };
+  $('btnNew').onclick=()=>openEdit(null);
+  $('btnPaste').onclick=openPaste;
+  $('btnMenu').onclick=(e)=>{ e.stopPropagation(); toggleMenu(); };
+  $('tabNotes').onclick=()=>setTab('notes');
+  $('tabMemo').onclick=()=>setTab('memo');
+  $('tabRv').onclick=()=>setTab('review');
+  document.addEventListener('click',(e)=>{ const m=$('menu'); if(m.style.display==='block' && !m.contains(e.target)) m.style.display='none'; });
+}
+init();
+
+</script>
+</body>
+</html>
