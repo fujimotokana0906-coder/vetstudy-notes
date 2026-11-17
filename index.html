@@ -3,44 +3,47 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0f766e">
+<meta name="theme-color" content="#ffffff">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="VetStudy">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAACKklEQVR42u3dMVICMRiGYcnQw2k8FnQ4NhY2DqXX8jQcwcqGYQskzP7J9zw9MyT7zpIlBje70+EFbmmmAHEgDsSBOBAH4kAciANxIA4QB+JAHIgDcSAOxIE4EAfiAHEgDsSBOBAH4kAciANxIA4QB+LgftvAMV/O3/974f7t6M6hjP6vFcfMZQT20ZShj/Q4+l7RkD48rSAOxIE4EAfiQByIA3EgDsQB4kAciANxIA7EgTgQB+JAHCAOxIE4EAfiQByIA3EgDnJsdqdDqTeU9us5V0r9slRThhkYIA5lVJuHZkb0UToOZdScE08riANxIA7EgTgQB+JAHIgDcYA4EAfiQByIA3EgDsTRQdp/eh5lTpq5UMYAHyv6qDYPzbyYgSXljkM+Sfe/9E/o2NMK4kAciANxIA7EgTgQB+JAHCAOxIE4EAfiQByIA3EgDsQB4kAcf/qeJAg5XxN05+h1RXNOXmV9rDx+XaPO5MWtOR65ummnNVOOQ+LOgTgQB+JAHIgDcSAOxAHi4A7bym/u5/0j4Rq8fn26cyhjsJE282W81hyIg+njKLtGixpvM19GusRfgmHNgTgQB+JgVfZWPG0NeOcY/Rv0CXYA7K0YhTUH4mD+OOb47nz0Udhb8f4X2VvBmgNxIA7EwarsrSQ+Yw9/56j53XPUmQl7K/qw5kAczB9H5XVfzprU3ooyFtlbwZoDcSAOxIE4EAfiQByIA3GAOBAH4kAcrOIXoftuD4JTTqYAAAAASUVORK5CYII=">
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAACKklEQVR42u3dMVICMRiGYcnQw2k8FnQ4NhY2DqXX8jQcwcqGYQskzP7J9zw9MyT7zpIlBje70+EFbmmmAHEgDsSBOBAH4kAciANxIA4QB+JAHIgDcSAOxIE4EAfiAHEgDsSBOBAH4kAciANxIA4QB+LgftvAMV/O3/974f7t6M6hjP6vFcfMZQT20ZShj/Q4+l7RkD48rSAOxIE4EAfiQByIA3EgDsQB4kAciANxIA7EgTgQB+JAHCAOxIE4EAfiQByIA3EgDnJsdqdDqTeU9us5V0r9slRThhkYIA5lVJuHZkb0UToOZdScE08riANxIA7EgTgQB+JAHIgDcYA4EAfiQByIA3EgDsTRQdp/eh5lTpq5UMYAHyv6qDYPzbyYgSXljkM+Sfe/9E/o2NMK4kAciANxIA7EgTgQB+JAHCAOxIE4EAfiQByIA3EgDsQB4kAcf/qeJAg5XxN05+h1RXNOXmV9rDx+XaPO5MWtOR65ummnNVOOQ+LOgTgQB+JAHIgDcSAOxAHi4A7bym/u5/0j4Rq8fn26cyhjsJE282W81hyIg+njKLtGixpvM19GusRfgmHNgTgQB+JgVfZWPG0NeOcY/Rv0CXYA7K0YhTUH4mD+OOb47nz0Udhb8f4X2VvBmgNxIA7EwarsrSQ+Yw9/56j53XPUmQl7K/qw5kAczB9H5XVfzprU3ooyFtlbwZoDcSAOxIE4EAfiQByIA3GAOBAH4kAcrOIXoftuD4JTTqYAAAAASUVORK5CYII=">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAACa0lEQVR42u3c0U0qQRiG4dmJJVCCUIe9QFkUYx3EDqAHvPCGGMRowub7Z57n7pzknLjL6z/sOLhs9+cG93S3AHEgDsSBOBAH4kAciANxIA4QB+JAHIgDcSAOxIE4EAfiAHEgDsSBOBAH4iDbS+DXdDpu5nwxdodL1Nez5HyQetomYivpyjA7cyeHLGJHSFeGEZIYhzLC75JHWfLiMDby71VXhj4sK4iD0nFYU6rcN5MDcSAOxIE4EAfiQByIA3EgDhAH4kAciANxIA7EgTgQB83v5wj2/nEd46a/vS7ikMWjy8lPxLJC5TgGGxuFrsvkQBwMGUeV9/bjXZfJQfFH2a9vMvsc4phufbGsIA7EgTgQB4gDcSAOxIE4aLbPm1M/frYiC2dI8Z7D2GjOkII4cIbUdZkcOENqn0MczpBaVhAH4kAciAPEgTgQB+JAHDTb5y3+dMycO/fOkA516nPeyVHO7nC5/ePpuPGeY9izln/6Sr6VcfdvxGFmVO1DHDhD6pnF5MAZUjNDHF4hywriwLLS7Gf8558E7p+aHKuWsdr/Jo5xysjsQxyIA3EgDsQR7BlPnmlPs+JIeS0D9zlsgj3lFX3wUFrosKDJgTgQB+JAHIgDcSAOft7MqPWJSHGs10e5z8raIS328xeTA3EgDsSBOBAHiANxIA7EwaBxlPuNi23cT+eaHIiDMeKwspS4Y32qq1WGZYX6cRge4XepT3vlyvjVst2fmxN1skh+z2GEBN6NlMlhigR+hyTGgacVxIE4EAfiAHEgDsSBOBAH4kAciANxIA7EAeJAHIgDcSAOxIE4EAfiQBxw4xN0kJnw2DuWXwAAAABJRU5ErkJggg==">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAACa0lEQVR42u3c0U0qQRiG4dmJJVCCUIe9QFkUYx3EDqAHvPCGGMRowub7Z57n7pzknLjL6z/sOLhs9+cG93S3AHEgDsSBOBAH4kAciANxIA4QB+JAHIgDcSAOxIE4EAfiAHEgDsSBOBAH4iDbS+DXdDpu5nwxdodL1Nez5HyQetomYivpyjA7cyeHLGJHSFeGEZIYhzLC75JHWfLiMDby71VXhj4sK4iD0nFYU6rcN5MDcSAOxIE4EAfiQByIA3EgDhAH4kAciANxIA7EgTgQB83v5wj2/nEd46a/vS7ikMWjy8lPxLJC5TgGGxuFrsvkQBwMGUeV9/bjXZfJQfFH2a9vMvsc4phufbGsIA7EgTgQB4gDcSAOxIE4aLbPm1M/frYiC2dI8Z7D2GjOkII4cIbUdZkcOENqn0MczpBaVhAH4kAciAPEgTgQB+JAHDTb5y3+dMycO/fOkA516nPeyVHO7nC5/ePpuPGeY9izln/6Sr6VcfdvxGFmVO1DHDhD6pnF5MAZUjNDHF4hywriwLLS7Gf8558E7p+aHKuWsdr/Jo5xysjsQxyIA3EgDsQR7BlPnmlPs+JIeS0D9zlsgj3lFX3wUFrosKDJgTgQB+JAHIgDcSAOft7MqPWJSHGs10e5z8raIS328xeTA3EgDsSBOBAHiANxIA7EwaBxlPuNi23cT+eaHIiDMeKwspS4Y32qq1WGZYX6cRge4XepT3vlyvjVst2fmxN1skh+z2GEBN6NlMlhigR+hyTGgacVxIE4EAfiAHEgDsSBOBAH4kAciANxIA7EAeJAHIgDcSAOxIE4EAfiQBxw4xN0kJnw2DuWXwAAAABJRU5ErkJggg==">
 <title>VetStudyノート</title>
 <style>
 :root{
   --fz:1;
-  --bg:#f3f7f6; --card:#ffffff; --text:#1c2b2a; --muted:#5d716f; --accent:#0f766e; --accent-soft:#d9efec;
-  --border:#d5e2e0; --warn:#b45309; --warn-soft:#fdecc8; --danger:#b91c1c; --shadow:0 1px 3px rgba(0,0,0,.08);
+  --bg:#f8fafd; --card:#ffffff; --text:#1e293b; --muted:#64748b; --accent:#2563eb; --accent-soft:#eaf1ff;
+  --border:#dbe4f0; --warn:#b45309; --warn-soft:#fef3c7; --danger:#dc2626; --shadow:0 1px 3px rgba(37,99,235,.08);
+  --hdr:#ffffff; --hdrline:#dbe4f0; --toast:#1e3a8a;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#0f1a19; --card:#182827; --text:#e6f0ee; --muted:#9bb2af; --accent:#4fd1c5; --accent-soft:#1e3a37;
-    --border:#2a403d; --warn:#f6c453; --warn-soft:#3a3115; --danger:#f87171; --shadow:none;
+    --bg:#0b1220; --card:#111b2e; --text:#e2e8f0; --muted:#94a3b8; --accent:#60a5fa; --accent-soft:#17263f;
+    --border:#223250; --warn:#f6c453; --warn-soft:#3a3115; --danger:#f87171; --shadow:none;
+    --hdr:#0f1b30; --hdrline:#223250; --toast:#1d4ed8;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0f1a19; --card:#182827; --text:#e6f0ee; --muted:#9bb2af; --accent:#4fd1c5; --accent-soft:#1e3a37;
-  --border:#2a403d; --warn:#f6c453; --warn-soft:#3a3115; --danger:#f87171; --shadow:none; color-scheme:dark;
+  --bg:#0b1220; --card:#111b2e; --text:#e2e8f0; --muted:#94a3b8; --accent:#60a5fa; --accent-soft:#17263f;
+  --border:#223250; --warn:#f6c453; --warn-soft:#3a3115; --danger:#f87171; --shadow:none;
+  --hdr:#0f1b30; --hdrline:#223250; --toast:#1d4ed8; color-scheme:dark;
 }
 *{box-sizing:border-box}
 html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;line-height:1.65;-webkit-text-size-adjust:100%}
-header{position:sticky;top:0;z-index:20;background:var(--accent);color:#fff;padding:10px 14px 8px;box-shadow:0 2px 6px rgba(0,0,0,.15)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) header{background:#12403c}}
-:root[data-theme="dark"] header{background:#12403c}
+header{position:sticky;top:0;z-index:20;background:var(--hdr);color:var(--text);padding:10px 14px 8px;border-bottom:1px solid var(--hdrline);box-shadow:0 2px 8px rgba(37,99,235,.07)}
 .hrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-h1{font-size:calc(18px * var(--fz,1));margin:0;flex:1;min-width:140px;font-weight:700;letter-spacing:.02em}
-.hbtn{background:rgba(255,255,255,.18);color:#fff;border:0;border-radius:10px;padding:8px 12px;font-size:calc(14px * var(--fz,1));font-weight:600;cursor:pointer}
-.hbtn:active{background:rgba(255,255,255,.3)}
-.search{margin-top:8px;width:100%;border:0;border-radius:10px;padding:10px 12px;font-size:calc(16px * var(--fz,1));background:rgba(255,255,255,.95);color:#1c2b2a}
+h1{font-size:calc(18px * var(--fz,1));margin:0;flex:1;min-width:120px;font-weight:800;letter-spacing:.02em;color:var(--accent);cursor:pointer}
+.hbtn{background:var(--accent-soft);color:var(--accent);border:0;border-radius:10px;padding:8px 12px;font-size:calc(14px * var(--fz,1));font-weight:700;cursor:pointer}
+.hbtn:active{filter:brightness(.92)}
+.hbtn.pri{background:var(--accent);color:#fff}
+.search{margin-top:8px;width:100%;border:1px solid var(--border);border-radius:10px;padding:10px 12px;font-size:calc(16px * var(--fz,1));background:var(--bg);color:var(--text)}
+.search:focus{outline:2px solid var(--accent);outline-offset:0;background:var(--card)}
 .chips{display:flex;gap:8px;overflow-x:auto;padding:10px 14px;background:var(--bg);position:sticky;top:98px;z-index:15;border-bottom:1px solid var(--border);-webkit-overflow-scrolling:touch}
 .chip{flex:0 0 auto;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:999px;padding:6px 12px;font-size:calc(13px * var(--fz,1));cursor:pointer;white-space:nowrap}
 .chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
@@ -68,6 +71,8 @@ main{max-width:900px;margin:0 auto;padding:12px 14px 100px}
 .obody{max-width:820px;margin:0 auto;padding:14px 16px 60px}
 .dtitle{font-size:calc(20px * var(--fz,1));font-weight:800;margin:4px 0 8px;line-height:1.4}
 .dbody h4{font-size:calc(15px * var(--fz,1));margin:16px 0 4px;color:var(--accent)}
+.dbody h5{font-size:calc(14px * var(--fz,1));margin:12px 0 2px;color:var(--text);font-weight:800}
+.dbody h4:not(:first-child){border-top:1px solid var(--border);padding-top:12px;margin-top:22px}
 .dbody p{margin:6px 0}
 .dbody ul{margin:6px 0;padding-left:20px}
 .dbody li{margin:3px 0}
@@ -84,7 +89,7 @@ textarea{min-height:280px;line-height:1.55;font-family:ui-monospace,"SF Mono",Me
 textarea.my{min-height:90px;font-family:inherit}
 .hint{font-size:calc(12px * var(--fz,1));color:var(--muted);margin-top:4px}
 .row{display:flex;gap:10px;align-items:center}
-.toast{position:fixed;left:50%;bottom:calc(78px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#12403c;color:#fff;padding:10px 16px;border-radius:12px;font-size:calc(14px * var(--fz,1));z-index:99;opacity:0;pointer-events:none;transition:opacity .2s;max-width:90%}
+.toast{position:fixed;left:50%;bottom:calc(78px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--toast);color:#fff;padding:10px 16px;border-radius:12px;font-size:calc(14px * var(--fz,1));z-index:99;opacity:0;pointer-events:none;transition:opacity .2s;max-width:90%}
 .toast.on{opacity:1}
 .menu{position:fixed;right:10px;top:58px;background:var(--card);border:1px solid var(--border);border-radius:12px;box-shadow:0 6px 20px rgba(0,0,0,.2);z-index:60;min-width:230px;overflow:hidden}
 .menu button{display:block;width:100%;text-align:left;background:none;border:0;padding:12px 14px;font-size:calc(15px * var(--fz,1));color:var(--text);cursor:pointer;border-bottom:1px solid var(--border)}
@@ -145,13 +150,27 @@ ol.steps{padding-left:22px}ol.steps li{margin:8px 0}
 .simitem{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:8px 10px;margin-top:6px;cursor:pointer;font-size:calc(14px * var(--fz,1))}
 .simitem .sb{font-size:calc(11px * var(--fz,1));color:var(--muted);margin-top:2px}
 .simitem.memo{cursor:default}
+.homebtn{background:var(--accent-soft);color:var(--accent);border-color:var(--accent-soft)}
+.figs{margin:10px 0 4px;display:flex;flex-direction:column;gap:10px}
+.figs img{width:100%;height:auto;display:block;border:1px solid var(--border);border-radius:12px;background:#fff;cursor:zoom-in}
+.thumbs{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0}
+.thumb{position:relative;width:110px;height:110px;border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#fff}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.thumb button{position:absolute;top:4px;right:4px;width:28px;height:28px;border-radius:50%;border:0;background:rgba(15,23,42,.75);color:#fff;font-size:15px;line-height:28px;cursor:pointer;padding:0}
+.upbtn{display:inline-block;margin:0;cursor:pointer}
+.meter{height:6px;background:var(--accent-soft);border-radius:999px;overflow:hidden;margin-top:6px}
+.meter i{display:block;height:100%;background:var(--accent)}
+.lb{position:fixed;inset:0;z-index:90;background:rgba(15,23,42,.94);display:none;align-items:center;justify-content:center;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+.lb img{max-width:100%;max-height:100%;object-fit:contain;background:#fff}
+.lb .x{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:14px;border:0;background:rgba(255,255,255,.2);color:#fff;border-radius:999px;padding:10px 16px;font-size:15px;font-weight:700;cursor:pointer}
 </style>
 </head>
 <body>
 <header id="hd">
   <div class="hrow">
-    <h1>VetStudyノート</h1>
-    <button class="hbtn" id="btnNew">＋ノート</button>
+    <button class="hbtn" id="btnHome" aria-label="ホーム">🏠</button>
+    <h1 id="ttl">VetStudyノート</h1>
+    <button class="hbtn pri" id="btnNew">＋ノート</button>
     <button class="hbtn" id="btnPaste">貼付</button>
     <button class="hbtn" id="btnMenu">⋯</button>
   </div>
@@ -166,6 +185,7 @@ ol.steps{padding-left:22px}ol.steps li{margin:8px 0}
 <nav class="tabbar"><button class="tab on" id="tabNotes">📚 ノート</button><button class="tab" id="tabMemo">✎ 疑問メモ<span class="cnt" id="memoCnt"></span></button><button class="tab" id="tabRv">🧠 復習<span class="cnt" id="rvCnt"></span></button></nav>
 <div id="overlay" class="overlay" style="display:none"></div>
 <div id="menu" class="menu" style="display:none"></div>
+<div id="lb" class="lb"><button class="x" id="lbx">✕ 閉じる</button><img id="lbi" alt=""></div>
 <div id="toast" class="toast"></div>
 <script>
 const CATS=["血液検査・検査値","血液ガス・モニター","輸液・電解質","凝固・輸血","循環器","呼吸器","神経","腎・泌尿器","消化器・肝・膵","内分泌・代謝","感染症・抗菌薬","腫瘍","整形・外科・創傷","麻酔・手術・外回り","薬剤","栄養・フード","看護・その他"];
@@ -1036,15 +1056,22 @@ const LINKS=[
 ["血液検査の項目の意味","PCVが低いと"],["血液検査の項目の意味","凝固系検査(PT"],
 ["皮下気腫","無気肺"],["皮下気腫","ラパロ(腹腔鏡)"],
 ["犬の避妊・去勢の要点","気管チューブのサイズ"],["犬の避妊・去勢の要点","創傷治癒と"],
-["ファロム内服中","抗菌薬ごとのポイント"]
+["ファロム内服中","抗菌薬ごとのポイント"],
+["腎臓・肝臓のFNA","肝嚢胞・腎嚢胞"],["腎臓・肝臓のFNA","リンパ腫(FeLV"],["腎臓・肝臓のFNA","血管肉腫(犬)"],
+["ケタミンCRI","ミダゾラム"],["ケタミンCRI","TPLO"],["レペタン(ブプレノルフィン)","腸管切開後の入院管理"]
 ];
 
 /* ===== アプリ本体 ===== */
 const KEY='vetnotes_v1', PKEY='vetnotes_prefs', SKEY='vetnotes_snaps';
 const DAY=86400000, INTV=[0,1,3,7,14];
+const IMG_BUDGET=3000000;
+const SEED_IMG={
+"創傷治癒と、縫合の層・報告の仕方":`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 672" width="840" height="672" font-family="-apple-system,'Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP','Noto Sans CJK JP','Yu Gothic',sans-serif"><rect x="1" y="1" width="838" height="670" rx="16" fill="#ffffff" stroke="#dbe4f0" stroke-width="2"/><text x="24" y="40" font-size="23" font-weight="700" fill="#1e3a8a">傷が治る4つの段階</text><text x="24" y="62" font-size="13" fill="#64748b">※ 期間は目安です。ブロックの幅は、実際の長さの比ではありません。</text><rect x="24" y="78" width="190" height="58" rx="12" fill="#dbeafe"/><text x="38" y="103" font-size="18" font-weight="700" fill="#1e3a8a">① 止血期</text><text x="38" y="124" font-size="13" fill="#1e3a8a">数分〜数時間</text><path d="M216 100 l12 7 l-12 7z" fill="#93c5fd"/><rect x="24" y="148" width="190" height="150" rx="12" fill="#f8fafc" stroke="#dbe4f0"/><rect x="25" y="149" width="188" height="22" rx="11" fill="#fde7d6"/><rect x="25" y="160" width="188" height="11" fill="#fde7d6"/><path d="M58 149 L64 278 L174 278 L180 149z" fill="#fee2e2"/><path d="M66 168 L172 182" stroke="#dc2626" stroke-opacity=".45" stroke-width="1.5"/><path d="M66 182 L172 168" stroke="#dc2626" stroke-opacity=".45" stroke-width="1.5"/><path d="M66 184 L172 198" stroke="#dc2626" stroke-opacity=".45" stroke-width="1.5"/><path d="M66 198 L172 184" stroke="#dc2626" stroke-opacity=".45" stroke-width="1.5"/><path d="M66 200 L172 214" stroke="#dc2626" stroke-opacity=".45" stroke-width="1.5"/><path d="M66 214 L172 200" stroke="#dc2626" stroke-opacity=".45" stroke-width="1.5"/><path d="M66 216 L172 230" stroke="#dc2626" stroke-opacity=".45" stroke-width="1.5"/><path d="M66 230 L172 216" stroke="#dc2626" stroke-opacity=".45" stroke-width="1.5"/><path d="M66 232 L172 246" stroke="#dc2626" stroke-opacity=".45" stroke-width="1.5"/><path d="M66 246 L172 232" stroke="#dc2626" stroke-opacity=".45" stroke-width="1.5"/><path d="M66 248 L172 262" stroke="#dc2626" stroke-opacity=".45" stroke-width="1.5"/><path d="M66 262 L172 248" stroke="#dc2626" stroke-opacity=".45" stroke-width="1.5"/><path d="M66 264 L172 278" stroke="#dc2626" stroke-opacity=".45" stroke-width="1.5"/><path d="M66 278 L172 264" stroke="#dc2626" stroke-opacity=".45" stroke-width="1.5"/><circle cx="102" cy="253" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/><circle cx="141" cy="194" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/><circle cx="119" cy="255" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/><circle cx="132" cy="258" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/><circle cx="146" cy="186" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/><circle cx="149" cy="179" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/><circle cx="132" cy="211" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/><circle cx="142" cy="207" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/><circle cx="96" cy="238" r="6" fill="#f59e0b" stroke="#b45309" stroke-width="1"/><text x="119.0" y="294" font-size="12" text-anchor="middle" fill="#475569">● 血小板  × フィブリン</text><text x="30" y="324" font-size="14" fill="#1e293b">・血管がぎゅっと縮む</text><text x="30" y="346" font-size="14" fill="#1e293b">・血小板が集まる</text><text x="30" y="368" font-size="14" fill="#1e293b">・フィブリンで</text><text x="30" y="390" font-size="14" fill="#1e293b">・血のかたまりを作る</text><rect x="230" y="78" width="190" height="58" rx="12" fill="#bfdbfe"/><text x="244" y="103" font-size="18" font-weight="700" fill="#1e3a8a">② 炎症期</text><text x="244" y="124" font-size="13" fill="#1e3a8a">〜3〜5日ごろ</text><path d="M422 100 l12 7 l-12 7z" fill="#93c5fd"/><rect x="230" y="148" width="190" height="150" rx="12" fill="#f8fafc" stroke="#dbe4f0"/><rect x="231" y="149" width="188" height="22" rx="11" fill="#fde7d6"/><rect x="231" y="160" width="188" height="11" fill="#fde7d6"/><path d="M264 149 L270 278 L380 278 L386 149z" fill="#fef3c7"/><rect x="278.0" y="191" width="14" height="6" rx="3" fill="#16a34a" transform="rotate(0 285.0 194)"/><rect x="348.0" y="205" width="14" height="6" rx="3" fill="#16a34a" transform="rotate(30 355.0 208)"/><rect x="308.0" y="249" width="14" height="6" rx="3" fill="#16a34a" transform="rotate(-20 315.0 252)"/><rect x="360.0" y="243" width="14" height="6" rx="3" fill="#16a34a" transform="rotate(15 367.0 246)"/><circle cx="303.0" cy="220" r="12" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.5"/><circle cx="299.0" cy="217" r="3.2" fill="#1d4ed8"/><circle cx="306.0" cy="217" r="3.2" fill="#1d4ed8"/><circle cx="303.0" cy="224" r="3.2" fill="#1d4ed8"/><circle cx="363.0" cy="184" r="12" fill="#bfdbfe" stroke="#2563eb" stroke-width="1.5"/><circle cx="359.0" cy="181" r="3.2" fill="#1d4ed8"/><circle cx="366.0" cy="181" r="3.2" fill="#1d4ed8"/><circle cx="363.0" cy="188" r="3.2" fill="#1d4ed8"/><circle cx="333.0" cy="240" r="20" fill="#dbeafe" stroke="#2563eb" stroke-width="1.5"/><ellipse cx="329.0" cy="240" rx="7" ry="9" fill="#1d4ed8"/><text x="255.0" y="294" font-size="12" fill="#475569">緑:細菌  青:白血球</text><text x="236" y="324" font-size="14" fill="#1e293b">・好中球が細菌を</text><text x="236" y="346" font-size="14" fill="#1e293b">・マクロファージが</text><text x="236" y="368" font-size="14" fill="#1e293b">・壊死組織を片づける</text><text x="236" y="390" font-size="14" fill="#1e293b">・赤み・熱・腫れ・痛み</text><rect x="436" y="78" width="190" height="58" rx="12" fill="#60a5fa"/><text x="450" y="103" font-size="18" font-weight="700" fill="#ffffff">③ 増殖期</text><text x="450" y="124" font-size="13" fill="#ffffff">3日ごろ〜3週</text><path d="M628 100 l12 7 l-12 7z" fill="#93c5fd"/><rect x="436" y="148" width="190" height="150" rx="12" fill="#f8fafc" stroke="#dbe4f0"/><rect x="437" y="149" width="188" height="22" rx="11" fill="#fde7d6"/><rect x="437" y="160" width="188" height="11" fill="#fde7d6"/><path d="M470 149 L476 278 L586 278 L592 149z" fill="#fce7f3"/><circle cx="561" cy="220" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="576" cy="233" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="570" cy="255" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="485" cy="247" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="513" cy="194" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="502" cy="202" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="529" cy="248" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="513" cy="236" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="551" cy="201" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="555" cy="219" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="483" cy="215" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="534" cy="223" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="505" cy="237" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="502" cy="197" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="499" cy="267" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="561" cy="244" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="498" cy="204" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="482" cy="188" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="508" cy="215" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="503" cy="209" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="519" cy="228" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="507" cy="257" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="568" cy="268" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="508" cy="211" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="570" cy="213" r="4" fill="#f9a8d4" opacity=".8"/><circle cx="531" cy="226" r="4" fill="#f9a8d4" opacity=".8"/><path d="M488 270 C480 238 510 232 504 204" stroke="#ef4444" stroke-width="3" fill="none"/><path d="M574 270 C584 244 552 232 562 208" stroke="#ef4444" stroke-width="3" fill="none"/><path d="M531.0 272 C523.0 244 543.0 234 535.0 212" stroke="#ef4444" stroke-width="3" fill="none"/><ellipse cx="509.0" cy="252" rx="14" ry="4.5" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.2" transform="rotate(-25 509.0 252)"/><ellipse cx="553.0" cy="258" rx="14" ry="4.5" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.2" transform="rotate(20 553.0 258)"/><ellipse cx="525.0" cy="220" rx="14" ry="4.5" fill="#60a5fa" stroke="#1d4ed8" stroke-width="1.2" transform="rotate(40 525.0 220)"/><path d="M460 162 L486 162" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/><path d="M602 162 L576 162" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/><text x="531.0" y="294" font-size="12" text-anchor="middle" fill="#475569">赤:血管  青線:上皮</text><text x="442" y="324" font-size="14" fill="#1e293b">・線維芽細胞が</text><text x="442" y="346" font-size="14" fill="#1e293b">・コラーゲンを作る</text><text x="442" y="368" font-size="14" fill="#1e293b">・新しい血管と肉芽</text><text x="442" y="390" font-size="14" fill="#1e293b">・上皮が縁から広がる</text><text x="442" y="412" font-size="14" fill="#1e293b">・傷が縮む(収縮)</text><rect x="642" y="78" width="190" height="58" rx="12" fill="#2563eb"/><text x="656" y="103" font-size="18" font-weight="700" fill="#ffffff">④ 成熟期</text><text x="656" y="124" font-size="13" fill="#ffffff">3週〜数か月以上</text><rect x="642" y="148" width="190" height="150" rx="12" fill="#f8fafc" stroke="#dbe4f0"/><rect x="643" y="149" width="188" height="22" rx="11" fill="#fde7d6"/><rect x="643" y="160" width="188" height="11" fill="#fde7d6"/><rect x="643" y="171" width="188" height="125" fill="#f8fafc"/><path d="M707.0 156 Q737.0 166 767.0 156" stroke="#2563eb" stroke-width="3" fill="none"/><path d="M660 186 C712 181 762 191 814 186" stroke="#2563eb" stroke-width="2.2" fill="none" opacity=".75"/><path d="M660 198 C712 193 762 203 814 198" stroke="#2563eb" stroke-width="2.2" fill="none" opacity=".75"/><path d="M660 210 C712 205 762 215 814 210" stroke="#2563eb" stroke-width="2.2" fill="none" opacity=".75"/><path d="M660 222 C712 217 762 227 814 222" stroke="#2563eb" stroke-width="2.2" fill="none" opacity=".75"/><path d="M660 234 C712 229 762 239 814 234" stroke="#2563eb" stroke-width="2.2" fill="none" opacity=".75"/><path d="M660 246 C712 241 762 251 814 246" stroke="#2563eb" stroke-width="2.2" fill="none" opacity=".75"/><path d="M660 258 C712 253 762 263 814 258" stroke="#2563eb" stroke-width="2.2" fill="none" opacity=".75"/><path d="M660 270 C712 265 762 275 814 270" stroke="#2563eb" stroke-width="2.2" fill="none" opacity=".75"/><text x="737.0" y="294" font-size="12" text-anchor="middle" fill="#475569">そろって並んだコラーゲン</text><text x="648" y="324" font-size="14" fill="#1e293b">・コラーゲンが</text><text x="648" y="346" font-size="14" fill="#1e293b">・入れ替わり、整列</text><text x="648" y="368" font-size="14" fill="#1e293b">・強度は最大でも</text><text x="648" y="390" font-size="14" fill="#1e293b">・正常の約8割</text><text x="24" y="452" font-size="16" font-weight="700" fill="#1e3a8a">傷の強さのイメージ</text><text x="190" y="452" font-size="12" fill="#64748b">(縫合した皮膚の傷。形のイメージで、数値ではありません)</text><rect x="70" y="474" width="736" height="118" fill="#f8fafc" stroke="#dbe4f0"/><rect x="70" y="474" width="55" height="118" fill="#dbeafe" opacity=".28"/><rect x="125" y="474" width="95" height="118" fill="#bfdbfe" opacity=".28"/><rect x="220" y="474" width="250" height="118" fill="#93c5fd" opacity=".28"/><rect x="470" y="474" width="336" height="118" fill="#60a5fa" opacity=".28"/><line x1="70" y1="480" x2="806" y2="480" stroke="#94a3b8" stroke-dasharray="4 4"/><text x="78" y="495" font-size="12" fill="#64748b">正常な皮膚の強さ(100%)</text><line x1="70" y1="509" x2="806" y2="509" stroke="#2563eb" stroke-dasharray="6 4"/><text x="802" y="503" font-size="13" font-weight="700" text-anchor="end" fill="#1d4ed8">最大でも正常の約8割</text><path d="M70 586 L125 584 L220 578 C320 562 400 537 500 522 C610 508 710 515 806 512" stroke="#1d4ed8" stroke-width="4" fill="none" stroke-linecap="round"/><text x="80" y="540" font-size="12" fill="#1e3a8a">最初の数日は、</text><text x="80" y="555" font-size="12" fill="#1e3a8a">糸が傷を支える</text><text x="97.5" y="610" font-size="12" text-anchor="middle" fill="#475569">止血期</text><text x="172.5" y="610" font-size="12" text-anchor="middle" fill="#475569">炎症期</text><text x="345.0" y="610" font-size="12" text-anchor="middle" fill="#475569">増殖期</text><text x="638.0" y="610" font-size="12" text-anchor="middle" fill="#475569">成熟期</text><text x="64" y="596" font-size="12" text-anchor="end" fill="#64748b">0</text><text x="70" y="626" font-size="12" fill="#64748b">傷を負った日 →→→ 時間の経過</text><text x="24" y="650" font-size="14" font-weight="700" fill="#1e3a8a">遅らせるもの</text><rect x="136" y="632" width="46" height="26" rx="13" fill="#eaf1ff" stroke="#93c5fd"/><text x="159.0" y="650" font-size="13" text-anchor="middle" fill="#1e3a8a">感染</text><rect x="190" y="632" width="98" height="26" rx="13" fill="#eaf1ff" stroke="#93c5fd"/><text x="239.0" y="650" font-size="13" text-anchor="middle" fill="#1e3a8a">低アルブミン</text><rect x="296" y="632" width="59" height="26" rx="13" fill="#eaf1ff" stroke="#93c5fd"/><text x="325.5" y="650" font-size="13" text-anchor="middle" fill="#1e3a8a">糖尿病</text><rect x="363" y="632" width="72" height="26" rx="13" fill="#eaf1ff" stroke="#93c5fd"/><text x="399.0" y="650" font-size="13" text-anchor="middle" fill="#1e3a8a">循環不全</text><rect x="443" y="632" width="85" height="26" rx="13" fill="#eaf1ff" stroke="#93c5fd"/><text x="485.5" y="650" font-size="13" text-anchor="middle" fill="#1e3a8a">ステロイド</text><rect x="536" y="632" width="111" height="26" rx="13" fill="#eaf1ff" stroke="#93c5fd"/><text x="591.5" y="650" font-size="13" text-anchor="middle" fill="#1e3a8a">異物・壊死組織</text><rect x="655" y="632" width="72" height="26" rx="13" fill="#eaf1ff" stroke="#93c5fd"/><text x="691.0" y="650" font-size="13" text-anchor="middle" fill="#1e3a8a">自己損傷</text></svg>`
+};
+function svgUri(t){ return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(t); }
 let state={notes:[],cats:[],memos:[],lv:0};
 let prefs={fz:1,lastBackup:0,since:0,changes:0,snapDay:'',snooze:''};
-let ui={tab:'notes',cat:'all',q:'',memoFilter:'open',nav:[],rv:{active:false,queue:[],i:0,shown:false,stats:{ok:0,vague:0,again:0},scope:'all',size:10,requeued:{}}};
+let ui={tab:'notes',cat:'all',q:'',memoFilter:'open',nav:[],editing:false,rv:{active:false,queue:[],i:0,shown:false,stats:{ok:0,vague:0,again:0},scope:'all',size:10,requeued:{}}};
 let storageOK=true;
 let toastTimer=null;
 
@@ -1078,7 +1105,8 @@ function md(src){
       tbl.push(t.replace(/^\||\|$/g,'').split('|'));
       continue;
     } else { closeTbl(); }
-    if(t.startsWith('## ')){ closeUl(); html.push('<h4>'+inline(t.slice(3))+'</h4>'); }
+    if(t.startsWith('### ')){ closeUl(); html.push('<h5>'+inline(t.slice(4))+'</h5>'); }
+    else if(t.startsWith('## ')){ closeUl(); html.push('<h4>'+inline(t.slice(3))+'</h4>'); }
     else if(t.startsWith('- ')){ if(!ul){html.push('<ul>'); ul=true;} html.push('<li>'+inline(t.slice(2))+'</li>'); }
     else if(t===''){ closeUl(); }
     else { closeUl(); html.push('<p>'+inline(t)+'</p>'); }
@@ -1087,7 +1115,7 @@ function md(src){
   return html.join('');
 }
 function plain(src){
-  return String(src||'').split('\n').filter(l=>!/^\s*\|[\s:\-|]+$/.test(l)).map(l=>l.replace(/^\s*(##\s|-\s)/,'').replace(/\*\*/g,'').replace(/\|/g,' ').trim()).filter(Boolean).join(' ');
+  return String(src||'').split('\n').filter(l=>!/^\s*\|[\s:\-|]+$/.test(l)).map(l=>l.replace(/^\s*(#{2,3}\s|-\s)/,'').replace(/\*\*/g,'').replace(/\|/g,' ').trim()).filter(Boolean).join(' ');
 }
 
 /* ===== 貼り付けた文章 → ノートの下書き ===== */
@@ -1167,7 +1195,7 @@ function readSnaps(){ try{ return JSON.parse(localStorage.getItem(SKEY)||'[]'); 
 function takeSnapshot(label){
   try{
     const arr=readSnaps();
-    arr.push({t:Date.now(),l:label,n:state.notes.length,m:state.memos.length,d:JSON.stringify(state)});
+    arr.push({t:Date.now(),l:label,n:state.notes.length,m:state.memos.length,d:JSON.stringify(state,function(k,v){ return k==='im'?undefined:v; })});
     while(arr.length>5) arr.shift();
     localStorage.setItem(SKEY,JSON.stringify(arr));
   }catch(e){}
@@ -1175,15 +1203,84 @@ function takeSnapshot(label){
 
 /* ===== 保存・読み込み ===== */
 function seedIdx(sub){ const ex=SEED.findIndex(n=>n.t===sub); if(ex>=0) return ex; let idx=-1; SEED.forEach((n,i)=>{ if(n.t.includes(sub)){ idx=(idx===-1)?i:-2; } }); return idx; }
+const MERGES=[
+ {to:2,from:[3]},
+ {to:4,from:[65],t:"AKIとCKD(違い・治療・輸液の目的)",c:"腎・泌尿器"},
+ {to:1,from:[37],t:"貧血とRETIC(再生性・非再生性、ネスプ・鉄剤)"},
+ {to:11,from:[9,10,12],t:"尿の検査(試験紙・尿量・尿比重・尿pH)"},
+ {to:13,from:[14,16],t:"血液ガス(見る順番・乳酸アシドーシス・CO2蓄積)"},
+ {to:19,from:[17,18,20,21,97],t:"麻酔中のモニター(項目・EtCO2・PEAK・脈拍・Aライン)",c:"血液ガス・モニター"},
+ {to:23,from:[24],t:"輸液の基本(SC/IV・維持量・脱水補正・計算)"},
+ {to:26,from:[25],t:"輸液剤の種類と使い分け"},
+ {to:28,from:[109],t:"低アルブミンの子の輸液と、体重増加(100g)",c:"輸液・電解質"},
+ {to:29,from:[7],t:"高カリウム血症(原因・GI療法)",c:"輸液・電解質"},
+ {to:31,from:[32,33],t:"凝固・DIC(検査の見方・DICの所見・ダルテパリン)"},
+ {to:34,from:[35,36],t:"輸血(血漿の保存・前投薬・クロスマッチ)"},
+ {to:38,from:[27,39],t:"僧帽弁閉鎖不全(MR)と心不全の管理(ラシックスCRI・処方・輸液量)"},
+ {to:40,from:[41],t:"肺高血圧症"},
+ {to:48,from:[49],t:"血圧とショック(ドパミンCRI・プレショックバイタル)"},
+ {to:51,from:[52],t:"肺炎(間質性・細菌性)"},
+ {to:53,from:[100],t:"肺水腫と肺炎の違い(紹介の電話で聞くこと)",c:"呼吸器"},
+ {to:82,from:[56],t:"中皮腫と胸水・胸腔ドレーン"},
+ {to:57,from:[58],t:"椎間板ヘルニア(グレード・手術・脊髄軟化症)"},
+ {to:59,from:[60],t:"発作・重積・脳梗塞(薬の使い分け・MRI)"},
+ {to:61,from:[62],t:"意識障害と頭蓋内圧(Head press・傾眠・テントヘルニア)"},
+ {to:87,from:[64],t:"犬の鼻腺癌(眼窩への浸潤を含む)",c:"腫瘍"},
+ {to:69,from:[70],t:"膀胱結石(キサンチン結石・ラパロでの摘出)"},
+ {to:72,from:[15],t:"膵炎(疑うとき・ブレンダ・アシドーシス・消化管穿孔)"},
+ {to:73,from:[74],t:"腸管切開後の管理と、腸管縫合の治癒"},
+ {to:76,from:[110],t:"胃ろう(PEG)とピッグテール"},
+ {to:79,from:[80],t:"抗菌薬(選び方・薬ごとのポイント)"},
+ {to:83,from:[84],t:"血管肉腫(犬)と大網腫瘍の摘出"},
+ {to:88,from:[107],t:"リンパ腫とロイナーゼ(前投薬を含む)"},
+ {to:89,from:[90],t:"前十字靭帯断裂(TPLO・ラテラルスーチャー)"},
+ {to:98,from:[99],t:"細胞診(FNAの準備物・スライドグラス)"},
+ {to:111,from:[101],t:"報告・連絡のコツ(先生・飼い主さん)"},
+ {to:103,from:[104],t:"鎮痛薬(ケタミンCRI・レペタン)"}
+];
+function applyMerges(arr){
+  const byid={}; arr.forEach(n=>{ byid[n.id]=n; });
+  const gone={};
+  MERGES.forEach(m=>{
+    const P=byid['s'+m.to]; if(!P) return;
+    const mem=[P]; m.from.forEach(i=>{ const N=byid['s'+i]; if(N && N!==P) mem.push(N); });
+    if(mem.length<2) return;
+    const secs=mem.map(x=>{
+      const body=String(x.b||'').replace(/^(\s*)## /gm,'$1### ');
+      return '## '+x.t+'\n'+body.replace(/^\n+/,'').replace(/\s+$/,'');
+    });
+    const seedT=SEED[m.to]?SEED[m.to].t:null, seedC=SEED[m.to]?SEED[m.to].c:null;
+    const keepT=(m.t && P.t===seedT)?m.t:P.t, keepC=(m.c && P.c===seedC)?m.c:P.c;
+    const tags=[], my=[]; let star=P.star?1:0, flag=P.f?1:0, u=P.u||0, im=(P.im||[]).slice(); const rs=[];
+    mem.forEach((x,k)=>{
+      (x.g||[]).forEach(g=>{ if(!tags.includes(g)) tags.push(g); });
+      if(x.my && x.my.trim()) my.push(k===0?x.my:'【'+x.t+'】'+x.my);
+      if(x.star) star=1; if(x.f) flag=1; if((x.u||0)>u) u=x.u;
+      (x.r||[]).forEach(r=>{ if(!rs.includes(r)) rs.push(r); });
+      if(k>0) (x.im||[]).forEach(d=>{ if(!im.includes(d)) im.push(d); });
+    });
+    P.b=secs.join('\n\n'); P.t=keepT; P.c=keepC; P.g=tags; P.my=my.join('\n'); P.star=star; P.f=flag; P.u=u; P.r=rs;
+    if(im.length) P.im=im;
+    mem.slice(1).forEach(x=>{ gone[x.id]=P.id; });
+  });
+  const ids=Object.keys(gone); if(!ids.length) return arr;
+  for(let i=arr.length-1;i>=0;i--){ if(gone[arr[i].id]) arr.splice(i,1); }
+  const have={}; arr.forEach(n=>{ have[n.id]=1; });
+  arr.forEach(n=>{
+    const out=[]; (n.r||[]).forEach(r=>{ const x=gone[r]||r; if(x!==n.id && have[x] && !out.includes(x)) out.push(x); });
+    n.r=out;
+  });
+  return arr;
+}
 function seedNotes(){
-  const arr=SEED.map((n,i)=>({id:'s'+i,c:n.c,t:n.t,b:n.b,g:n.g||[],f:n.f?1:0,star:0,my:'',u:Date.now(),r:[]}));
+  const arr=SEED.map((n,i)=>{ const o={id:'s'+i,c:n.c,t:n.t,b:n.b,g:n.g||[],f:n.f?1:0,star:0,my:'',u:Date.now(),r:[]}; if(SEED_IMG[n.t]) o.im=[svgUri(SEED_IMG[n.t])]; return o; });
   LINKS.forEach(p=>{
     const a=seedIdx(p[0]), b=seedIdx(p[1]);
     if(a<0||b<0||a===b) return;
     if(!arr[a].r.includes('s'+b)) arr[a].r.push('s'+b);
     if(!arr[b].r.includes('s'+a)) arr[b].r.push('s'+a);
   });
-  return arr;
+  return applyMerges(arr);
 }
 function applySeedLinks(){
   const seeds=seedNotes(); const byid={}; seeds.forEach(s=>byid[s.id]=s);
@@ -1193,6 +1290,12 @@ function applySeedLinks(){
     s.r.forEach(rid=>{ if(!n.r.includes(rid)) n.r.push(rid); });
   });
   state.lv=1;
+}
+function applySeedImages(){
+  Object.keys(SEED_IMG).forEach(t=>{
+    const i=seedIdx(t); if(i<0) return;
+    const n=byId('s'+i); if(n && !(n.im&&n.im.length)) n.im=[svgUri(SEED_IMG[t])];
+  });
 }
 function load(){
   try{
@@ -1205,11 +1308,13 @@ function load(){
         if(!Array.isArray(state.memos)) state.memos=[];
         fixCats();
         if(!state.lv){ applySeedLinks(); save(true); }
+        if(state.lv<2){ applySeedImages(); state.lv=2; save(true); }
+        if(state.lv<3){ takeSnapshot('ノート統合の前'); applyMerges(state.notes); const sd={}; seedNotes().forEach(x=>{ sd[x.id]=x; }); state.notes.forEach(n=>{ const x=sd[n.id]; if(!x) return; if(!Array.isArray(n.r)) n.r=[]; (x.r||[]).forEach(r=>{ if(r!==n.id && !n.r.includes(r) && byId(r)) n.r.push(r); }); }); state.lv=3; save(true); }
         return;
       }
     }
   }catch(e){ storageOK=false; }
-  state={notes:seedNotes(),cats:CATS.slice(),memos:[],lv:1};
+  state={notes:seedNotes(),cats:CATS.slice(),memos:[],lv:3};
   fixCats();
   save(true);
 }
@@ -1337,6 +1442,7 @@ function renderList(){
         +'<div class="snip">'+esc(plain(n.b).slice(0,120))+'</div>'
         +'<div class="meta"><span class="badge">'+esc(n.c)+'</span>'
         +(n.f?'<span class="flag">要確認</span>':'')
+        +((n.im&&n.im.length)?'<span class="tag">🖼 '+n.im.length+'</span>':'')
         +(n.g||[]).map(g=>'<span class="tag">'+esc(g)+'</span>').join('')+'</div></div>';
     });
   });
@@ -1504,8 +1610,41 @@ function renderAll(){
 function byId(id){ return state.notes.find(n=>n.id===id); }
 function dateStr(u){ try{ const d=new Date(u); return d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate(); }catch(e){ return ''; } }
 
-function showOverlay(html){ const o=$('overlay'); o.innerHTML=html; o.style.display='block'; o.scrollTop=0; document.body.style.overflow='hidden'; }
-function closeOverlay(){ const o=$('overlay'); o.style.display='none'; o.innerHTML=''; document.body.style.overflow=''; }
+function showOverlay(html){
+  const o=$('overlay'); ui.editing=false; o.innerHTML=html; o.style.display='block'; o.scrollTop=0; document.body.style.overflow='hidden';
+  const bar=o.querySelector('.obar');
+  if(bar){ const b=document.createElement('button'); b.className='btn homebtn'; b.textContent='🏠 ホーム'; b.onclick=goHome; bar.insertBefore(b,bar.children[1]||null); }
+}
+function closeOverlay(){ const o=$('overlay'); o.style.display='none'; o.innerHTML=''; document.body.style.overflow=''; ui.editing=false; }
+function closeLb(){ $('lb').style.display='none'; $('lbi').removeAttribute('src'); }
+function openLb(src){ $('lbi').src=src; $('lb').style.display='flex'; }
+function goHome(){
+  if(ui.editing && !confirm('編集中の内容は保存されません。ホームに戻りますか?')) return;
+  closeLb(); closeOverlay(); $('menu').style.display='none';
+  ui.nav=[]; ui.rv.active=false; ui.cat='all'; ui.q=''; $('q').value='';
+  setTab('notes'); window.scrollTo(0,0);
+}
+function usedChars(){ try{ return JSON.stringify(state).length; }catch(e){ return 0; } }
+function imgLen(arr){ return (arr||[]).reduce((a,x)=>a+String(x).length,0); }
+function compressImage(file,cb){
+  const rd=new FileReader();
+  rd.onerror=()=>cb(null);
+  rd.onload=()=>{
+    const im=new Image();
+    im.onerror=()=>cb(null);
+    im.onload=()=>{
+      try{
+        const MAX=1000; let w=im.naturalWidth||im.width, h=im.naturalHeight||im.height;
+        const k=Math.min(1,MAX/Math.max(w,h)); w=Math.max(1,Math.round(w*k)); h=Math.max(1,Math.round(h*k));
+        const c=document.createElement('canvas'); c.width=w; c.height=h;
+        const x=c.getContext('2d'); x.fillStyle='#ffffff'; x.fillRect(0,0,w,h); x.drawImage(im,0,0,w,h);
+        cb(c.toDataURL('image/jpeg',0.72));
+      }catch(e){ cb(null); }
+    };
+    im.src=String(rd.result);
+  };
+  rd.readAsDataURL(file);
+}
 
 /* ===== 詳細・関連ノート ===== */
 function relatedOf(n){
@@ -1535,11 +1674,12 @@ function openDetail(id,keepNav){
     +'<button class="btn pri" id="bEdit">編集</button></div>'
     +'<div class="obody"><div class="meta"><span class="badge">'+esc(n.c)+'</span>'+(n.f?'<span class="flag">要確認</span>':'')
     +(n.g||[]).map(g=>'<span class="tag">'+esc(g)+'</span>').join('')+'<span class="tag">更新 '+esc(dateStr(n.u))+'</span></div>'
-    +'<div class="dtitle">'+esc(n.t)+'</div><div class="dbody">'+md(n.b)+'</div>'
+    +'<div class="dtitle">'+esc(n.t)+'</div><div class="figs" id="figs"></div><div class="dbody">'+md(n.b)+'</div>'
     +(n.my?'<div class="mybox"><b>自分のメモ</b><div>'+esc(n.my)+'</div></div>':'')
     +relHtml
     +'</div>'
   );
+  (n.im||[]).forEach(src=>{ const im=document.createElement('img'); im.src=src; im.alt=n.t+'の図'; im.onclick=()=>openLb(src); $('figs').appendChild(im); });
   $('bBack').onclick=()=>{ if(ui.nav.length){ const p=ui.nav.pop(); openDetail(p,true); } else closeOverlay(); };
   $('bStar').onclick=()=>{ n.star=n.star?0:1; save(); openDetail(id,true); renderAll(); };
   $('bEdit').onclick=()=>openEdit(id);
@@ -1556,6 +1696,7 @@ function openEdit(id,pre){
   const n=isNew?Object.assign(base,pre||{}):byId(id);
   if(!n) return;
   let rel=(n.r||[]).slice();
+  let ims=(n.im||[]).slice();
   showOverlay(
     '<div class="obar"><button class="btn" id="eCancel">キャンセル</button><span class="sp"></span>'
     +(isNew?'':'<button class="btn danger" id="eDel">削除</button>')
@@ -1567,6 +1708,10 @@ function openEdit(id,pre){
     +'<label>タグ(カンマ区切り)</label><input type="text" id="eG" value="'+esc((n.g||[]).join(', '))+'" placeholder="例:猫, 腎臓, 看護">'
     +'<label>本文</label><textarea id="eB" placeholder="見出しは「## 」、箇条書きは「- 」、太字は **太字**、表は |列1|列2| の形式">'+esc(n.b)+'</textarea>'
     +'<div class="hint">書き方:「## 見出し」「- 箇条書き」「**太字**」「|列1|列2|」の表(2行目は |---|---| )</div>'
+    +'<label>画像(図・写真・スクショ・手書きメモの写真)</label><div class="thumbs" id="eIm"></div>'
+    +'<label class="btn upbtn">＋ 画像を追加<input type="file" id="eImIn" accept="image/*" multiple style="display:none"></label>'
+    +'<div class="meter"><i id="eMeter" style="width:0%"></i></div><div class="hint" id="eImHint"></div>'
+    +'<div class="hint">自動で小さくして保存します。患者さんや飼い主さんが分かる写真(カルテ・書類・氏名が写ったもの)は入れないでください。</div>'
     +'<label>関連ノート(タイトルで探して追加)</label><div class="rchips" id="eRel"></div>'
     +'<input type="text" id="eRelQ" placeholder="関連させたいノートのタイトルの一部"><div id="eRelRes"></div>'
     +'<label>自分のメモ(本文とは別に、気づきや疑問を書く)</label><textarea class="my" id="eM">'+esc(n.my||'')+'</textarea>'
@@ -1585,6 +1730,36 @@ function openEdit(id,pre){
     $('eRelRes').innerHTML=res.length?res.map(x=>'<div class="rres" data-r="'+esc(x.id)+'">＋ '+esc(x.t)+'</div>').join(''):'<div class="hint">見つかりません</div>';
     $('eRelRes').querySelectorAll('.rres').forEach(el=>el.onclick=()=>{ rel.push(el.dataset.r); $('eRelQ').value=''; drawRel(); drawRes(); });
   }
+  ui.editing=true;
+  const baseChars=usedChars()-imgLen(n.im);
+  function drawIm(){
+    const box=$('eIm'); box.innerHTML='';
+    ims.forEach((src,i)=>{
+      const d=document.createElement('div'); d.className='thumb';
+      const im=document.createElement('img'); im.src=src; im.onclick=()=>openLb(src);
+      const x=document.createElement('button'); x.textContent='✕'; x.setAttribute('aria-label','画像を削除'); x.onclick=()=>{ ims.splice(i,1); drawIm(); };
+      d.appendChild(im); d.appendChild(x); box.appendChild(d);
+    });
+    const used=baseChars+imgLen(ims); const pct=Math.min(100,Math.round(used/IMG_BUDGET*100));
+    $('eMeter').style.width=pct+'%';
+    $('eImHint').textContent='このノートの画像:'+ims.length+'枚 ・ 保存容量の使用:約'+pct+'%(100%に近いと追加できません)';
+  }
+  drawIm();
+  $('eImIn').onchange=(ev)=>{
+    const files=Array.prototype.slice.call(ev.target.files||[]); ev.target.value='';
+    if(!files.length) return;
+    let idx=0;
+    (function next(){
+      if(idx>=files.length){ drawIm(); return; }
+      const f=files[idx++];
+      compressImage(f,(data)=>{
+        if(!data){ toast('画像を読み込めませんでした'); }
+        else if(baseChars+imgLen(ims)+data.length>IMG_BUDGET){ toast('保存容量がいっぱいです。不要な画像を消してください'); idx=files.length; }
+        else { ims.push(data); }
+        next();
+      });
+    })();
+  };
   drawRel();
   $('eRelQ').oninput=drawRes;
   $('eC').onchange=()=>{ $('eCnew').style.display=($('eC').value==='__new__')?'block':'none'; };
@@ -1597,7 +1772,7 @@ function openEdit(id,pre){
     let c=$('eC').value;
     if(c==='__new__'){ c=$('eCnew').value.trim(); if(!c){ toast('分野の名前を入れてください'); return; } if(!state.cats.includes(c)) state.cats.push(c); }
     const g=$('eG').value.split(/[,、，]/).map(s=>s.trim()).filter(Boolean);
-    const data={c:c,t:t,b:$('eB').value,g:g,my:$('eM').value,f:$('eF').checked?1:0,u:Date.now(),r:rel};
+    const data={c:c,t:t,b:$('eB').value,g:g,my:$('eM').value,f:$('eF').checked?1:0,u:Date.now(),r:rel,im:ims};
     if(isNew){
       const nn=Object.assign({id:newId('u'),star:0},data); state.notes.unshift(nn);
       if(pre && pre.fromMemo){ const m=state.memos.find(x=>x.id===pre.fromMemo); if(m){ m.done=1; m.u=Date.now(); } }
@@ -1616,6 +1791,7 @@ function openPaste(){
     +'<div class="hint">患者さんの名前やIDなど、個人が分かる情報は入れないでください。</div></div>'
   );
   $('pBack').onclick=closeOverlay;
+  ui.editing=true;
   $('pGo').onclick=()=>{
     const t=$('pIn').value; if(!t.trim()){ toast('貼り付けてください'); return; }
     const r=parsePasted(t);
@@ -1660,7 +1836,7 @@ function menuAct(a){
   else if(a==='reset'){
     if(confirm('ノートを初期状態に戻します(編集した内容は消えます。疑問メモは残ります)。先に「データの書き出し」でバックアップしてください。続けますか?')){
       takeSnapshot('初期化の前');
-      state.notes=seedNotes(); state.cats=CATS.slice(); state.lv=1; fixCats(); ui.cat='all'; ui.q=''; $('q').value=''; save(); renderAll(); toast('初期状態に戻しました');
+      state.notes=seedNotes(); state.cats=CATS.slice(); state.lv=3; fixCats(); ui.cat='all'; ui.q=''; $('q').value=''; save(); renderAll(); toast('初期状態に戻しました');
     }
   }
 }
@@ -1713,6 +1889,8 @@ function openSnaps(){
     if(!confirm(fmt(s.t)+' の状態に戻します。いまの内容は、「戻す前」として自動保存されます。続けますか?')) return;
     try{
       const d=JSON.parse(s.d); takeSnapshot('戻す前');
+      const keepIm={}; state.notes.forEach(x=>{ if(x.im&&x.im.length) keepIm[x.id]=x.im; });
+      d.notes.forEach(x=>{ if(!x.im && keepIm[x.id]) x.im=keepIm[x.id]; });
       state=d; if(!Array.isArray(state.cats)) state.cats=CATS.slice(); if(!Array.isArray(state.memos)) state.memos=[]; fixCats(); save();
       closeOverlay(); renderAll(); toast('戻しました');
     }catch(e){ toast('戻せませんでした'); }
@@ -1726,7 +1904,7 @@ function openData(){
     '<div class="obar"><button class="btn" id="dBack">← 戻る</button><span class="sp"></span></div>'
     +'<div class="obody"><div class="dtitle">データの書き出し・読み込み</div>'
     +'<div class="hint">最後のバックアップ:<b>'+esc(last)+'</b> ・ その後の変更:'+(prefs.changes||0)+'回</div>'
-    +'<div class="hint">ノートと疑問メモ(と、復習の記録)が、この端末のこのブラウザにだけ保存されています。バックアップや、他の端末へ移すときに使います。'+(isStandalone()?'<br>※ホーム画面から開いたアプリのデータは、Safariとは別です。':'')+'</div>'
+    +'<div class="hint">ノートと疑問メモ(と、復習の記録)が、この端末のこのブラウザにだけ保存されています。バックアップや、他の端末へ移すときに使います。画像が多いときは、コピーより「ファイルで保存」が確実です。'+(isStandalone()?'<br>※ホーム画面から開いたアプリのデータは、Safariとは別です。':'')+'</div>'
     +'<label>書き出し(コピーして、メモなどに保存)</label><textarea id="dJ" style="min-height:160px" readonly>'+esc(json)+'</textarea>'
     +'<div class="row" style="margin-top:8px"><button class="btn pri" id="dCopy">コピー</button><button class="btn" id="dFile">ファイルで保存</button></div>'
     +'<label>読み込み(書き出したデータや、追加用のデータを貼り付ける。同じIDは上書き、新しいものは追加)</label>'
@@ -1756,6 +1934,16 @@ function openData(){
       if(!Array.isArray(arr)) throw new Error('形式');
       let add=0,upd=0,madd=0;
       arr.forEach(n=>{
+        if(n && n.to && n.add){
+          const tg=byId(n.to)||state.notes.find(x=>x.t===n.to);
+          if(tg){
+            const add=String(n.add).trim(); const first=add.split('\n')[0];
+            if(!String(tg.b||'').includes(first)){ tg.b=String(tg.b||'').replace(/\s+$/,'')+'\n\n'+add; }
+            (n.g||[]).forEach(g=>{ if(!Array.isArray(tg.g)) tg.g=[]; if(!tg.g.includes(g)) tg.g.push(g); });
+            tg.u=Date.now(); upd++; return;
+          }
+          if(!n.t) return;
+        }
         if(!n||!n.t) return;
         if(!n.id) n.id=newId('u');
         if(!n.c) n.c='看護・その他';
@@ -1786,6 +1974,8 @@ function init(){
   renderWarn(); renderBk(); renderAll(); fixTop();
   window.addEventListener('resize',fixTop);
   $('q').oninput=(e)=>{ ui.q=e.target.value; renderList(); };
+  $('btnHome').onclick=goHome; $('ttl').onclick=goHome;
+  $('lb').onclick=closeLb; $('lbx').onclick=closeLb;
   $('btnNew').onclick=()=>openEdit(null);
   $('btnPaste').onclick=openPaste;
   $('btnMenu').onclick=(e)=>{ e.stopPropagation(); toggleMenu(); };
